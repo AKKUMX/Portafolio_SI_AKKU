@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 04 - Mecanismos de defensa en red (iptables)" name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 04 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .navbar-nav li a:hover {
+            color: #58a6ff;
+        }
+
+        .footer-container {
+            background-color: #21262d;
+            color: #e0e0e0;
+            border-top: 1px solid #30363d;
+        }
+
+        #site-border-left,
+        #site-border-right,
+        #site-border-top,
+        #site-border-bottom {
+            background-color: #161b22;
+        }
+
+        .section-container {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+        }
+
+        /* ===== Article Styles ===== */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-header .article-meta {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            margin: 24px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .article-section {
+            margin-bottom: 40px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+        }
+
+        .article-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #79c0ff;
+        }
+
+        /* Estilos para Comandos iptables */
+        .code-block {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #79c0ff;
+            margin: 10px 0 25px 0;
+            font-size: 14px;
+            overflow-x: auto;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .rule-description {
+            font-weight: 600;
+            color: #e0e0e0;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .media-placeholder {
+            background: #21262d;
+            border: 2px dashed #30363d;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #8b949e;
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+            border-left: 4px solid #58a6ff;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+
+            .navbar,
+            .footer-container,
+            .btn-back,
+            .btn-pdf,
+            #site-border-left,
+            #site-border-right,
+            #site-border-top,
+            #site-border-bottom {
+                display: none !important;
+            }
+
+            .section-container {
+                border: none !important;
+            }
+
+            .code-block {
+                border-color: #000;
+                color: #000;
+                background: #f9f9f9;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./index.html">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html">02 : Presentación</a></li>
+                        <li><a href="./TPT.html">03 : Actividades</a></li>
+                        <li><a href="./contacto.html">04 : Contacto</a></li>
+                        <li><a href="./informacion.html">05 : Información</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="article-container">
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 04</div>
+                            <h1>Mecanismos de defensa en red</h1>
+                            <p class="article-meta">
+                                <strong>Alumno:</strong> Pedro Damian Jasso Dávila (176658)<br>
+                                <strong>Fecha:</strong> 04/02/2026 | <strong>Mtro.</strong> Servando López Contreras<br>
+                                CNO V. Seguridad Informática | UPSLP
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Introducción</h2>
+                            <p>
+                                El objetivo de esta actividad es diseñar e implementar reglas de filtrado de
+                                paquetes utilizando <code>iptables</code>, basándose en una topología de red
+                                específica. Los mecanismos de defensa en red permiten controlar el flujo de
+                                información, protegiendo servicios críticos como el correo electrónico, DNS y servidores
+                                web contra accesos no autorizados. Siempre que es posible, las reglas
+                                determinan el protocolo, direcciones IP de origen y destino, puertos y el estado de la
+                                conexión para garantizar una seguridad granular.
+                            </p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Desarrollo Técnico: Configuración de Firewall</h2>
+                            <p>A continuación se detallan las acciones solicitadas y las reglas de <code>iptables</code>
+                                aplicadas en el Firewall:</p>
+
+                            <span class="rule-description">1. Establecer una política restrictiva:</span>
+                            <div class="code-block">
+                                iptables -P INPUT DROP
+                            </div>
+
+                            <span class="rule-description">2. Permitir el tráfico de conexiones ya
+                                establecidas:</span>
+                            <div class="code-block">
+                                iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+                            </div>
+
+                            <span class="rule-description">3. Aceptar tráfico DNS (TCP) saliente de la red
+                                local:</span>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp --sport 53 -d 192.1.2.0/24 -m state --state
+                                ESTABLISHED -j ACCEPT
+                            </div>
+
+                            <span class="rule-description">4. Aceptar correo entrante proveniente de
+                                Internet en el servidor de correo:</span>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp --dport 25 -d 192.1.2.10 -m state --state NEW,
+                                ESTABLISHED -j ACCEPT
+                            </div>
+
+                            <span class="rule-description">5. Permitir correo saliente a Internet desde el
+                                servidor de correo:</span>
+                            <div class="code-block">
+                                iptables -A OUTPUT -p tcp --dport 25 -d 192.1.2.10 -m state --state NEW,
+                                ESTABLISHED -j ACCEPT
+                            </div>
+
+                            <span class="rule-description">6. Aceptar conexiones HTTP desde Internet a
+                                nuestro servidor web:</span>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp --dport 80 -d 192.1.2.10 -m state --state NEW,
+                                ESTABLISHED -j ACCEPT
+                            </div>
+
+                            <span class="rule-description">7. Permitir tráfico HTTP desde la red local a
+                                Internet:</span>
+                            <div class="code-block">
+                                iptables -A OUTPUT -p tcp --dport 80 -s 192.1.2.0/24 -m state --state NEW,
+                                ESTABLISHED -j ACCEPT
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Reflexión Técnica</h2>
+                            <div class="reflection-box">
+                                <p>
+                                    La implementación de una política por defecto <code>DROP</code> es fundamental para
+                                    seguir el principio de mínimo privilegio en seguridad de red. Al definir
+                                    explícitamente qué tráfico está permitido (HTTP, SMTP, DNS) y bajo qué estados (NEW,
+                                    ESTABLISHED), se reduce significativamente la superficie de ataque, permitiendo que
+                                    solo el flujo legítimo atraviese el perímetro del firewall.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>4. Referencias Técnicas</h2>
+                            <ul class="reference-list">
+                                <li>[1] Netfilter Project. (2024). <em>iptables(8) - Linux man page</em>. Recuperado de
+                                    netfilter.org</li>
+                                <li>[2] Jasso Dávila, P. D. (2026). <em>Reporte de Actividad 04: Mecanismos de defensa
+                                        en red</em>. UPSLP.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/176658-Act04.pdf" download class="btn-pdf">
+                                📄 Descargar PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>

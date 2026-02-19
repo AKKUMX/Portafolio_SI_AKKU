@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 05 - Cartografiando el pentesting: análisis comparativo de metodologías"
+        name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 05 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .navbar-nav li a:hover {
+            color: #58a6ff;
+        }
+
+        .footer-container {
+            background-color: #21262d;
+            color: #e0e0e0;
+            border-top: 1px solid #30363d;
+        }
+
+        .footer-container a {
+            color: #79c0ff;
+        }
+
+        .footer-container a:hover {
+            color: #58a6ff;
+        }
+
+        #site-border-left,
+        #site-border-right,
+        #site-border-top,
+        #site-border-bottom {
+            background-color: #161b22;
+        }
+
+        .section-container {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+        }
+
+        /* ===== Article Styles ===== */
+        .article-container {
+            max-width: 950px;
+            /* Ancho aumentado para las tablas comparativas */
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-header .article-meta {
+            color: #8b949e;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            margin: 24px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .article-section {
+            margin-bottom: 40px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .article-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #79c0ff;
+        }
+
+        .article-section p {
+            line-height: 1.8;
+            margin-bottom: 14px;
+            color: #c9d1d9;
+            text-align: justify;
+        }
+
+        /* Estilos de Tablas Comparativas */
+        .tech-table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #0d1117;
+            font-size: 14px;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 12px 15px;
+            border: 1px solid #30363d;
+            text-align: left;
+            vertical-align: top;
+            color: #c9d1d9;
+        }
+
+        .tech-table th {
+            background-color: #161b22;
+            color: #58a6ff;
+            width: 30%;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .methodology-header {
+            background: linear-gradient(90deg, #1f2937, #111827);
+            color: #fff;
+            font-weight: bold;
+            text-align: center !important;
+            font-size: 16px !important;
+            border-bottom: 2px solid #58a6ff !important;
+        }
+
+        /* Multimedia placeholders */
+        .media-placeholder {
+            background: #21262d;
+            border: 2px dashed #30363d;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #8b949e;
+        }
+
+        .media-placeholder .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Blockquote for reflections */
+        .reflection-box {
+            background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+            border-left: 4px solid #58a6ff;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .reflection-box p {
+            color: #c9d1d9;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* References */
+        .reference-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reference-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #21262d;
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .reference-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Buttons */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            color: #58a6ff;
+            border-color: #58a6ff;
+            background: rgba(88, 166, 255, 0.05);
+            text-decoration: none;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .pdf-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+            padding-top: 30px;
+            border-top: 1px solid #30363d;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .navbar,
+            .footer-container,
+            .btn-back,
+            .btn-pdf,
+            .media-placeholder,
+            #site-border-left,
+            #site-border-right,
+            #site-border-top,
+            #site-border-bottom {
+                display: none !important;
+            }
+
+            .section-container {
+                background: #ffffff !important;
+                border: none !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            li,
+            th,
+            td {
+                color: #000000 !important;
+            }
+
+            .tech-table th {
+                background-color: #eeeeee !important;
+                color: #000 !important;
+            }
+
+            .tech-table,
+            .tech-table td,
+            .tech-table th {
+                border-color: #000 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li><a href="./index.html" title="">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html" title="">02 : Presentación</a></li>
+                        <li><a href="./TPT.html" title="">03 : Actividades</a></li>
+                        <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+                        <li><a href="./informacion.html" title="">05 : Información</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 section-container-spacer">
+                    <div class="article-container">
+
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 05</div>
+                            <h1>Cartografiando el pentesting: análisis comparativo de metodologías de seguridad
+                                informática</h1>
+                            <p class="article-meta">
+                                <strong>Alumno:</strong> Pedro Damian Jasso Dávila (176658)<br>
+                                <strong>Materia:</strong> CNO V: Seguridad Informática | Universidad Politécnica de San
+                                Luis Potosí<br>
+                                <strong>Fecha:</strong> 13/02/2026 | <strong>Profesor:</strong> Mtro. Servando López
+                                Contreras
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Introducción</h2>
+                            <p>
+                                En este trabajo se va a analizar seis de las metodologías más importantes y utilizadas a
+                                nivel global: MITRE ATT&CK, OWASP WSTG, NIST SP 800-115, OSSTMM, PTES e ISSAF. A través
+                                de esta tabla comparativa, se busca entender cómo cada una de ellas ayuda a identificar
+                                vulnerabilidades, evaluar riesgos y fortalecer las defensas de una organización
+                                dependiendo de sus necesidades específicas.
+                            </p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Desarrollo Técnico: Análisis Comparativo</h2>
+
+                            <div class="tech-table-wrapper">
+                                <table class="tech-table">
+                                    <tr>
+                                        <th colspan="2" class="methodology-header">MITRE ATT&CK</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <td>El marco MITRE ATT&CK funciona como una base de conocimientos global y
+                                            dinámica que cataloga las tácticas y técnicas observadas en ataques reales.
+                                            Su enfoque principal es la defensa basada en el conocimiento profundo del
+                                            atacante. Universalmente accesible y actualizada para modelar, detectar,
+                                            prevenir y combatir las amenazas de ciberseguridad.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fases de implementación</th>
+                                        <td>
+                                            <ul>
+                                                <li>Emulación de adversario: Diseñar ataques basados en grupos
+                                                    específicos.</li>
+                                                <li>Red Teaming: Ejecución de ejercicios de ataque avanzado.</li>
+                                                <li>Desarrollo de análisis de comportamiento: Identificar patrones de
+                                                    ataque en lugar de solo firmas.</li>
+                                                <li>Evaluación de brechas defensivas: Detectar puntos ciegos en la
+                                                    infraestructura.</li>
+                                                <li>Evaluación de madurez de SOC: Medir la capacidad de respuesta del
+                                                    centro de operaciones.</li>
+                                                <li>Enriquecimiento de inteligencia de amenazas cibernéticas: Integrar
+                                                    datos externos sobre nuevos vectores de ataque.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Objetivo principal</th>
+                                        <td>Proporcionar información sobre tácticas y técnicas, utilizadas
+                                            por ciberdelincuentes.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Escenarios en los que se utiliza</th>
+                                        <td>
+                                            <ul>
+                                                <li>Clasificación de alertas, detección de amenazas y respuesta.</li>
+                                                <li>Caza amenazas.</li>
+                                                <li>Equipo rojo/emulación de adversario.</li>
+                                                <li>Análisis de brechas de seguridad y evaluaciones de madurez del
+                                                    centro de operaciones de seguridad.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Orientación</th>
+                                        <td>Defensa</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autores u organismos responsables</th>
+                                        <td>MITRE Corporation, una organización sin fines de lucro, y es mantenido por
+                                            MITRE con aportes de una comunidad global de profesionales de la
+                                            ciberseguridad.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versiones o actualizaciones vigentes</th>
+                                        <td>Versión 16 lanzada en octubre de 2024.</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tech-table-wrapper">
+                                <table class="tech-table">
+                                    <tr>
+                                        <th colspan="2" class="methodology-header">OWASP WSTG</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <td>La Web Security Testing Guide (WSTG) es la referencia definitiva
+                                            para la evaluación de seguridad en servicios y aplicaciones web, ofreciendo
+                                            un marco de mejores prácticas para evaluadores internos y externos.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fases de implementación</th>
+                                        <td>
+                                            <ul>
+                                                <li>Planificación y Preparación: Definir el alcance de la prueba web.
+                                                </li>
+                                                <li>Reconocimiento Pasivo/Activo: Recolección de información sobre el
+                                                    objetivo.</li>
+                                                <li>Pruebas de Configuración y Gestión: Revisión de la infraestructura
+                                                    del servidor.</li>
+                                                <li>Pruebas de Autenticación y Gestión de Sesiones: Verificar la
+                                                    seguridad de los inicios de sesión.</li>
+                                                <li>Pruebas de Autorización y Control de Acceso: Validar que los
+                                                    usuarios solo accedan a lo permitido.</li>
+                                                <li>Pruebas de Validación de Entrada (Inyecciones): Búsqueda de fallos
+                                                    como SQLi o XSS.</li>
+                                                <li>Pruebas de Lógica de Negocio: Evaluar el flujo operativo de la
+                                                    aplicación.</li>
+                                                <li>Pruebas de APIs y Servicios Web: Análisis de comunicaciones entre
+                                                    sistemas.</li>
+                                                <li>Pruebas del Lado del Cliente: Evaluación de seguridad en el
+                                                    navegador del usuario.</li>
+                                                <li>Revisión y Reporte: Documentación final de vulnerabilidades.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Objetivo principal</th>
+                                        <td>Identificar y corregir vulnerabilidades específicas del entorno web.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Escenarios en los que se utiliza</th>
+                                        <td>
+                                            <ul>
+                                                <li>Pentesting Ético Formal.</li>
+                                                <li>Bug Bounty Programs.</li>
+                                                <li>Desarrollo Seguro (DevSecOps).</li>
+                                                <li>Auditorías de Cumplimiento.</li>
+                                                <li>Respuesta a Incidentes.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Orientación</th>
+                                        <td>Evaluación</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autores u organismos responsables</th>
+                                        <td>OWASP WSTG fue creado por y para la comunidad de seguridad.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versiones o actualizaciones vigentes</th>
+                                        <td>WSTG v4.2 (2021).</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tech-table-wrapper">
+                                <table class="tech-table">
+                                    <tr>
+                                        <th colspan="2" class="methodology-header">NIST SP 800-115</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <td>Marco metodológico formal para la evaluación técnica de seguridad, base
+                                            fundamental para programas de evaluación en sectores altamente regulados.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fases de implementación</th>
+                                        <td>
+                                            <ul>
+                                                <li>Planificación: Establecer objetivos y reglas de compromiso.</li>
+                                                <li>Descubrimiento: Identificar activos y servicios en la red.</li>
+                                                <li>Ataque: Ejecutar pruebas de penetración para confirmar
+                                                    vulnerabilidades.</li>
+                                                <li>Reporte: Entrega de resultados y recomendaciones
+                                                    técnicas.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Objetivo principal</th>
+                                        <td>Asistir a las organizaciones en la planificación y ejecución de exámenes de
+                                            seguridad de la información de manera estructurada.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Escenarios en los que se utiliza</th>
+                                        <td>
+                                            <ul>
+                                                <li>Sector Público Federal de EE.UU.</li>
+                                                <li>Sectores Regulados.</li>
+                                                <li>Organizaciones de Alta Madurez.</li>
+                                                <li>Base para Programas de Evaluación Interna.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Orientación</th>
+                                        <td>Evaluación</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autores u organismos responsables</th>
+                                        <td>Gobierno de Estados Unidos.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versiones o actualizaciones vigentes</th>
+                                        <td>Única versión lanzada en 2008.</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tech-table-wrapper">
+                                <table class="tech-table">
+                                    <tr>
+                                        <th colspan="2" class="methodology-header">OSSTMM</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <td>La Metodología de Manual de Pruebas de Seguridad de Código Abierto (OSSTMM)
+                                            se distingue por su enfoque científico y holístico. No se limita
+                                            a buscar fallos, sino que busca medir la seguridad operacional con precisión
+                                            matemática.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fases de implementación</th>
+                                        <td>
+                                            <ul>
+                                                <li>Seguridad Humana: Evaluación de protocolos y concienciación del
+                                                    personal.</li>
+                                                <li>Seguridad Física: Pruebas de acceso a instalaciones y hardware.</li>
+                                                <li>Seguridad Inalámbrica (Wireless): Análisis de redes Wi-Fi, Bluetooth
+                                                    y radiofrecuencia.</li>
+                                                <li>Telecomunicaciones: Evaluación de sistemas de voz y datos digitales.
+                                                </li>
+                                                <li>Redes de Datos: Pruebas exhaustivas sobre la infraestructura de red.
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Objetivo principal</th>
+                                        <td>Evaluación cuantitativa de la seguridad a través de diversos canales
+                                            (humano, físico, inalámbrico, telecomunicaciones y redes).</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Escenarios en los que se utiliza</th>
+                                        <td>
+                                            <ul>
+                                                <li>Grandes corporaciones.</li>
+                                                <li>Equipos de aseguramiento.</li>
+                                                <li>Telecomunicaciones.</li>
+                                                <li>Logística.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Orientación</th>
+                                        <td>Evaluación</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autores u organismos responsables</th>
+                                        <td>ISECOM.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versiones o actualizaciones vigentes</th>
+                                        <td>OSSTMM 3 (2016).</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tech-table-wrapper">
+                                <table class="tech-table">
+                                    <tr>
+                                        <th colspan="2" class="methodology-header">PTES</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <td>El Penetration Testing Execution Standard (PTES) nació para
+                                            eliminar la ambigüedad en la industria, estableciendo qué debe esperar un
+                                            cliente de una prueba de penetración de alta calidad.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fases de implementación</th>
+                                        <td>
+                                            <ul>
+                                                <li>Pre-engagement: Acuerdos contractuales y definición de límites.</li>
+                                                <li>Intelligence Gathering: Recolección minuciosa de información sobre
+                                                    el objetivo.</li>
+                                                <li>Threat Modeling: Identificación y diseño de posibles vectores de
+                                                    ataque.</li>
+                                                <li>Vulnerability Analysis: Análisis sistemático de debilidades
+                                                    detectadas.</li>
+                                                <li>Exploitation: Ejecución de ataques para ganar acceso a los sistemas.
+                                                </li>
+                                                <li>Post-Exploitation: Evaluación del impacto real tras el compromiso
+                                                    del sistema.</li>
+                                                <li>Reporting: Presentación profesional de hallazgos y
+                                                    mitigaciones.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Objetivo principal</th>
+                                        <td>Estandarizar las fases de un pentest para asegurar que se cubran todos los
+                                            aspectos técnicos y operativos, desde el acuerdo inicial hasta la
+                                            explotación.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Escenarios en los que se utiliza</th>
+                                        <td>
+                                            <ul>
+                                                <li>Pentesting externo (Red team / Seguridad perimetral).</li>
+                                                <li>Pentesting interno (Red interna y Active Directory).</li>
+                                                <li>Pentesting de aplicaciones web.</li>
+                                                <li>Pentesting de infraestructura cloud (AWS, Azure, GCP).</li>
+                                                <li>Pentesting de ingeniería social y físico.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Orientación</th>
+                                        <td>Ataque</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autores u organismos responsables</th>
+                                        <td>Comunidad de ciberseguridad.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versiones o actualizaciones vigentes</th>
+                                        <td>No hay un sistema de versiones, pero se divide por componentes: El Estándar
+                                            y La Guía Técnica.</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tech-table-wrapper">
+                                <table class="tech-table">
+                                    <tr>
+                                        <th colspan="2" class="methodology-header">ISSAF</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <td>El Information Systems Security Assessment Framework (ISSAF) es
+                                            una metodología extremadamente exhaustiva diseñada para evaluaciones de
+                                            "Caja Blanca" (White Box) y auditorías profesionales de principio a
+                                            fin.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fases de implementación</th>
+                                        <td>
+                                            <ul>
+                                                <li>Planificación y Preparación: Intercambio inicial de información y
+                                                    definición del entorno.</li>
+                                                <li>Evaluación (Assessment): Ejecución técnica detallada de las pruebas
+                                                    de seguridad.</li>
+                                                <li>Reporte y Limpieza: Entrega de informe final y eliminación de
+                                                    cualquier herramienta de ataque utilizada.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Objetivo principal</th>
+                                        <td>Proporcionar un marco técnico estandarizado para evaluar la seguridad de los
+                                            sistemas de información de manera profesional y organizada.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Escenarios en los que se utiliza</th>
+                                        <td>
+                                            <ul>
+                                                <li>Auditorías de Cumplimiento (Compliance).</li>
+                                                <li>Pentesting de "Caja Blanca" (White Box).</li>
+                                                <li>Evaluación de Infraestructuras Críticas.</li>
+                                                <li>Formación de Nuevos Auditores.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Orientación</th>
+                                        <td>Evaluación y ataque</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autores u organismos responsables</th>
+                                        <td>OISSG (Open Information Systems Security Group).</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versiones o actualizaciones vigentes</th>
+                                        <td>v0.2 (2000).</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Conclusión y Reflexión Técnica</h2>
+                            <div class="reflection-box">
+                                <p>
+                                    Tras el análisis comparativo de cada metodología, queda claro que no existe una
+                                    metodología única o mejor que las demás, sino que cada una cumple un propósito
+                                    específico dentro del ecosistema de la ciberseguridad. Mientras que MITRE ATT&CK es
+                                    indispensable para entender el comportamiento de los adversarios y mejorar la
+                                    detección defensiva, marcos como PTES y OWASP WSTG ofrecen estructuras robustas para
+                                    la ejecución de pruebas ofensivas en infraestructuras y aplicaciones web,
+                                    respectivamente. NIST SP 800-115 e ISSAF proporcionan el rigor necesario para
+                                    auditorías formales y evaluaciones técnicas, mientras que OSSTMM destaca por su
+                                    enfoque científico y matemático para medir la seguridad operacional. Por
+                                    último, es importante saber que seleccionar y combinar estos marcos según el
+                                    contexto organizacional es lo que garantiza una identificación de riesgos efectiva y
+                                    una protección real de los activos digitales.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>5. Referencias Técnicas</h2>
+                            <ul class="reference-list">
+                                <li>[1] IBM. (2024). MITRE ATT&CK. Recuperado de:
+                                    https://www.ibm.com/mx-es/think/topics/mitre-attack.</li>
+                                <li>[2] OWASP. (2021). Web Security Testing Guide. Recuperado de:
+                                    https://owasp.org/www-project-web-security-testing-guide.</li>
+                                <li>[3] NIST. (2008). Special Publication 800-115. Recuperado de:
+                                    https://www.nist.gov/privacy-framework/nist-sp-800-115.</li>
+                                <li>[4] ISECOM. (2016). OSSTMM 3. Recuperado de:
+                                    https://www.isecom.org/OSSTMM.3.pdf.</li>
+                                <li>[5] PTES. Penetration Testing Execution Standard. Recuperado de:
+                                    http://www.pentest-standard.org.</li>
+                                <li>[6] OISSG. Information Systems Security Assessment Framework (ISSAF).
+                                    Recuperado de: https://pymesec.org/issaf/.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/176658-Act05.pdf" download class="btn-pdf">
+                                📄 Descargar PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a
+                            href="./presentacion.html" title="">Presentación</a> | <a href="./contacto.html"
+                            title="">Contacto</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            navActivePage();
+        });
+    </script>
+    <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>

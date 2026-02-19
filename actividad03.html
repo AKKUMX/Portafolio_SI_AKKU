@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 03 - Interpretación y traducción de políticas de filtrado en iptables" name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 03 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .navbar-nav li a:hover {
+            color: #58a6ff;
+        }
+
+        .footer-container {
+            background-color: #21262d;
+            color: #e0e0e0;
+            border-top: 1px solid #30363d;
+        }
+
+        .footer-container a {
+            color: #79c0ff;
+        }
+
+        .footer-container a:hover {
+            color: #58a6ff;
+        }
+
+        #site-border-left,
+        #site-border-right,
+        #site-border-top,
+        #site-border-bottom {
+            background-color: #161b22;
+        }
+
+        .section-container {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+        }
+
+        /* ===== Article Styles ===== */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-header .article-meta {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            margin: 24px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .article-section {
+            margin-bottom: 40px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+        }
+
+        .article-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #79c0ff;
+        }
+
+        .article-section p {
+            line-height: 1.8;
+            margin-bottom: 14px;
+            color: #c9d1d9;
+        }
+
+        /* Estilos de Tabla Cyber */
+        .cyber-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1a202c;
+            border: 1px solid #30363d;
+        }
+
+        .cyber-table th,
+        .cyber-table td {
+            padding: 12px 15px;
+            border: 1px solid #30363d;
+            text-align: left;
+            color: #c9d1d9;
+        }
+
+        .cyber-table th {
+            background-color: #21262d;
+            color: #58a6ff;
+            font-size: 13px;
+            text-transform: uppercase;
+            width: 25%;
+        }
+
+        /* Estilos para Comandos (Code Blocks) */
+        .code-block {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #79c0ff;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+
+        .media-placeholder {
+            background: #21262d;
+            border: 2px dashed #30363d;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #8b949e;
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+            border-left: 4px solid #58a6ff;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .reflection-box p {
+            color: #c9d1d9;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .navbar,
+            .footer-container,
+            .btn-back,
+            .btn-pdf,
+            .media-placeholder,
+            #site-border-left,
+            #site-border-right,
+            #site-border-top,
+            #site-border-bottom {
+                display: none !important;
+            }
+
+            .section-container {
+                background: #ffffff !important;
+                border: none !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            li,
+            td,
+            th {
+                color: #000000 !important;
+            }
+
+            .code-block {
+                border: 1px solid #ccc;
+                color: #333;
+            }
+
+            .cyber-table,
+            .cyber-table th,
+            .cyber-table td {
+                border-color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./index.html">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html">02 : Presentación</a></li>
+                        <li><a href="./TPT.html">03 : Actividades</a></li>
+                        <li><a href="./contacto.html">04 : Contacto</a></li>
+                        <li><a href="./informacion.html">05 : Información</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="article-container">
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 03</div>
+                            <h1>Interpretación y traducción de políticas de filtrado en iptables</h1>
+                            <p class="article-meta">
+                                <strong>Alumno:</strong> Pedro Damian Jasso Dávila (176658)<br>
+                                <strong>Fecha:</strong> 03/02/2026 | <strong>Mtro.</strong> Servando López Contreras<br>
+                                CNO V. Seguridad Informática | UPSLP
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Fundamentos y Flujo de Paquetes</h2>
+
+                            <h3>1. Completa los espacios conforme se explica el flujo del paquete</h3>
+                            <p>
+                                Cuando un paquete llega al sistema, primero pasa por una <strong>tabla</strong>, después
+                                por una <strong>Cadena</strong> y finalmente se ejecuta una
+                                <strong>regla/acción</strong>.
+                            </p>
+
+                            <h3>2. Relaciona cada tabla con su propósito principal</h3>
+                            <table class="cyber-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tabla</th>
+                                        <th>Propósito principal</th>
+                                        <th>Ejemplo de uso (01 palabra o frase corta)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>FILTER</strong></td>
+                                        <td>Filtrado de paquetes</td>
+                                        <td>Permitir / Bloquear tráfico</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>NAT</strong></td>
+                                        <td>Traducción de direcciones</td>
+                                        <td>Hacer NAT / port forwarding</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>MANGLE</strong></td>
+                                        <td>Modificación avanzada de paquetes</td>
+                                        <td>Cambia cabeceras (marcas)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>RAW</strong></td>
+                                        <td>Excepciones al seguimiento de conexiones</td>
+                                        <td>Paquetes que no deben ser inspeccionados</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SECURITY</strong></td>
+                                        <td>Etiquetas de seguridad</td>
+                                        <td>SELinux / Contextos de seguridad</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Anatomía y Análisis de Comandos</h2>
+
+                            <h3>3. Anatomía de un comando iptables</h3>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp -m multiport --dports 80,443 -j ACCEPT
+                            </div>
+
+                            <h3>4. Este comando permite:</h3>
+                            <p>
+                                Permite el tráfico tcp a través de los puertos de destino 80 y 443.
+                            </p>
+
+                            <h3>5. Variables y opciones comunes</h3>
+                            <ul>
+                                <li><strong>a) Limitar intentos por minuto:</strong> <br>
+                                    <code>--limit (--limit 5/minute)</code>
+                                </li>
+                                <li><strong>b) Filtrar por IP de origen:</strong> <br>
+                                    <code>-s ó --source 192.168.1.0/24</code>
+                                </li>
+                                <li><strong>c) Ver solo números, sin DNS (ni resolución de puertos):</strong> <br>
+                                    <code>-L -n</code>
+                                </li>
+                                <li><strong>d) Ver reglas con contadores (paquetes y bytes):</strong> <br>
+                                    <code>-L -v</code>
+                                </li>
+                            </ul>
+
+                            <h3>6. ¿Qué hace esta regla?</h3>
+                            <div class="code-block">
+                                iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 \
+                                -m state --state NEW, ESTABLISHED -j ACCEPT
+                            </div>
+                            <p>
+                                Permite tráfico TCP entrante por la interfaz eth0 a los puertos 22, 80 y 443, siempre
+                                que sea parte de una conexión nueva o establecida.
+                            </p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Traducción de Políticas (Ejercicios)</h2>
+
+                            <h3>7. Permitir tráfico HTTP entrante</h3>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+                            </div>
+
+                            <h3>8. Permitir todo el tráfico saliente</h3>
+                            <div class="code-block">
+                                iptables -A OUTPUT -j ACCEPT
+                            </div>
+
+                            <h3>9. Permitir SSH solo desde la IP 192.168.1.50</h3>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp -s 192.168.1.50 --dport 22 -j ACCEPT
+                            </div>
+
+                            <h3>10. Permitir tráfico TCP entrante a puertos 80 y 443 solo si es conexión establecida o
+                                relacionada</h3>
+                            <div class="code-block">
+                                iptables -A INPUT -p tcp -m multiport --dports 80,443 -m state --state
+                                ESTABLISHED,RELATED -j ACCEPT
+                            </div>
+
+                            <h3>11. Permitir tráfico TCP entrante por eth0 a 22, 80 y 443, y permitir solo NEW y
+                                ESTABLISHED</h3>
+                            <div class="code-block">
+                                iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state
+                                NEW,ESTABLISHED -j ACCEPT
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>4. Reflexión Técnica</h2>
+                            <div class="reflection-box">
+                                <p>
+                                    La traducción de políticas de lenguaje natural a reglas de firewall es un paso
+                                    crítico en la seguridad. Un error de sintaxis o una mala interpretación del flujo
+                                    (INPUT vs OUTPUT) puede dejar un servicio expuesto o bloquear tráfico legítimo. El
+                                    uso de módulos como 'state' y 'multiport' optimiza la administración de reglas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>5. Referencias Técnicas</h2>
+                            <ul class="reference-list">
+                                <li>[1] Netfilter.org. (2023). <em>Iptables Documentation</em>.</li>
+                                <li>[2] Material de clase CNO V. (2026). <em>Guía de configuración de Iptables</em>.
+                                    UPSLP.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/176658-act03.pdf" download class="btn-pdf">📄 Descargar PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a
+                            href="./presentacion.html" title="">Presentación</a> | <a href="./contacto.html"
+                            title="">Contacto</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>

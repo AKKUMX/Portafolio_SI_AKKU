@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 02 - Análisis de servicios de seguridad (X.800 y RFC 4949)" name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 02 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .navbar-nav li a:hover {
+            color: #58a6ff;
+        }
+
+        .footer-container {
+            background-color: #21262d;
+            color: #e0e0e0;
+            border-top: 1px solid #30363d;
+        }
+
+        .footer-container a {
+            color: #79c0ff;
+        }
+
+        .footer-container a:hover {
+            color: #58a6ff;
+        }
+
+        #site-border-left,
+        #site-border-right,
+        #site-border-top,
+        #site-border-bottom {
+            background-color: #161b22;
+        }
+
+        .section-container {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+        }
+
+        .navbar-toggle .icon-bar {
+            background-color: #79c0ff;
+        }
+
+        /* ===== Article Styles ===== */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-header .article-meta {
+            color: #8b949e;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            margin: 24px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .article-section {
+            margin-bottom: 40px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .article-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #79c0ff;
+        }
+
+        .article-section p {
+            line-height: 1.8;
+            margin-bottom: 14px;
+            color: #c9d1d9;
+            text-align: justify;
+        }
+
+        .article-section ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .article-section li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+            color: #c9d1d9;
+        }
+
+        /* Estilos para Tablas Cyber */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 25px;
+        }
+
+        .cyber-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background-color: #1a202c;
+            border: 1px solid #30363d;
+            font-size: 14px;
+        }
+
+        .cyber-table th,
+        .cyber-table td {
+            padding: 12px 15px;
+            border: 1px solid #30363d;
+            text-align: left;
+            color: #c9d1d9;
+            vertical-align: top;
+        }
+
+        .cyber-table th {
+            background-color: #21262d;
+            color: #58a6ff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            width: 30%;
+            /* Ajuste para equilibrar columnas */
+        }
+
+        .cyber-table tr:nth-child(even) {
+            background-color: #161b22;
+        }
+
+        .cyber-table tr:hover {
+            background-color: #262c36;
+        }
+
+        /* Multimedia placeholders */
+        .media-placeholder {
+            background: #21262d;
+            border: 2px dashed #30363d;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #8b949e;
+            transition: border-color 0.3s ease;
+        }
+
+        .media-placeholder:hover {
+            border-color: #58a6ff;
+        }
+
+        .media-placeholder .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Blockquote for reflections */
+        .reflection-box {
+            background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+            border-left: 4px solid #58a6ff;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .reflection-box p {
+            color: #c9d1d9;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* References */
+        .reference-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reference-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #21262d;
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .reference-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Buttons */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            color: #58a6ff;
+            border-color: #58a6ff;
+            background: rgba(88, 166, 255, 0.05);
+            text-decoration: none;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.3);
+        }
+
+        .pdf-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+            padding-top: 30px;
+            border-top: 1px solid #30363d;
+        }
+
+        /* ===== Print / PDF Styles ===== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .navbar,
+            .footer-container,
+            .btn-back,
+            .btn-pdf,
+            .pdf-section,
+            #site-border-left,
+            #site-border-right,
+            #site-border-top,
+            #site-border-bottom {
+                display: none !important;
+            }
+
+            .section-container {
+                background: #ffffff !important;
+                border: none !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: #000000 !important;
+            }
+
+            p,
+            li,
+            th,
+            td {
+                color: #333333 !important;
+            }
+
+            a {
+                color: #0066cc !important;
+            }
+
+            .article-header .activity-badge {
+                background: #0066cc !important;
+                color: #ffffff !important;
+            }
+
+            .article-section h2 {
+                border-bottom-color: #0066cc !important;
+            }
+
+            .reflection-box {
+                background: #f5f5f5 !important;
+                border-left-color: #0066cc !important;
+            }
+
+            .cyber-table {
+                border-color: #000000 !important;
+            }
+
+            .cyber-table th {
+                background-color: #eeeeee !important;
+                color: #000000 !important;
+            }
+
+            .media-placeholder {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li><a href="./index.html" title="">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html" title="">02 : Presentación</a></li>
+                        <li><a href="./TPT.html" title="">03 : Actividades</a></li>
+                        <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+                        <li><a href="./informacion.html" title="">05 : Información</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 section-container-spacer">
+                    <div class="article-container">
+
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 02</div>
+                            <h1>Análisis de servicios de seguridad (X.800 y RFC 4949)</h1>
+                            <p class="article-meta">
+                                <strong>Alumno:</strong> Jasso Dávila Pedro Damian (176658)<br>
+                                <strong>Fecha:</strong> 27/01/2026 | <strong>Mtro.</strong> Servando López Contreras<br>
+                                CNO V: SEGURIDAD INFORMÁTICA | UPSLP
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Introducción</h2>
+                            <p>
+                                La seguridad informática se basa en modelos y marcos conceptuales que
+                                permiten analizar de forma estructurada los incidentes que afectan a los sistemas de
+                                información. Uno de los modelos fundamentales es el definido por
+                                la Recomendación ITU-T X.800, que establece los seis servicios de seguridad:
+                                autenticación, control de acceso, confidencialidad, integridad, no repudio y
+                                disponibilidad. Estos servicios permiten identificar qué
+                                propiedades de la información han sido comprometidas durante un incidente.
+                            </p>
+                            <p>
+                                Por otro lado, el RFC 4949 - Internet Security Glossary proporciona un
+                                vocabulario estandarizado de términos de ciberseguridad, permitiendo describir de manera
+                                precisa amenazas, vulnerabilidades, ataques e impactos. Mientras
+                                X.800 define qué aspecto de la seguridad se ve afectado, el RFC 4949 ayuda a explicar
+                                cómo y por qué ocurrió el incidente.
+                            </p>
+                            <p>
+                                El análisis conjunto de ambos marcos es esencial en la seguridad informática
+                                actual, ya que facilita la comunicación profesional, la documentación técnica de
+                                incidentes y la toma de decisiones para implementar controles de protección.
+                                En esta actividad se analizan distintos escenarios reales de ciberataques y
+                                fallas operativas, identificando los servicios de seguridad comprometidos y aplicando la
+                                terminología técnica del RFC 4949.
+                            </p>
+                        </div>
+
+                        <div class="article-section">
+                            <h3>Términos clave del RFC 4949 utilizados:</h3>
+                            <ul>
+                                <li><strong>Attack:</strong> Acción intencional para evadir servicios de
+                                    seguridad y violar la política de seguridad de un sistema.</li>
+                                <li><strong>Threat:</strong> Circunstancia o evento con potencial de causar
+                                    daño explotando una vulnerabilidad.</li>
+                                <li><strong>Vulnerability:</strong> Debilidad que puede ser explotada para
+                                    comprometer la seguridad.</li>
+                                <li><strong>Data Breach:</strong> Exposición o divulgación no autorizada de
+                                    información sensible.</li>
+                                <li><strong>Availability Attack:</strong> Ataque que busca impedir el acceso
+                                    legítimo a sistemas o datos.</li>
+                                <li><strong>Masquerade:</strong> Suplantación de identidad para obtener
+                                    acceso no autorizado.</li>
+                                <li><strong>Phishing:</strong> Técnica de ingeniería social para engañar a
+                                    usuarios y obtener información confidencial.</li>
+                                <li><strong>Insider Threat:</strong> Riesgo proveniente de una persona con
+                                    acceso legítimo que hace uso indebido de sus privilegios.</li>
+                                <li><strong>Operational Failure:</strong> Falla interna no maliciosa que
+                                    afecta la disponibilidad de los servicios.</li>
+                            </ul>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Desarrollo Técnico</h2>
+
+                            <h3>Caso 1:</h3>
+                            <p>
+                                En múltiples incidentes atribuidos al grupo LockBit, organizaciones públicas
+                                y privadas han sufrido el cifrado masivo de servidores tras un acceso inicial no
+                                autorizado. Antes de ejecutar el ransomware, los atacantes
+                                exfiltraron información sensible y posteriormente amenazaron con su publicación,
+                                evidenciando un compromiso simultáneo de la confidencialidad, la integridad y la
+                                disponibilidad. Desde el enfoque del RFC 4949, el incidente se
+                                clasifica como un multi-stage attack con data breach y availability attack, donde la
+                                indisponibilidad del sistema es solo una fase final del daño. La
+                                ausencia de respaldos inmutables y de detección temprana permitió que el impacto fuera
+                                total.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Confidencialidad de datos, Integridad de datos, Disponibilidad.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Multi-stage attack, Data breach, Availability attack.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa (grupo criminal).</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Acceso inicial no autorizado + exfiltración + cifrado de sistemas.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Pérdida total de acceso a sistemas, filtración de datos sensibles.
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Backups inmutables, EDR, segmentación de red, detección temprana.
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 2:</h3>
+                            <p>
+                                En diversos casos documentados, bases de datos completas quedaron accesibles
+                                públicamente debido a errores de configuración en servicios de almacenamiento en la
+                                nube. No existió una explotación técnica sofisticada, sino una
+                                falla en el control de acceso, lo que derivó directamente en la pérdida de
+                                confidencialidad de los datos. El RFC 4949 describe este tipo de
+                                incidentes como misconfiguration y exposure, subrayando que la amenaza no siempre
+                                implica malware o intrusión activa. El impacto suele ser legal y reputacional, aun
+                                cuando no se pueda demostrar acceso malicioso.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Control de acceso, Confidencialidad de datos.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Misconfiguration, Exposure, Unauthorized Access.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa oportunista.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Acceso público a servicios mal configurados en la nube.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico/ operativo.</td>
+                                            <td>Fuga de datos, sanciones legales y daño reputacional.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Revisiones de configuración, auditorías de seguridad, control de acceso
+                                                adecuado.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 3:</h3>
+                            <p>
+                                Un proveedor legítimo de software fue comprometido y distribuyó una
+                                actualización que incluía código malicioso, afectando a cientos de organizaciones que
+                                confiaban en él. Este escenario refleja una violación grave de la
+                                integridad de los sistemas y, en muchos casos, de la confidencialidad, al permitir
+                                accesos no autorizados posteriores. El RFC 4949 lo identifica como supply
+                                chain attack, destacando el abuso de relaciones de confianza. El daño es
+                                particularmente crítico porque rompe el supuesto de legitimidad del software firmado.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Integridad, Confidencialidad, Autenticación</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Supply chain attack, Code compromise.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa a través de proveedor confiable.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Actualización de software legítimo con código malicioso.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Compromiso masivo de organizaciones, pérdida de confianza.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Validación de integridad, monitoreo de comportamiento, control de
+                                                aplicaciones.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 4:</h3>
+                            <p>
+                                Mediante campañas de phishing, atacantes obtuvieron credenciales válidas y
+                                accedieron a sistemas corporativos durante meses sin levantar alertas.
+                                Aunque la autenticación funcionó técnicamente, el servicio de autenticación
+                                fue comprometido al basarse en credenciales robadas, afectando también el control de
+                                acceso. Según el RFC 4949, se trata de un credential compromise
+                                con authentication failure conceptual, no técnica. La falta de MFA
+                                y de monitoreo de comportamiento facilitó la persistencia del atacante[cite: 51].
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Autenticación, Control de acceso, Confidencialidad.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Phishing, Credential compromise, Authentication failure.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa (ingeniería social).</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Correos y sitios falsos para robar credenciales.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Acceso prolongado a sistemas internos.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>MFA, monitoreo de anomalías, capacitación a usuarios.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 5:</h3>
+                            <p>
+                                En ataques de ransomware avanzados, los atacantes eliminaron o cifraron los
+                                respaldos antes de afectar los sistemas productivos. Este hecho
+                                compromete directamente la disponibilidad y la integridad de la información, al impedir
+                                la recuperación. El RFC 4949 clasifica este comportamiento como
+                                data destruction y availability attack, evidenciando intención deliberada de maximizar
+                                el daño. La inexistencia de respaldos offline o inmutables
+                                convierte el incidente en catastrófico[cite: 57].
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Disponibilidad, Integridad.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Data destruction, Availability attack.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa maliciosa.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Eliminación o cifrado de backups antes del ataque principal.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Imposibilidad de recuperación de sistemas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Backups offline/inmutables, separación de privilegios.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 6:</h3>
+                            <p>
+                                Un empleado con acceso legítimo extrajo bases de datos completas y las
+                                vendió a terceros, sin explotar vulnerabilidades técnicas. El servicio afectado fue
+                                principalmente la confidencialidad, junto con fallas en el control
+                                de acceso por exceso de privilegios. El RFC 4949 define este
+                                escenario como insider threat, destacando que el riesgo interno puede ser tan grave como
+                                el externo. La carencia de monitoreo y de políticas de mínimo
+                                privilegio fue determinante[cite: 63].
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Confidencialidad, Control de acceso.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Insider threat, Data exfiltration.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Interna.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Extracción de bases de datos por usuario autorizado.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Violación de datos, problemas legales.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Principio de mínimo privilegio, DLP, monitoreo de actividad.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 7:</h3>
+                            <p>
+                                Tras un ataque, los registros del sistema quedaron cifrados o alterados,
+                                impidiendo reconstruir la secuencia de eventos. Esto compromete la
+                                integridad de los datos y el no repudio, ya que no es posible demostrar qué ocurrió ni
+                                quién fue responsable. Desde el RFC 4949, se trata de una
+                                violación de evidentiary integrity y del audit trail. El impacto
+                                no solo es técnico, sino también probatorio y legal.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Integridad, No repudio.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Audit trail compromise, Evidentiary integrity.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa maliciosa.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Alteración o cifrado de registros del sistema.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Imposibilidad de análisis forense.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Logs remotos, almacenamiento inmutable, SIEM.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 8:</h3>
+                            <p>
+                                Una actualización mal ejecutada provocó la caída simultánea de múltiples
+                                servicios críticos a nivel global. Aunque no existió un atacante,
+                                el servicio de disponibilidad fue gravemente afectado. El RFC 4949
+                                contempla estos eventos como operational failure, recordando que la seguridad también se
+                                ve afectada por errores internos. La falta de pruebas previas y
+                                planes de reversión amplificó el impacto.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Disponibilidad</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Operational failure</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Interna no maliciosa.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Actualización defectuosa sin pruebas previas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico/ operativo.</td>
+                                            <td>Caída global de servicios.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Entornos de prueba, planes de rollback, gestión de cambios.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 9:</h3>
+                            <p>
+                                Atacantes replicaron sitios y correos oficiales para engañar a ciudadanos y
+                                obtener información sensible. Este escenario afecta la
+                                autenticación, al suplantar identidades legítimas, y la confidencialidad de los datos
+                                recolectados. EI RFC 4949 lo clasifica como masquerade y phishing,
+                                subrayando el componente de ingeniería social. La ausencia de
+                                mecanismos de autenticación del dominio y de concientización facilitó el éxito del
+                                ataque.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Autenticación, Confidencialidad.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Masquerade, Phishing.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa (ingeniería social).</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Sitios y correos falsificados.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Robo de datos personales.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>SPF, DKIM, DMARC, campañas de concientización.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Caso 10:</h3>
+                            <p>
+                                En algunos incidentes, tras exfiltrar información, los atacantes ejecutaron
+                                acciones destructivas para borrar sistemas completos y eliminar rastros.
+                                Se produce un compromiso total de la confidencialidad, la integridad y la
+                                disponibilidad, configurando uno de los peores escenarios posibles.
+                                El RFC 4949 describe este patrón como destructive attack, donde el objetivo
+                                no es solo el lucro, sino el daño irreversible. La detección
+                                tardía impidió cualquier contención efectiva.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Respuesta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicios X.800</td>
+                                            <td>Confidencialidad, Integridad, Disponibilidad.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Definición(es) aplicable(s) RFC 4949.</td>
+                                            <td>Destructive attack, Data breach.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de amenaza.</td>
+                                            <td>Externa avanzada.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vector de ataque.</td>
+                                            <td>Exfiltración seguida de destrucción de sistemas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impacto técnico / operativo.</td>
+                                            <td>Pérdida total de información y operaciones.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Medida de control recomendada.</td>
+                                            <td>Segmentación, monitoreo continuo, backups seguros, respuesta a
+                                                incidentes.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Material Multimedia</h2>
+
+                            <!-- 3.1 Diagrama de relación X.800 y RFC 4949 -->
+                            <h3>3.1 Diagrama Conceptual: Servicios X.800 vs. Terminología RFC 4949</h3>
+                            <p>El siguiente diagrama muestra cómo los seis servicios de seguridad definidos por la
+                                recomendación ITU-T X.800 se relacionan con los tipos de amenaza y ataque descritos
+                                en el glosario RFC 4949. Cada servicio puede verse comprometido por uno o más tipos
+                                de incidente.</p>
+
+                            <div
+                                style="background:#0d1117; border:1px solid #30363d; border-radius:10px; padding:28px 20px; margin:20px 0;">
+
+                                <!-- Encabezados de columnas -->
+                                <div
+                                    style="display:grid; grid-template-columns:1fr 40px 1fr; gap:10px; align-items:start;">
+
+                                    <!-- Columna izquierda: Servicios X.800 -->
+                                    <div>
+                                        <div
+                                            style="text-align:center; font-size:13px; font-weight:700; color:#58a6ff; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid #58a6ff;">
+                                            ITU-T X.800 — Servicios
+                                        </div>
+                                        <div style="display:flex; flex-direction:column; gap:10px;">
+                                            <div
+                                                style="background:linear-gradient(135deg,#1e3a5f,#2563eb); border-radius:8px; padding:12px 14px; font-size:13px; color:#fff; font-weight:600;">
+                                                🔐 Autenticación</div>
+                                            <div
+                                                style="background:linear-gradient(135deg,#1a3a1a,#16a34a); border-radius:8px; padding:12px 14px; font-size:13px; color:#fff; font-weight:600;">
+                                                🔒 Control de Acceso</div>
+                                            <div
+                                                style="background:linear-gradient(135deg,#3a1a3a,#9333ea); border-radius:8px; padding:12px 14px; font-size:13px; color:#fff; font-weight:600;">
+                                                🕵️ Confidencialidad</div>
+                                            <div
+                                                style="background:linear-gradient(135deg,#3a2a0a,#d97706); border-radius:8px; padding:12px 14px; font-size:13px; color:#fff; font-weight:600;">
+                                                ✅ Integridad</div>
+                                            <div
+                                                style="background:linear-gradient(135deg,#3a1a1a,#dc2626); border-radius:8px; padding:12px 14px; font-size:13px; color:#fff; font-weight:600;">
+                                                📜 No Repudio</div>
+                                            <div
+                                                style="background:linear-gradient(135deg,#0a2a3a,#0891b2); border-radius:8px; padding:12px 14px; font-size:13px; color:#fff; font-weight:600;">
+                                                ⚡ Disponibilidad</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Flechas centrales -->
+                                    <div
+                                        style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:10px; padding-top:42px;">
+                                        <div style="color:#58a6ff; font-size:18px; line-height:1;">↔</div>
+                                        <div style="color:#58a6ff; font-size:18px; line-height:1;">↔</div>
+                                        <div style="color:#58a6ff; font-size:18px; line-height:1;">↔</div>
+                                        <div style="color:#58a6ff; font-size:18px; line-height:1;">↔</div>
+                                        <div style="color:#58a6ff; font-size:18px; line-height:1;">↔</div>
+                                        <div style="color:#58a6ff; font-size:18px; line-height:1;">↔</div>
+                                    </div>
+
+                                    <!-- Columna derecha: RFC 4949 -->
+                                    <div>
+                                        <div
+                                            style="text-align:center; font-size:13px; font-weight:700; color:#79c0ff; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid #79c0ff;">
+                                            RFC 4949 — Amenazas / Ataques
+                                        </div>
+                                        <div style="display:flex; flex-direction:column; gap:10px;">
+                                            <div
+                                                style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 14px; font-size:12px; color:#c9d1d9; line-height:1.5;">
+                                                <span style="color:#79c0ff; font-weight:600;">Masquerade</span> · <span
+                                                    style="color:#79c0ff; font-weight:600;">Phishing</span> · Credential
+                                                Compromise
+                                            </div>
+                                            <div
+                                                style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 14px; font-size:12px; color:#c9d1d9; line-height:1.5;">
+                                                <span style="color:#79c0ff; font-weight:600;">Unauthorized Access</span>
+                                                · <span style="color:#79c0ff; font-weight:600;">Misconfiguration</span>
+                                                · Insider Threat
+                                            </div>
+                                            <div
+                                                style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 14px; font-size:12px; color:#c9d1d9; line-height:1.5;">
+                                                <span style="color:#79c0ff; font-weight:600;">Data Breach</span> · <span
+                                                    style="color:#79c0ff; font-weight:600;">Exposure</span> · Data
+                                                Exfiltration
+                                            </div>
+                                            <div
+                                                style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 14px; font-size:12px; color:#c9d1d9; line-height:1.5;">
+                                                <span style="color:#79c0ff; font-weight:600;">Supply Chain Attack</span>
+                                                · <span style="color:#79c0ff; font-weight:600;">Audit Trail
+                                                    Compromise</span> · Code Compromise
+                                            </div>
+                                            <div
+                                                style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 14px; font-size:12px; color:#c9d1d9; line-height:1.5;">
+                                                <span style="color:#79c0ff; font-weight:600;">Evidentiary
+                                                    Integrity</span> · Audit Trail Compromise
+                                            </div>
+                                            <div
+                                                style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 14px; font-size:12px; color:#c9d1d9; line-height:1.5;">
+                                                <span style="color:#79c0ff; font-weight:600;">Availability Attack</span>
+                                                · <span style="color:#79c0ff; font-weight:600;">Data Destruction</span>
+                                                · Operational Failure
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p
+                                    style="text-align:center; font-size:12px; color:#8b949e; margin-top:20px; margin-bottom:0;">
+                                    Fuente: ITU-T X.800 (1991) &amp; RFC 4949 — Internet Security Glossary, Version 2
+                                    (Shirey, 2007)
+                                </p>
+                            </div>
+
+                            <!-- 3.2 Mapa visual de los 10 casos -->
+                            <h3>3.2 Mapa de Casos: Servicios X.800 Comprometidos</h3>
+                            <p>La siguiente tabla resume los diez escenarios analizados, identificando visualmente
+                                qué servicios de seguridad X.800 fueron comprometidos en cada caso.</p>
+
+                            <div style="overflow-x:auto; margin:20px 0;">
+                                <table
+                                    style="width:100%; border-collapse:collapse; background:#0d1117; border:1px solid #30363d; font-size:12px;">
+                                    <thead>
+                                        <tr style="background:#21262d;">
+                                            <th
+                                                style="padding:10px 12px; border:1px solid #30363d; color:#58a6ff; text-align:left; white-space:nowrap;">
+                                                Caso</th>
+                                            <th
+                                                style="padding:10px 12px; border:1px solid #30363d; color:#58a6ff; text-align:left;">
+                                                Tipo de Incidente</th>
+                                            <th
+                                                style="padding:10px 8px; border:1px solid #30363d; color:#2563eb; text-align:center; white-space:nowrap;">
+                                                🔐 Autent.</th>
+                                            <th
+                                                style="padding:10px 8px; border:1px solid #30363d; color:#16a34a; text-align:center; white-space:nowrap;">
+                                                🔒 C. Acceso</th>
+                                            <th
+                                                style="padding:10px 8px; border:1px solid #30363d; color:#9333ea; text-align:center; white-space:nowrap;">
+                                                🕵️ Confid.</th>
+                                            <th
+                                                style="padding:10px 8px; border:1px solid #30363d; color:#d97706; text-align:center; white-space:nowrap;">
+                                                ✅ Integr.</th>
+                                            <th
+                                                style="padding:10px 8px; border:1px solid #30363d; color:#dc2626; text-align:center; white-space:nowrap;">
+                                                📜 No Rep.</th>
+                                            <th
+                                                style="padding:10px 8px; border:1px solid #30363d; color:#0891b2; text-align:center; white-space:nowrap;">
+                                                ⚡ Dispon.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#161b22;">
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 1</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Ransomware (LockBit)</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#d97706; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#0891b2; font-size:16px;">
+                                                ●</td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 2</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">Nube
+                                                mal configurada</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#16a34a; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#161b22;">
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 3</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Supply Chain Attack</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#2563eb; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#d97706; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 4</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Phishing / Credenciales</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#2563eb; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#16a34a; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#161b22;">
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 5</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Destrucción de backups</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#d97706; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#0891b2; font-size:16px;">
+                                                ●</td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 6</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Insider Threat</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#16a34a; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#161b22;">
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 7</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Alteración de logs</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#d97706; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#dc2626; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 8</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">Falla
+                                                operativa (update)</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#0891b2; font-size:16px;">
+                                                ●</td>
+                                        </tr>
+                                        <tr style="background:#161b22;">
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 9</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Masquerade / Phishing</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#2563eb; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding:9px 12px; border:1px solid #30363d; color:#c9d1d9; font-weight:600; white-space:nowrap;">
+                                                Caso 10</td>
+                                            <td style="padding:9px 12px; border:1px solid #30363d; color:#8b949e;">
+                                                Ataque destructivo</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#9333ea; font-size:16px;">
+                                                ●</td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#d97706; font-size:16px;">
+                                                ●</td>
+                                            <td style="padding:9px 8px; border:1px solid #30363d; text-align:center;">—
+                                            </td>
+                                            <td
+                                                style="padding:9px 8px; border:1px solid #30363d; text-align:center; color:#0891b2; font-size:16px;">
+                                                ●</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p style="font-size:12px; color:#8b949e; margin-top:-10px;">
+                                ● = Servicio comprometido &nbsp;|&nbsp; — = No afectado directamente
+                            </p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>4. Conclusión y Reflexión Técnica</h2>
+                            <div class="reflection-box">
+                                <p>
+                                    El análisis de los escenarios demuestra que los incidentes de seguridad
+                                    rara vez afectan un solo aspecto de la protección de la información.
+                                    La aplicación del modelo ITU-T X.800 permitió identificar que servicios
+                                    de seguridad fueron comprometidos en cada caso, mostrando que la confidencialidad,
+                                    integridad y disponibilidad suelen verse afectadas de manera simultánea.
+                                </p>
+                                <p>
+                                    Tambien, el uso de la terminología del RFC 4949 facilitó describir de
+                                    forma técnica los tipos de amenazas, vulnerabilidades y ataques involucrados.
+                                    La combinación de ambos proporciona una visión integral que
+                                    fortalece la comprensión de los incidentes y apoya la definición de medidas de
+                                    control adecuadas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>5. Referencias</h2>
+                            <ul class="reference-list">
+                                <li>ITU-T. (1991). Recommendation X.800: Security Architecture for Open Systems
+                                    Interconnection. International Telecommunication Union.</li>
+                                <li>Shirey, R. (2007). RFC 4949: Internet Security Glossary, Version 2.
+                                    Internet Engineering Task Force (IETF).</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/176658-Act02.pdf" download class="btn-pdf">
+                                📄 Descargar PDF
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a
+                            href="./presentacion.html" title="">Presentación</a> | <a href="./contacto.html"
+                            title="">Contacto</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            navActivePage();
+        });
+    </script>
+    <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>

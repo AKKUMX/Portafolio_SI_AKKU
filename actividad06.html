@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 06 - Implementación de IPSec VPN" name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 06 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .navbar-nav li a:hover {
+            color: #58a6ff;
+        }
+
+        .footer-container {
+            background-color: #21262d;
+            color: #e0e0e0;
+            border-top: 1px solid #30363d;
+        }
+
+        #site-border-left,
+        #site-border-right,
+        #site-border-top,
+        #site-border-bottom {
+            background-color: #161b22;
+        }
+
+        .section-container {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+        }
+
+        /* ===== Article Styles ===== */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-header .article-meta {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            margin: 24px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .article-section {
+            margin-bottom: 40px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+        }
+
+        .article-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #79c0ff;
+        }
+
+        /* Bloques de Código/Consola */
+        .code-block {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #79c0ff;
+            margin: 15px 0;
+            font-size: 13px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .console-output {
+            color: #8b949e;
+            /* Color gris para logs del sistema */
+        }
+
+        .media-placeholder {
+            background: #21262d;
+            border: 2px dashed #30363d;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #8b949e;
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+            border-left: 4px solid #58a6ff;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .reflection-box p {
+            color: #c9d1d9;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+
+            .navbar,
+            .footer-container,
+            .btn-back,
+            .btn-pdf,
+            .media-placeholder {
+                display: none !important;
+            }
+
+            .section-container {
+                border: none !important;
+            }
+
+            .code-block {
+                border: 1px solid #ccc;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./index.html">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html">02 : Presentación</a></li>
+                        <li><a href="./TPT.html">03 : Actividades</a></li>
+                        <li><a href="./contacto.html">04 : Contacto</a></li>
+                        <li><a href="./informacion.html">05 : Información</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="article-container">
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 06</div>
+                            <h1>Implementación de IPSec VPN</h1>
+                            <p class="article-meta">
+                                <strong>Alumno:</strong> Pedro Damian Jasso Dávila (176658)<br>
+                                <strong>Materia:</strong> CNO V: Seguridad Informática<br>
+                                <strong>Fecha:</strong> 16/02/2026 | Mtro. Servando López Contreras
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Introducción Contextual</h2>
+                            <p>
+                                IPSec (Internet Protocol Security) es un conjunto de protocolos que aseguran las
+                                comunicaciones IP autenticando y cifrando cada paquete IP de una sesión de comunicación.
+                                Las VPNs (Virtual Private Networks) basadas en IPSec son fundamentales en la
+                                infraestructura de seguridad moderna, permitiendo conectar sedes remotas (Site-to-Site)
+                                de manera segura a través de redes públicas como Internet, garantizando la
+                                confidencialidad, integridad y autenticidad de los datos en tránsito.
+                            </p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Desarrollo Técnico</h2>
+
+                            <h3>1) Configuración Inicial</h3>
+                            <p>Para hacer la configuración inicial en Packet Tracer usamos 3 Routers 1941, 2 Switches
+                                2960 y dos PC's para iniciar.</p>
+                            <ul>
+                                <li>1941 Router1, Router0 (ISP), Router2</li>
+                                <li>2960-24TT Switch0, Switch1</li>
+                                <li>PC-PT PC0, PC1</li>
+                            </ul>
+
+                            <p><strong>Conexiones físicas:</strong></p>
+                            <ul>
+                                <li>PC0 (Fa0) -> Switch0 (Fa0/19)</li>
+                                <li>Switch0 (G0/1) -> Router1 (G0/1)</li>
+                                <li>Router1 (G0/0) -> Router0 (ISP) (G0/0)</li>
+                                <li>Router0 (ISP) (G0/1) -> Router2 (G0/0)</li>
+                                <li>Router2 (G0/1) -> Switch1 (G0/1)</li>
+                                <li>Switch1 (Fa0/19) -> PC1 (Fa0)</li>
+                            </ul>
+                            <img src="./assets/images/6.1.png">
+
+                            <h4>Configuración Router 1 (R1)</h4>
+                            <div class="code-block">
+                                Router>en
+                                Router#conf t
+                                Enter configuration commands, one per line. End with CNTL/Z.
+                                Router(config)#hostname R1
+                                R1(config)#interface G0/1
+                                R1(config-if)#ip address 192.168.1.1 255.255.255.0
+                                R1(config-if)#no shut
+                                <span class="console-output">LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state
+                                    to up
+                                    LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to
+                                    up</span>
+                                R1(config-if)#interface G0/0
+                                R1(config-if)#ip address 209.165.100.1 255.255.255.0
+                                R1(config-if)#no shut
+                                <span class="console-output">LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state
+                                    to up</span>
+                                R1(config)#ip route 0.0.0.0 0.0.0.0 209.165.100.2
+                            </div>
+                            <img src="./assets/images/6.2.png">
+
+                            <h4>Configuración Router 2 (R2)</h4>
+                            <div class="code-block">
+                                Router>en
+                                Router#conf t
+                                Enter configuration commands, one per line. End with CNTL/Z.
+                                Router(config)#hostname R2
+                                R2(config)#Interface G0/1
+                                R2(config-if)#ip address 192.168.3.1 255.255.255.0
+                                R2(config-if)#no shut
+                                <span class="console-output">LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state
+                                    to up
+                                    LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to
+                                    up</span>
+                                R2(config-if)#interface G0/0
+                                R2(config-if)#ip address 209.165.200.1 255.255.255.0
+                                R2(config-if)#no shut
+                                <span class="console-output">LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state
+                                    to up</span>
+                                R2(config-if)#ip route 0.0.0.0 0.0.0.0 209.165.200.2
+                            </div>
+                            <img src="./assets/images/6.3.png">
+
+                            <h4>Configuración ISP (Router0)</h4>
+                            <div class="code-block">
+                                Router>en
+                                Router#conf t
+                                Router(config)#hostname ISP
+                                ISP(config)#interface G0/0
+                                ISP(config-if)#ip address 209.165.100.2 255.255.255.0
+                                ISP(config-if)#no shut
+                                ISP(config-if)#interface G0/1
+                                ISP(config-if)#ip address 209.165.200.2 255.255.255.0
+                                ISP(config-if)#no shut
+                                ISP(config-if)#ip route 0.0.0.0 0.0.0.0 209.165.200.1
+                            </div>
+                            <img src="./assets/images/6.4.png">
+
+                            <h3>2) Licencia de seguridad Habilitada</h3>
+                            <p>Estas licencias se activan en el Router 1 y Router 2 con el siguiente comando:</p>
+                            <div class="code-block">
+                                R1>en
+                                R1#conf t
+                                R1(config)#license boot module c1900 technology-package securityk9
+
+                                PLEASE READ THE FOLLOWING TERMS CAREFULLY.
+                                INSTALLING THE LICENSE OR LICENSE KEY PROVIDED FOR ANY CISCO PRODUCT FEATURE OR USING
+                                SUCH PRODUCT FEATURE CONSTITUTES YOUR FULL ACCEPTANCE OF THE FOLLOWING TERMS. YOU MUST
+                                NOT PROCEED FURTHER IF YOU ARE NOT WILLING TO BE BOUND BY ALL THE TERMS SET FORTH
+                                HEREIN.
+
+                                Use of this product feature requires an additional license from Cisco, together with an
+                                additional payment. You may use this product feature on an evaluation basis, without
+                                payment to Cisco, for 60 days. Your use of the product, including during the 60 day
+                                evaluation period, is subject to the Cisco end user license agreement.
+
+                                If you use the product feature beyond the 60 day evaluation period, you must submit the
+                                appropriate payment to Cisco for the license. After the 60 day evaluation period, your
+                                use of the product feature will be governed solely by the Cisco end user license
+                                agreement (link above), together with any supplements relating to such product feature.
+
+                                The above applies even if the evaluation license is not automatically terminated and you
+                                do not receive any notice of the expiration of the evaluation period. It is your
+                                responsibility to determine when the evaluation period is complete and you are required
+                                to make payment to Cisco for your use of the product feature beyond the evaluation
+                                period.
+
+                                Your acceptance of this agreement for the software features on one product shall be
+                                deemed your acceptance with respect to all such software on all Cisco products you
+                                purchase which includes the same software.
+
+                                Activation of the software command line interface will be evidence of your acceptance of
+                                this agreement.
+
+                                ACCEPT? [yes/no]: y
+                            </div>
+                            <p>Posteriormente guardamos y recargamos:</p>
+                            <div class="code-block">
+                                R1#copy run start
+                                R1#reload
+                                R1#show version
+                                <span class="console-output">Cisco IOS Software, C1900 Software (C1900-UNIVERSALK9-M),
+                                    Version 15.1(4)M4...</span>
+                            </div>
+                            <p><em>(Se realiza el mismo procedimiento en R2).</em></p>
+
+                            <h3>3) Implementación ACLs</h3>
+                            <p>Definimos el tráfico interesante que pasará por la VPN.</p>
+                            <div class="code-block">
+                                R1(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 192.168.3.0 0.0.0.255
+
+                                R2(config)#access-list 100 permit ip 192.168.3.0 0.0.0.255 192.168.1.0 0.0.0.255
+                            </div>
+
+                            <h3>4) Phase 01: ISAKMP policy</h3>
+                            <div class="code-block">
+                                R1(config)#crypto isakmp policy 10
+                                R1(config-isakmp)#encryption aes 256
+                                R1(config-isakmp)#authentication pre-share
+                                R1(config-isakmp)#group 5
+                                R1(config-isakmp)#exit
+                                R1(config)#crypto isakmp key secretkey address 209.165.200.1
+                            </div>
+
+                            <h3>5) Phase 02: IPSec transform-set</h3>
+                            <div class="code-block">
+                                R1(config)#crypto ipsec transform-set 50-ESP esp-aes 256 esp-sha-hmac
+                            </div>
+
+                            <h3>6) Crear el mapa criptográfico</h3>
+                            <div class="code-block">
+                                R1(config)#crypto map IPSEC-MAP 10 ipsec-isakmp
+                                <span class="console-output">% NOTE: This new crypto map will remain disabled until a
+                                    peer and a valid access list have been configured.</span>
+                                R1(config-crypto-map)#set peer 209.165.200.1
+                                R1(config-crypto-map)#set pfs group5
+                                R1(config-crypto-map)#set security-association lifetime seconds 86400
+                                R1(config-crypto-map)#set transform-set 50-ESP
+                                R1(config-crypto-map)#match address 100
+                            </div>
+
+                            <h3>7) Aplicar el mapa criptográfico</h3>
+                            <div class="code-block">
+                                R1(config)#interface g0/0
+                                R1(config-if)#crypto map IPSEC-MAP
+                                <span class="console-output">*Jan 3 07:18:24.788: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is
+                                    ON</span>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Resultado final</h2>
+                            <div>
+                                <img src="./assets/images/6.5.png">
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>4. Reflexión Técnica</h2>
+                            <div class="reflection-box">
+                                <p>
+                                    La implementación de IPSec VPN Site-to-Site demuestra la importancia de proteger los
+                                    datos en tránsito. La configuración de las dos fases (IKE Phase 1 para el canal
+                                    seguro de gestión y IKE Phase 2 para el cifrado de datos) junto con el uso de listas
+                                    de control de acceso (ACL) para definir el tráfico interesante, garantiza que solo
+                                    la información autorizada sea encapsulada y cifrada. La activación de licencias de
+                                    seguridad (securityk9) es un paso crítico en equipos Cisco ISR G2 para habilitar las
+                                    capacidades criptográficas necesarias.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>5. Referencias Técnicas</h2>
+                            <ul class="reference-list">
+                                <li>[1] Cisco Systems. (2024). <em>Configuring Security for VPNs with IPsec</em>. Cisco
+                                    IOS Security Configuration Guide.</li>
+                                <li>[2] Networking Academy. (2026). <em>CCNA Security: Site-to-Site VPNs</em>. Cisco
+                                    Press.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/176658-act06.pdf" download class="btn-pdf">
+                                📄 Descargar PDF
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>
