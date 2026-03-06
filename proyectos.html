@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="Proyectos de seguridad informática – Portafolio AKKU" name="description">
+  <meta name="google" content="notranslate" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link href="./assets/favicon.ico" rel="icon">
+
+  <title>Proyectos | Portafolio AKKU</title>
+
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #f0f0f0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #ffffff;
+    }
+
+    h1.h2,
+    h2.h2,
+    h3.h2 {
+      color: #ffffff !important;
+    }
+
+    p,
+    li {
+      color: #e0e0e0;
+    }
+
+    a {
+      color: #79c0ff;
+    }
+
+    a:hover {
+      color: #58a6ff;
+    }
+
+    .navbar {
+      background-color: #21262d;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .navbar-nav li a {
+      color: #f0f0f0;
+    }
+
+    .navbar-nav li a:hover {
+      color: #58a6ff;
+    }
+
+    .footer-container {
+      background-color: #21262d;
+      color: #e0e0e0;
+      border-top: 1px solid #30363d;
+    }
+
+    .footer-container a {
+      color: #79c0ff;
+    }
+
+    .footer-container a:hover {
+      color: #58a6ff;
+    }
+
+    #site-border-left,
+    #site-border-right,
+    #site-border-top,
+    #site-border-bottom {
+      background-color: #161b22;
+    }
+
+    .navbar-toggle .icon-bar {
+      background-color: #79c0ff;
+    }
+
+    /* ── Page Layout ── */
+    .page-header-section {
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .page-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+      color: #0d1117;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .page-header-section h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .page-header-section p {
+      color: #8b949e;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Parcial Section ── */
+    .parcial-section {
+      padding: 40px 0 20px;
+    }
+
+    .parcial-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .parcial-label h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #58a6ff;
+      margin: 0;
+    }
+
+    .parcial-label .parcial-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, #30363d, transparent);
+    }
+
+    /* ── Project Cards ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+
+    .project-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #58a6ff;
+      box-shadow: 0 12px 32px rgba(88, 166, 255, 0.15);
+    }
+
+    .project-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85) saturate(1.1);
+      transition: filter 0.25s ease;
+    }
+
+    .project-card:hover .project-card-img {
+      filter: brightness(1) saturate(1.2);
+    }
+
+    .project-card-body {
+      padding: 20px 22px 24px;
+    }
+
+    .project-card-meta {
+      font-size: 11px;
+      color: #58a6ff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-card-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 10px;
+      line-height: 1.4;
+    }
+
+    .project-card-body p {
+      font-size: 13px;
+      color: #8b949e;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #79c0ff;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .btn-project-enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+      color: #0d1117;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-project-enter:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(88, 166, 255, 0.35);
+      color: #0d1117;
+      text-decoration: none;
+    }
+
+    /* ── Coming Soon Card ── */
+    .project-card-soon {
+      background: #161b22;
+      border: 1px dashed #30363d;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      padding: 30px;
+      text-align: center;
+      opacity: 0.5;
+    }
+
+    .project-card-soon .soon-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .project-card-soon p {
+      font-size: 13px;
+      color: #8b949e;
+    }
+
+    .section-container {
+      background-color: #0d1117;
+      padding: 0 20px 60px;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html" title="">01 : Inicio</a></li>
+            <li><a href="./presentacion.html" title="">02 : Presentación</a></li>
+            <li><a href="./TPT.html" title="">03 : Actividades</a></li>
+            <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+            <li><a href="./informacion.html" title="">05 : Información</a></li>
+            <li class="active"><a href="./proyectos.html" title="">06 : Proyectos</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="section-container">
+    <div class="container">
+
+      <!-- Page Header -->
+      <div class="page-header-section">
+        <div class="page-badge">Portafolio</div>
+        <h1>Proyectos de Investigación</h1>
+        <p>Investigaciones aplicadas, simulaciones y desarrollos en el área de Seguridad Informática. CNO V – UPSLP.</p>
+      </div>
+
+      <!-- Parcial 1 -->
+      <div class="parcial-section">
+        <div class="parcial-label">
+          <h2>Parcial 1</h2>
+          <div class="parcial-line"></div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- PR01 Card -->
+          <div class="project-card">
+            <img src="./assets/images/pr01_walkthrough.png" alt="De la teoría a la práctica: walkthrough en acción"
+              class="project-card-img">
+            <div class="project-card-body">
+              <div class="project-card-meta">PR01 &nbsp;·&nbsp; Walkthrough Práctico</div>
+              <h3>De la teoría a la práctica: walkthrough en acción</h3>
+              <p>Preparación, explotación y documentación detallada de la máquina virtual Snakeoil, aplicando
+                fundamentos teóricos de seguridad (guía y video).</p>
+              <div class="tag-list">
+                <span class="tag">Pentesting</span>
+                <span class="tag">VulnHub</span>
+                <span class="tag">Snakeoil</span>
+              </div>
+              <a href="./PR01.html" class="btn-project-enter">Ver Walkthrough →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parcial 2 -->
+      <div class="parcial-section" style="padding-top:10px;">
+        <div class="parcial-label">
+          <h2>Parcial 2</h2>
+          <div class="parcial-line"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PR02 Card -->
+          <div class="project-card">
+            <img src="./assets/images/phishing_platforms.png" alt="Investigación Comparativa de Plataformas de Phishing"
+              class="project-card-img">
+            <div class="project-card-body">
+              <div class="project-card-meta">PR02 &nbsp;·&nbsp; Investigación Comparativa</div>
+              <h3>El eslabón más débil: Plataformas de Simulación de Phishing</h3>
+              <p>Análisis profundo y comparativo de 8 plataformas profesionales de simulación de phishing, con fichas
+                técnicas, tabla comparativa y análisis ético.</p>
+              <div class="tag-list">
+                <span class="tag">Hoxhunt</span>
+                <span class="tag">KnowBe4</span>
+                <span class="tag">Proofpoint</span>
+                <span class="tag">Cofense</span>
+                <span class="tag">+4 más</span>
+              </div>
+              <a href="./PR02.html" class="btn-project-enter">Ver Investigación →</a>
+            </div>
+          </div>
+
+          <!-- Próximamente 1 -->
+          <!--<div class="project-card-soon">
+            <div class="soon-icon">⚗️</div>
+            <p>Próximo proyecto<br>en desarrollo</p>
+          </div>
+
+           Próximamente 2 
+          <div class="project-card-soon">
+            <div class="soon-icon">🔐</div>
+            <p>Próximo proyecto<br>en desarrollo</p>
+          </div> -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a href="./presentacion.html"
+              title="">Presentación</a> | <a href="./contacto.html" title="">Contacto</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+    });
+  </script>
+
+  <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>

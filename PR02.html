@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="PR02 – Investigación Comparativa de Plataformas de Simulación de Phishing | Portafolio AKKU" name="description">
+  <meta name="google" content="notranslate"/>
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link href="./assets/favicon.ico" rel="icon">
+  <title>PR02 – Plataformas de Phishing | Portafolio AKKU</title>
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+  <style>
+    body{background-color:#0d1117;color:#f0f0f0;padding-top:80px;}/* espacio navbar-fixed-top */
+    h1,h2,h3,h4,h5,h6{color:#fff;}
+    p,li{color:#c9d1d9;}
+    a{color:#79c0ff;}
+    a:hover{color:#58a6ff;}
+    .navbar{background-color:#21262d;border-bottom:1px solid #30363d;}
+    .navbar-nav li a{color:#f0f0f0;}
+    .navbar-nav li a:hover{color:#58a6ff;}
+    .footer-container{background-color:#21262d;color:#e0e0e0;border-top:1px solid #30363d;}
+    .footer-container a{color:#79c0ff;}
+    #site-border-left,#site-border-right,#site-border-top,#site-border-bottom{background-color:#161b22;}
+    .navbar-toggle .icon-bar{background-color:#79c0ff;}
+    .section-container{background-color:#161b22;padding:20px;border-radius:5px;border:1px solid #30363d;}
+
+    /* Article */
+    .article-container{max-width:1000px;margin:0 auto;}
+    .article-header{text-align:center;margin-bottom:40px;padding-bottom:30px;border-bottom:1px solid #30363d;}
+    .activity-badge{display:inline-block;background:linear-gradient(135deg,#58a6ff,#79c0ff);color:#0d1117;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+    .article-header h1{font-size:28px;font-weight:700;line-height:1.3;margin-bottom:12px;}
+    .article-meta{color:#8b949e;font-size:14px;margin-top:10px;}
+    .section-divider{width:60px;height:3px;background:linear-gradient(90deg,#58a6ff,#79c0ff);margin:24px auto;border:none;border-radius:2px;}
+    .article-section{margin-bottom:40px;}
+    .article-section h2{font-size:22px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #58a6ff;display:inline-block;margin-top:30px;}
+    .article-section h3{font-size:18px;font-weight:600;margin-bottom:12px;margin-top:24px;color:#79c0ff;}
+    .article-section h4{font-size:15px;font-weight:600;color:#58a6ff;margin-bottom:8px;margin-top:16px;}
+    .article-section p{line-height:1.8;margin-bottom:14px;text-align:justify;}
+    .article-section ul,.article-section ol{padding-left:24px;margin-bottom:16px;}
+    .article-section li{margin-bottom:8px;line-height:1.7;}
+
+    /* Tables */
+    .table-responsive{overflow-x:auto;margin-bottom:20px;}
+    .cyber-table{width:100%;border-collapse:collapse;background:#1a202c;border:1px solid #30363d;font-size:13px;}
+    .cyber-table th,.cyber-table td{padding:10px 13px;border:1px solid #30363d;text-align:left;color:#c9d1d9;vertical-align:top;}
+    .cyber-table th{background:#21262d;color:#58a6ff;font-weight:700;text-transform:uppercase;font-size:12px;}
+    .cyber-table tr:nth-child(even){background:#161b22;}
+    .cyber-table tr:hover{background:#262c36;}
+    .cyber-table td strong{color:#ffffff;}
+
+    /* Platform Cards */
+    .platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:22px;margin:24px 0;}
+    .platform-card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:22px 24px;transition:border-color .25s,box-shadow .25s;}
+    .platform-card:hover{border-color:#58a6ff;box-shadow:0 8px 28px rgba(88,166,255,.12);}
+    .platform-card-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+    .platform-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .platform-card-header h3{margin:0;font-size:17px;color:#fff;}
+    .platform-card-header .platform-tag{font-size:11px;color:#8b949e;letter-spacing:1px;text-transform:uppercase;}
+    .platform-meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:12px;}
+    .platform-meta-item{font-size:12px;color:#8b949e;}
+    .platform-meta-item strong{color:#79c0ff;display:block;font-size:11px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;}
+    .platform-desc{font-size:13px;line-height:1.7;color:#c9d1d9;margin-bottom:12px;}
+    .platform-strengths,.platform-limits{font-size:12px;padding:8px 12px;border-radius:6px;margin-bottom:8px;}
+    .platform-strengths{background:rgba(88,166,255,.06);border-left:3px solid #58a6ff;}
+    .platform-limits{background:rgba(255,111,111,.05);border-left:3px solid #f85149;}
+    .platform-strengths span,.platform-limits span{font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:1px;}
+    .platform-strengths span{color:#58a6ff;}
+    .platform-limits span{color:#f85149;}
+
+    /* Reflection box */
+    .reflection-box{background:linear-gradient(135deg,#161b22,#1a2233);border-left:4px solid #58a6ff;padding:22px 26px;border-radius:0 8px 8px 0;margin:20px 0;}
+    .reflection-box p{font-style:italic;line-height:1.8;}
+
+    /* References */
+    .reference-list{list-style:none;padding:0;}
+    .reference-list li{padding:9px 0;border-bottom:1px solid #21262d;font-size:13px;color:#8b949e;}
+    .reference-list li:last-child{border-bottom:none;}
+
+    /* Buttons */
+    .btn-back{display:inline-flex;align-items:center;gap:8px;color:#79c0ff;font-size:14px;text-decoration:none;margin-bottom:24px;padding:8px 16px;border:1px solid #30363d;border-radius:6px;transition:all .3s;}
+    .btn-back:hover{color:#58a6ff;border-color:#58a6ff;background:rgba(88,166,255,.05);text-decoration:none;}
+
+    /* Score tags */
+    .score-tag{display:inline-block;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:700;}
+    .score-high{background:rgba(63,185,80,.15);color:#3fb950;border:1px solid rgba(63,185,80,.3);}
+    .score-med{background:rgba(210,153,34,.15);color:#d2993a;border:1px solid rgba(210,153,34,.3);}
+    .score-low{background:rgba(248,81,73,.15);color:#f85149;border:1px solid rgba(248,81,73,.3);}
+
+    @media print{
+      body{background:#fff!important;color:#000!important;}
+      .navbar,.footer-container,.btn-back,#site-border-left,#site-border-right,#site-border-top,#site-border-bottom{display:none!important;}
+      .section-container{background:#fff!important;border:none!important;}
+      h1,h2,h3,h4,h5,h6,p,li,th,td{color:#000!important;}
+      .cyber-table th{background:#eee!important;color:#000!important;}
+      .platform-card,.reflection-box{border:1px solid #ccc!important;background:#f9f9f9!important;}
+    }
+  </style>
+</head>
+
+<body class="">
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html">01 : Inicio</a></li>
+            <li><a href="./presentacion.html">02 : Presentación</a></li>
+            <li><a href="./TPT.html">03 : Actividades</a></li>
+            <li><a href="./contacto.html">04 : Contacto</a></li>
+            <li><a href="./informacion.html">05 : Información</a></li>
+            <li class="active"><a href="./proyectos.html">06 : Proyectos</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 section-container-spacer">
+          <div class="article-container">
+
+            <a href="./proyectos.html" class="btn-back">← Volver a Proyectos</a>
+
+            <!-- HEADER -->
+            <div class="article-header">
+              <div class="activity-badge">PR02 · Investigación Comparativa</div>
+              <h1>El eslabón más débil: Diseño ético de una campaña de ingeniería social.<br>
+                <small style="font-size:18px;color:#79c0ff;">Investigación Comparativa de Plataformas de Simulación de Phishing</small>
+              </h1>
+              <p class="article-meta">
+                <strong>Autor:</strong> Jasso Dávila Pedro Damián (AKKU)<br>
+                <strong>Fecha:</strong> Marzo 2026 &nbsp;|&nbsp; <strong>Mtro.</strong> Servando López Contreras<br>
+                CNO V – Seguridad Informática &nbsp;|&nbsp; UPSLP
+              </p>
+              <hr class="section-divider">
+            </div>
+
+            <!-- 1. MARCO TEÓRICO -->
+            <div class="article-section">
+              <h2>1. Marco Teórico y Fundamentación Técnica</h2>
+
+              <h3>1.1 ¿Qué es la simulación de phishing?</h3>
+              <p>La <strong>simulación de phishing</strong> es una práctica de ciberseguridad controlada que consiste en enviar correos electrónicos de ingeniería social ficticios a los usuarios de una organización —con su consentimiento institucional— para medir su nivel de susceptibilidad ante ataques reales. A diferencia de un ataque malicioso real, el objetivo no es comprometer sistemas sino <em>educar, medir y mejorar</em> la postura humana de seguridad.</p>
+              <p>El factor humano continúa siendo el vector predominante de compromiso en ciberseguridad. Según el reporte <em>Verizon Data Breach Investigations Report (DBIR) 2023</em>, el <strong>74% de todas las brechas registradas involucran el elemento humano</strong>, ya sea a través de ingeniería social, errores o abuso de privilegios. Esta realidad hace indispensable la capacitación activa y medible de los usuarios.</p>
+
+              <h3>1.2 Métricas fundamentales del ecosistema</h3>
+              <p>Las plataformas profesionales de simulación de phishing operan a través de métricas estandarizadas que permiten cuantificar el riesgo humano y medir la evolución del comportamiento:</p>
+              <div class="table-responsive">
+                <table class="cyber-table">
+                  <thead><tr><th>Métrica</th><th>Definición técnica</th><th>Interpretación</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Click Rate</strong></td><td>Porcentaje de usuarios que hicieron clic en el enlace malicioso simulado respecto al total de destinatarios.</td><td>Indicador directo de susceptibilidad. Industria: promedio ~30% sin capacitación, meta &lt;5% con entrenamiento continuo (KnowBe4, 2023).</td></tr>
+                    <tr><td><strong>Reporting Rate</strong></td><td>Porcentaje de usuarios que reportaron activamente el correo simulado como sospechoso.</td><td>Mide la cultura de seguridad proactiva. Un alto reporting rate es el KPI de mayor valor para los SOC.</td></tr>
+                    <tr><td><strong>Risk Score / PHI</strong></td><td>Índice ponderado que combina historial de clics, reportes, velocidad de respuesta y participación en módulos de formación. (PHI = Phishing Habit Index en Hoxhunt).</td><td>Permite segmentación de usuarios por nivel de riesgo individual y departamental para campañas adaptativas.</td></tr>
+                    <tr><td><strong>Dwell Time</strong></td><td>Tiempo transcurrido entre la llegada del correo y la acción del usuario (clic o reporte).</td><td>Un dwell time bajo en clics indica impulsividad; un reporting time rápido indica cultura de alerta.</td></tr>
+                    <tr><td><strong>Repeat Click Rate</strong></td><td>Frecuencia con la que un usuario reincide en caer en simulaciones después de haber recibido formación.</td><td>Identifica usuarios de alto riesgo persistente que requieren intervención adicional.</td></tr>
+                    <tr><td><strong>Simulation Difficulty Score</strong></td><td>Clasificación de la complejidad del escenario de phishing (1–5 estrellas) basada en señales de peligro visibles.</td><td>Permite calcular el rendimiento ajustado por dificultad y hacer comparaciones justas entre departamentos.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>1.3 Enfoques de entrenamiento</h3>
+              <p>Las plataformas del mercado adoptan dos paradigmas de entrenamiento fundamentales, que en la práctica moderna tienden a combinarse:</p>
+              <ul>
+                <li><strong>Enfoque reactivo (Teachable Moments):</strong> El usuario recibe inmediatamente un micro-módulo educativo al momento de hacer clic en la simulación. Este modelo, popularizado por KnowBe4, aprovecha el "momento de error" para maximizar la retención del aprendizaje.</li>
+                <li><strong>Enfoque adaptativo-gamificado:</strong> La plataforma ajusta dinámicamente la dificultad y frecuencia de las simulaciones en función del comportamiento histórico del usuario. Hoxhunt es el referente de este modelo, utilizando inteligencia artificial para personalizar cada campaña.</li>
+                <li><strong>Enfoque de simulación avanzada (BEC/MFA/Voice):</strong> Plataformas como Proofpoint y Cofense replican escenarios de phishing sofisticados: Business Email Compromise (BEC), ataques de vishing, smishing y secuencias de múltiples pasos que imitan APTs reales.</li>
+              </ul>
+
+              <h3>1.4 Marco ético de la simulación de phishing</h3>
+              <p>Toda simulación de phishing debe operar bajo un marco ético riguroso para evitar convertirse en una herramienta de vigilancia o coerción laboral. Los principios irrenunciables son:</p>
+              <ul>
+                <li><strong>Consentimiento institucional informado:</strong> La dirección y los representantes legales de la organización autorizan el programa; los empleados son informados de la existencia de un programa de simulación (no de sus detalles ni fechas).</li>
+                <li><strong>No captura de credenciales reales:</strong> Las páginas de destino (landing pages) simuladas nunca deben almacenar contraseñas ni información personal real. Las plataformas certificadas incluyen salvaguardas técnicas para prevenir esto.</li>
+                <li><strong>Retroalimentación formativa, no punitiva:</strong> Los resultados no deben usarse para sancionar empleados. La finalidad es educativa y de mejora continua.</li>
+                <li><strong>Privacidad y cumplimiento normativo:</strong> El manejo de datos de comportamiento debe cumplir con GDPR, CCPA o la legislación local aplicable (en México, la Ley Federal de Protección de Datos Personales en Posesión de los Particulares – LFPDPPP).</li>
+              </ul>
+            </div>
+
+            <!-- 2. FICHAS DESCRIPTIVAS -->
+            <div class="article-section">
+              <h2>2. Análisis Individual de las 8 Plataformas</h2>
+              <p>A continuación se presentan las fichas descriptivas y el análisis crítico diferenciador de cada plataforma evaluada. Las plataformas se ordenan por cuota de mercado y madurez técnica.</p>
+
+              <div class="platform-grid">
+
+                <!-- KnowBe4 -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(255,163,0,.12);color:#ffa300;">🎓</div>
+                    <div>
+                      <h3>KnowBe4</h3>
+                      <div class="platform-tag">Líder de mercado · Tampa, FL, EE.UU.</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2010</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS / Suscripción</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;65,000 organizaciones</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>ISO 27001, SOC 2</div>
+                  </div>
+                  <p class="platform-desc">KnowBe4 es la plataforma con mayor cuota de mercado global en security awareness training (SAT). Su modelo combina una biblioteca con &gt;5,000 plantillas de phishing, módulos de formación interactiva y el concepto de "Teachable Moment": al hacer clic en una simulación, el usuario recibe automáticamente un micro-módulo educativo contextualizado. Utiliza el índice <em>KnowBe4 Phishing by Industry Benchmarking</em> para comparar resultados contra la industria. Su infraestructura analítica, AIDA (Artificial Intelligence Driven Agent), personaliza campañas automáticamente.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Biblioteca más grande del mercado; integración nativa con Microsoft 365, Google Workspace, Azure AD; soporte multi-idioma (35+); informes ejecutivos automatizados; precio competitivo para pymes.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Interfaz compleja para administradores nuevos; soporte técnico limitado en plan básico; simulaciones avanzadas de BEC requieren tier premium; menor personalización de IA vs. Hoxhunt.</div>
+                </div>
+
+                <!-- Hoxhunt -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(88,166,255,.12);color:#58a6ff;">🤖</div>
+                    <div>
+                      <h3>Hoxhunt</h3>
+                      <div class="platform-tag">IA Adaptativa · Helsinki, Finlandia</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2016</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS Enterprise</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;2,000 empresas</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>GDPR, ISO 27001, SOC 2</div>
+                  </div>
+                  <p class="platform-desc">Hoxhunt representa la nueva generación de plataformas de phishing con IA generativa en el núcleo. Su diferenciador es el <em>Phishing Habit Index (PHI)</em> — un score individual que integra múltiples variables de comportamiento — y su motor de gamificación (recompensas, misiones, clasificaciones de equipo). Las simulaciones son generadas dinámicamente por IA: cada usuario recibe escenarios únicos calibrados a su historial. La plataforma puede replicar amenazas recientes extraídas de feeds de inteligencia de amenazas en tiempo real.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Mayor personalización por IA del mercado; gamificación que incrementa 3x el engagement; PHI como métrica diferenciada; excelente experiencia de usuario (UX) del empleado; soporte GDPR nativo.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Precio elevado, orientado a enterprise; curva de adopción alta para organizaciones sin cultura digital; menor biblioteca de contenido formativo vs. KnowBe4; soporte en inglés/finlandés prioritario.</div>
+                </div>
+
+                <!-- Proofpoint -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(121,192,255,.12);color:#79c0ff;">🛡️</div>
+                    <div>
+                      <h3>Proofpoint Security Awareness</h3>
+                      <div class="platform-tag">Enterprise · Sunnyvale, CA, EE.UU.</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2002 (módulo SAT: 2017)</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS Enterprise</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;230,000 org. (suite completa)</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>FedRAMP, SOC 2, ISO 27001</div>
+                  </div>
+                  <p class="platform-desc">Proofpoint Security Awareness Training (PSAT) forma parte del ecosistema Proofpoint Threat Protection. Su mayor ventaja competitiva es la integración directa con el gateway de correo de Proofpoint: las amenazas reales interceptadas por el sistema de filtrado se convierten en plantillas de simulación casi en tiempo real. Incluye el módulo <em>Very Attacked People (VAP)</em> para identificar empleados de alta exposición y el <em>Threat Intelligence Feed</em> para campañas basadas en TTPs actuales de actores de amenaza.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Integración superior con infraestructura de seguridad existente; simulaciones basadas en amenazas reales; análisis VAP; reportería ejecutiva C-level; certificación FedRAMP para sectores regulados (gobierno, salud).</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Requiere ecosistema Proofpoint para máximo beneficio; precio más elevado del segmento; implementación compleja; UX del empleado menos amigable; mínima funcionalidad de gamificación.</div>
+                </div>
+
+                <!-- Cofense -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(63,185,80,.12);color:#3fb950;">🎣</div>
+                    <div>
+                      <h3>Cofense (PhishMe)</h3>
+                      <div class="platform-tag">Threat Intel · Leesburg, VA, EE.UU.</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2008 (rebrand 2018)</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS + Managed Services</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;35 millones de empleados</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>ISO 27001, SOC 2 Type II</div>
+                  </div>
+                  <p class="platform-desc">Cofense (antes PhishMe) se diferencia por su red de inteligencia colaborativa: las organizaciones clientes reportan amenazas reales que alimentan una base de datos compartida — <em>Cofense Intelligence</em> — que genera plantillas de simulación basadas en campañas activas detectadas en la red de clientes. Su botón de reporte nativo (PhishMe Reporter) integrado en Outlook simplifica el flujo de reporte y conecta directamente con el SOC para triaje automatizado.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Red de inteligencia colaborativa única; flujo SOC–usuario seamless; simulaciones de alta fidelidad basadas en TTPs reales; capacidades de respuesta a incidentes integradas; fuerte en sectores financiero y salud.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Mayor costo operativo; requiere madurez de SOC para aprovechar inteligencia; módulos de formación menos variados que KnowBe4; implementación más larga.</div>
+                </div>
+
+                <!-- Phished -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(210,153,34,.12);color:#d2993a;">🧠</div>
+                    <div>
+                      <h3>Phished</h3>
+                      <div class="platform-tag">IA Conductual · Gante, Bélgica</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2017</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;1,500 organizaciones</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>GDPR, ISO 27001</div>
+                  </div>
+                  <p class="platform-desc">Phished es una plataforma europea que combina simulación de phishing con un sistema de aprendizaje conductual denominado <em>Phishing Resiliency Score</em>. Integra múltiples vectores de ataque en una misma plataforma: phishing por email, smishing (SMS), vishing (llamada de voz simulada) y ataques de QR code. Su motor de IA denomina <em>Phished AI</em> segmenta automáticamente a los usuarios y ajusta los escenarios. Destaca por su cumplimiento nativo con regulaciones europeas de privacidad.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Multi-vector nativo (email, SMS, voz, QR); cumplimiento GDPR por diseño; Phishing Resiliency Score; interfaz intuitiva; precio accesible para empresas europeas medianas.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Liderazgo de marca menor fuera de Europa; biblioteca de contenido en expansión; integraciones limitadas vs. líderes de mercado; comunidad y soporte más pequeños.</div>
+                </div>
+
+                <!-- Ninjio -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(248,81,73,.12);color:#f85149;">🎬</div>
+                    <div>
+                      <h3>NINJIO</h3>
+                      <div class="platform-tag">Micro-learning · Agoura Hills, CA, EE.UU.</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2016</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;4,000 organizaciones</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>SOC 2, ISO 27001</div>
+                  </div>
+                  <p class="platform-desc">NINJIO se posiciona en el mercado con un enfoque radicalmente distinto: en lugar de centrarse en la simulación pura, su diferenciador es el <em>micro-learning animado</em>. Produce episodios mensuales de 3–4 minutos de animación de alta calidad basados en incidentes de ciberseguridad reales, entregados al estilo de series de streaming. El módulo de simulación de phishing (NINJIO PHISH3D) complementa el contenido formativo. En 2023 integró el perfil RISK360° para evaluación individual de riesgo conduductual.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Tasas de finalización de formación más altas del segmento (~94%); contenido de alta producción que minimiza la fatiga de capacitación; ideal para culturas corporativas con baja adherencia a LMS tradicionales; actualización mensual de contenido.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Módulo de simulación de phishing menos avanzado que los especialistas; menor profundidad analítica; contenido principalmente en inglés; precio por contenido puede superar el valor para organizaciones con alto volumen de simulaciones.</div>
+                </div>
+
+                <!-- Mimecast -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(139,148,158,.12);color:#8b949e;">📧</div>
+                    <div>
+                      <h3>Mimecast Awareness Training</h3>
+                      <div class="platform-tag">Email Security + SAT · Londres, RU</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>2003 (SAT: adquisición 2017)</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS Integrado</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;40,000 organizaciones</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>ISO 27001, SOC 2, GDPR</div>
+                  </div>
+                  <p class="platform-desc">Mimecast Awareness Training es el módulo de capacitación de la plataforma de seguridad de correo Mimecast. Al igual que Proofpoint, su ventaja es la integración con el gateway de correo: las amenazas bloqueadas en tiempo real pueden convertirse en material pedagógico sin esfuerzo manual. Incluye el "Human Risk Dashboard" que agrega métricas de simulación, comportamiento de correo real y resultado de capacitación en un único panel. Ofrece formatos de micro-learning gamificados y videos cortos de concienciación.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Integración seamless con Mimecast Email Security; Human Risk Dashboard unificado; cobertura GDPR; biblioteca de contenido localizado para múltiples regiones; gestión centralizada de campañas y formación.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> Dependencia del ecosistema Mimecast; funcionalidad de simulación avanzada limitada fuera de su stack; menor innovación en IA vs. Hoxhunt/Phished; algunos clientes reportan UI administrativa compleja.</div>
+                </div>
+
+                <!-- Infosec IQ -->
+                <div class="platform-card">
+                  <div class="platform-card-header">
+                    <div class="platform-icon" style="background:rgba(88,166,255,.1);color:#58a6ff;">📚</div>
+                    <div>
+                      <h3>Infosec IQ</h3>
+                      <div class="platform-tag">Education-First · Madison, WI, EE.UU.</div>
+                    </div>
+                  </div>
+                  <div class="platform-meta">
+                    <div class="platform-meta-item"><strong>Fundación</strong>1998 (IQ: 2014)</div>
+                    <div class="platform-meta-item"><strong>Modelo</strong>SaaS</div>
+                    <div class="platform-meta-item"><strong>Usuarios</strong>&gt;70,000 alumnos activos</div>
+                    <div class="platform-meta-item"><strong>Certificaciones</strong>SOC 2, SCORM</div>
+                  </div>
+                  <p class="platform-desc">Infosec IQ (de Infosec Institute) se diferencia por su raíz académica: es una plataforma de concienciación construida desde la perspectiva del aprendizaje formal. Ofrece el módulo <em>PhishSim</em> para simulaciones y una biblioteca con &gt;2,000 recursos educativos incluyendo cursos de certificación (CISSP, CEH, etc.) que complementan el SAT. Su modelo de precios es uno de los más flexibles del mercado, con opciones para instituciones educativas y pymes. Permite importar y personalizar contenidos SCORM de terceros.</p>
+                  <div class="platform-strengths"><span>✔ Fortalezas:</span> Precio muy competitivo; integración SCORM para LMS existentes; biblioteca de certificaciones profesionales incluida; soporte PhishSim robusto; ideal para instituciones educativas y pymes con presupuesto limitado.</div>
+                  <div class="platform-limits"><span>✖ Limitaciones:</span> IA y personalización adaptativa limitadas vs. líderes; menor foco en métricas de riesgo avanzadas; plataforma menos pulida visualmente; soporte para idiomas distintos al inglés reducido.</div>
+                </div>
+
+              </div><!-- /platform-grid -->
+            </div>
+
+            <!-- 3. TABLA TÉCNICA COMPARATIVA -->
+            <div class="article-section">
+              <h2>3. Tabla Técnica Comparativa</h2>
+              <p>La siguiente tabla sintetiza los criterios técnicos más relevantes para la selección e implementación de una plataforma de simulación de phishing en un contexto organizacional real. Se evalúan dimensiones de analítica, integración, impacto formativo, ética/privacidad y limitaciones críticas.</p>
+
+              <div class="table-responsive">
+                <table class="cyber-table">
+                  <thead>
+                    <tr>
+                      <th style="min-width:110px;">Plataforma</th>
+                      <th style="min-width:120px;">Tipo de simulación</th>
+                      <th style="min-width:130px;">Analítica / Métricas clave</th>
+                      <th style="min-width:120px;">Integración</th>
+                      <th style="min-width:90px;">Modelo / Precio</th>
+                      <th style="min-width:120px;">Formación integrada</th>
+                      <th style="min-width:110px;">Ética / Privacidad</th>
+                      <th style="min-width:130px;">Limitación principal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>KnowBe4</strong></td>
+                      <td>Email, vishing, smishing, USB baiting</td>
+                      <td>Click rate, reporting rate, PPP (Phishing-Prone %)</td>
+                      <td>M365, Google WS, Azure AD, Okta, SIEM/SOAR</td>
+                      <td>SaaS por usuario/año. Tiers: Silver / Gold / Platinum / Diamond</td>
+                      <td>+5,000 módulos; Teachable Moments; micro-learning</td>
+                      <td>No captura credenciales; datos GDPR/CCPA; anonimización opcional</td>
+                      <td>Interfaz administrativa compleja; IA menos avanzada que Hoxhunt</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Hoxhunt</strong></td>
+                      <td>Email spear-phishing adaptativo por IA</td>
+                      <td>PHI (Phishing Habit Index), reporting velocity, risk segmentation</td>
+                      <td>M365 / Google WS / Slack; API REST; SSO SAML</td>
+                      <td>Enterprise SaaS. Precio bajo consulta; mayor costo del segmento</td>
+                      <td>Gamificación, misiones, micro-retos personalizados por IA</td>
+                      <td>GDPR nativo; no retiene credenciales; transparencia de datos certificada</td>
+                      <td>Alto costo; requiere madurez digital del empleado</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Proofpoint PSAT</strong></td>
+                      <td>Email, BEC, QR phishing, vishing</td>
+                      <td>VAP score, threat correlation, click/report rate por departamento</td>
+                      <td>Ecosistema Proofpoint (gateway, CASB, SIEM); M365</td>
+                      <td>Enterprise SaaS; requiere suscripción Proofpoint base</td>
+                      <td>Cursos FBI/CISA co-branded; contenido regulatorio (HIPAA, PCI)</td>
+                      <td>FedRAMP; SOC 2; datos de simu no vinculados a perfil permanente</td>
+                      <td>Valor máximo sólo con stack Proofpoint completo</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cofense</strong></td>
+                      <td>Email, BEC, credential harvesting simulado</td>
+                      <td>Resiliency score, reporting funnel, SOC integration metrics</td>
+                      <td>Outlook plugin; SIEM; SOAR; Cofense Triage (IR)</td>
+                      <td>SaaS + Managed Services; precio premium</td>
+                      <td>Formación post-clic contextual; módulos sectoriales</td>
+                      <td>ISO 27001; SOC 2 Type II; red de inteligencia colectiva opt-in</td>
+                      <td>Requiere SOC maduro; mayor TCO que alternat. más sencillas</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Phished</strong></td>
+                      <td>Email, smishing, vishing, QR code</td>
+                      <td>Phishing Resiliency Score, multi-vector click tracking</td>
+                      <td>M365, Google WS, SSO; GDPR API</td>
+                      <td>SaaS; precio accesible mercado europeo</td>
+                      <td>Micro-learning integrado post-incidente; contenido en 10+ idiomas</td>
+                      <td>GDPR by design; privacy impact assessment disponible</td>
+                      <td>Menor presencia fuera de Europa; comunidad más pequeña</td>
+                    </tr>
+                    <tr>
+                      <td><strong>NINJIO</strong></td>
+                      <td>Email (PhishSim PHISH3D)</td>
+                      <td>RISK360° score, completion rates, behavioral segmentation</td>
+                      <td>M365, Google WS, SCIM, SSO</td>
+                      <td>SaaS por usuario/mes; modelo episódico mensual</td>
+                      <td>Episodios animados mensuales de 3–4 min (alta producción)</td>
+                      <td>SOC 2; datos de simulación no compartidos; opt-out disponible</td>
+                      <td>Simulación phishing menos sofisticada; precio alto por contenido</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Mimecast</strong></td>
+                      <td>Email; integración con amenazas reales bloqueadas</td>
+                      <td>Human Risk Dashboard; click/report/training correlation</td>
+                      <td>Gateway Mimecast; M365; SIEM; API REST</td>
+                      <td>SaaS integrado; add-on sobre licencia Mimecast</td>
+                      <td>Videos cortos, micro-learning gamificado; contenido regional</td>
+                      <td>ISO 27001; GDPR; no almacena credenciales simuladas</td>
+                      <td>Dependencia tecnológica del ecosistema Mimecast</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Infosec IQ</strong></td>
+                      <td>Email (PhishSim), smishing</td>
+                      <td>Click rate, reporting rate, training completion, risk score básico</td>
+                      <td>SCORM, LTI, SSO; integración LMS estándar</td>
+                      <td>SaaS flexible; uno de los precios más bajos del mercado</td>
+                      <td>+2,000 recursos; cursos de certificación profesional incluidos</td>
+                      <td>SOC 2; privacidad de datos; sin captura de credenciales reales</td>
+                      <td>Menor innovación en IA; métricas avanzadas limitadas</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 4. ANÁLISIS CRÍTICO Y CONCLUSIONES -->
+            <div class="article-section">
+              <h2>4. Análisis Crítico y Conclusiones</h2>
+
+              <h3>4.1 Panorama diferenciador del mercado</h3>
+              <p>El análisis comparativo de las ocho plataformas revela que el mercado de simulación de phishing ha evolucionado significativamente más allá del envío masivo de correos falsos. Las plataformas líderes han construido ecosistemas completos de <strong>gestión del riesgo humano</strong> (<em>Human Risk Management</em>) que integran inteligencia de amenazas, analítica conductual avanzada y formación adaptativa. Sin embargo, esta sofisticación viene acompañada de un costo y complejidad que no toda organización puede o debe asumir.</p>
+              <p>El mercado puede categorizarse en cuatro perfiles competitivos diferenciados:</p>
+              <ul>
+                <li><strong>Líderes de volumen (KnowBe4, Infosec IQ):</strong> Mayor base instalada, precio competitivo, biblioteca de contenido extensa. Idóneos para organizaciones que buscan escalar rápidamente un programa de concienciación sin complejidad operativa excesiva.</li>
+                <li><strong>Especialistas en IA adaptativa (Hoxhunt, Phished):</strong> Ofrecen la personalización más avanzada del mercado a través de inteligencia artificial. Su propuesta de valor es cambiar el comportamiento a largo plazo, no solo medir el clic. Requieren madurez organizacional y mayor inversión inicial.</li>
+                <li><strong>Plataformas ecosistema (Proofpoint, Mimecast):</strong> Su valor real emerge de la integración con infraestructura de seguridad existente. Para organizaciones ya usando estos gateways, el módulo SAT añade un valor diferencial significativo con mínima fricción operativa. Sin ese ecosistema, su ventaja competitiva se reduce drásticamente.</li>
+                <li><strong>Especializadas por nicho (Cofense, NINJIO):</strong> Cofense destaca en organizaciones con SOC maduro y necesidad de inteligencia colaborativa. NINJIO sobresale donde el reto principal es el engagement con la formación, no la sofisticación de la simulación.</li>
+              </ul>
+
+              <h3>4.2 Recomendaciones por contexto de uso</h3>
+              <div class="table-responsive">
+                <table class="cyber-table">
+                  <thead><tr><th>Contexto organizacional</th><th>Plataforma recomendada</th><th>Justificación</th></tr></thead>
+                  <tbody>
+                    <tr><td>PyME (&lt;500 empleados) con presupuesto limitado</td><td><strong>KnowBe4 Silver / Infosec IQ</strong></td><td>Mejor relación costo-capacidad; implementación rápida; métricas suficientes para programas iniciales.</td></tr>
+                    <tr><td>Enterprise con alta prioridad en cambio conductual</td><td><strong>Hoxhunt</strong></td><td>La IA adaptativa y el PHI ofrecen el mayor impacto en cambio de comportamiento sostenido; justifica inversión premium.</td></tr>
+                    <tr><td>Organización con stack Proofpoint/Mimecast activo</td><td><strong>Proofpoint PSAT / Mimecast AT</strong></td><td>Sinergia con infraestructura existente; no duplicar costos de gestión; dashboard unificado de riesgo.</td></tr>
+                    <tr><td>Sector financiero / salud con SOC maduro</td><td><strong>Cofense</strong></td><td>Red de inteligencia colaborativa; integración SOC-usuario para respuesta a incidentes real; simulaciones de alta fidelidad BEC.</td></tr>
+                    <tr><td>Organización con baja adherencia a formación</td><td><strong>NINJIO</strong></td><td>Tasas de finalización superiores; contenido que minimiza fatiga de capacitación; engagement cultural previo a la simulación.</td></tr>
+                    <tr><td>Empresa europea con requisitos GDPR estrictos</td><td><strong>Phished</strong></td><td>GDPR by design; multi-vector nativo; cumplimiento normativo sin configuraciones adicionales; soporte regional.</td></tr>
+                    <tr><td>Institución educativa o contexto académico</td><td><strong>Infosec IQ</strong></td><td>Precio accesible; integración SCORM/LTI con plataformas LMS existentes; biblioteca de certificaciones integrada.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>4.3 Consideraciones éticas transversales</h3>
+              <p>Independientemente de la plataforma seleccionada, la sostenibilidad de un programa de simulación de phishing depende de tres variables no técnicas que ningún algoritmo puede sustituir:</p>
+              <ol>
+                <li><strong>Cultura de seguridad psicológicamente segura:</strong> Los empleados deben saber que reportar un error no conlleva consecuencias punitivas. Las organizaciones que implementan simulaciones con enfoque disciplinario ven sus reporting rates caer a cero en 60–90 días.</li>
+                <li><strong>Transparencia institucional:</strong> Comunicar la existencia del programa (sin revelar detalles) genera mayor colaboración y menor percepción de vigilancia. La desconfianza generada por programas secretos supera el beneficio de sorpresa táctica.</li>
+                <li><strong>Proporcionalidad de la simulación:</strong> Los escenarios de phishing altamente emocionales — como mails simulando la muerte de un familiar o beneficios médicos urgentes — generan reacciones adversas desproporcionadas. Varias organizaciones han tenido que suspender programas por este motivo, incluyendo el caso del IRS en 2020.</li>
+              </ol>
+
+              <div class="reflection-box">
+                <p>"La simulación de phishing no mide cuán estúpidos son los empleados; mide cuán bien diseñada está la organización para apoyar decisiones seguras bajo presión. Una plataforma tecnológica sin un marco ético, un programa de comunicación interna coherente y métricas de mejora —no de castigo— es simplemente vigilancia disfrazada de concienciación." — Análisis del autor, con base en SANS Security Awareness Report 2023.</p>
+              </div>
+
+              <h3>4.4 Síntesis final</h3>
+              <p>La investigación comparativa demuestra que no existe una plataforma universalmente superior: cada herramienta optimiza para un conjunto diferente de variables organizacionales. La elección debe desprenderse de un análisis riguroso del <em>perfil de riesgo humano</em> de la organización, su madurez de ciberseguridad, su infraestructura tecnológica preexistente y su capacidad de gestión del cambio cultural. Lo que sí es universal es la necesidad de un marco ético sólido: sin él, el programa más sofisticado técnicamente se convierte en el mayor factor de riesgo humano.</p>
+            </div>
+
+            <!-- 5. REFERENCIAS APA 7 -->
+            <div class="article-section">
+              <h2>5. Referencias</h2>
+              <ul class="reference-list">
+                <li>KnowBe4. (2023). <em>KnowBe4 Phishing by Industry Benchmarking Report 2023</em>. KnowBe4, Inc. https://www.knowbe4.com/phishing-industry-benchmarks</li>
+                <li>Verizon. (2023). <em>2023 Data Breach Investigations Report (DBIR)</em>. Verizon Business. https://www.verizon.com/business/resources/reports/dbir/</li>
+                <li>Proofpoint. (2023). <em>2023 State of the Phish: An In-Depth Look at User Awareness, Vulnerability and Resilience</em>. Proofpoint, Inc. https://www.proofpoint.com/us/resources/threat-reports/state-of-phish</li>
+                <li>Cofense. (2023). <em>Annual State of Phishing Report 2023</em>. Cofense, Inc. https://cofense.com/resource/phishing-report/</li>
+                <li>SANS Institute. (2023). <em>SANS Security Awareness Report: Managing Human Cyber Risk</em>. SANS Institute. https://www.sans.org/security-awareness-training/reports/</li>
+                <li>Hoxhunt. (2024). <em>Hoxhunt Platform Documentation: Phishing Habit Index (PHI)</em>. Hoxhunt Oy. https://hoxhunt.com</li>
+                <li>Phished. (2023). <em>Phished Platform Overview: Multi-Vector Phishing Simulation</em>. Phished NV. https://phished.io</li>
+                <li>NINJIO. (2023). <em>NINJIO PHISH3D and RISK360°: Platform Technical Overview</em>. NINJIO, LLC. https://ninjio.com</li>
+                <li>Mimecast. (2023). <em>Human Risk Management: Mimecast Awareness Training</em>. Mimecast Limited. https://www.mimecast.com/products/awareness-training/</li>
+                <li>Infosec Institute. (2023). <em>Infosec IQ: Security Awareness and Anti-Phishing Training</em>. Infosec, Inc. https://www.infosecinstitute.com/products/infosec-iq/</li>
+                <li>Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales [INAI]. (2022). <em>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</em>. Diario Oficial de la Federación. https://www.inai.org.mx</li>
+                <li>European Parliament. (2016). <em>General Data Protection Regulation (GDPR) – Regulation (EU) 2016/679</em>. Official Journal of the European Union. https://gdpr-info.eu</li>
+              </ul>
+            </div>
+
+          </div><!-- /article-container -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a href="./presentacion.html">Presentación</a> | <a href="./contacto.html">Contacto</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event){ navActivePage(); });
+  </script>
+  <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+</html>

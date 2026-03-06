@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="PR01 Walkthrough en Acción" name="description">
+  <meta name="google" content="notranslate" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link href="./assets/favicon.ico" rel="icon">
+
+  <title>PR01 – Walkthrough en Acción | Portafolio AKKU</title>
+
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #f0f0f0;
+      padding-top: 80px; /* espacio navbar-fixed-top */
+    }
+    h1, h2, h3, h4, h5, h6 { color: #ffffff; }
+    h1.h2, h2.h2, h3.h2 { color: #ffffff !important; }
+    p, li { color: #c9d1d9; }
+    a { color: #79c0ff; }
+    a:hover { color: #58a6ff; }
+
+    .navbar {
+      background-color: #21262d;
+      border-bottom: 1px solid #30363d;
+    }
+    .navbar-nav li a { color: #f0f0f0; }
+    .navbar-nav li a:hover { color: #58a6ff; }
+
+    .footer-container {
+      background-color: #21262d;
+      color: #c9d1d9;
+      border-top: 1px solid #30363d;
+      padding: 30px 0;
+    }
+    .footer-container a { color: #79c0ff; }
+
+    #site-border-left, #site-border-right,
+    #site-border-top, #site-border-bottom {
+      background-color: #161b22;
+    }
+
+    .navbar-toggle .icon-bar { background-color: #79c0ff; }
+
+    /* ── Estilos de Artículo ── */
+    .article-header {
+      background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+      padding: 50px 0 40px;
+      border-bottom: 1px solid #30363d;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .article-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff7b72 0%, #d73a49 100%);
+      color: #ffffff;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .article-title {
+      font-size: 34px;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      padding: 0 15px;
+    }
+
+    .article-meta {
+      color: #8b949e;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .content-section {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 35px 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .content-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #58a6ff;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+      margin-top: 0;
+    }
+
+    .content-section p {
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .content-section ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .content-section li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    /* Video Wrapper para responsividad */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border: 1px solid #30363d;
+      margin-bottom: 30px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Stats Box */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .stat-box {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-box h4 {
+      color: #8b949e;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 10px;
+    }
+    .stat-box p {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #8b949e;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .btn-back:hover {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html" title="">01 : Inicio</a></li>
+            <li><a href="./presentacion.html" title="">02 : Presentación</a></li>
+            <li><a href="./TPT.html" title="">03 : Actividades</a></li>
+            <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+            <li><a href="./informacion.html" title="">05 : Información</a></li>
+            <li class="active"><a href="./proyectos.html" title="">06 : Proyectos</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Headers del Artículo -->
+  <div class="article-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <a href="./proyectos.html" class="btn-back">← Volver a Proyectos</a>
+          <br>
+          <div class="article-badge">PR01 · Parcial 1</div>
+          <h1 class="article-title">De la teoría a la práctica: walkthrough en acción (guía y video)</h1>
+          <div class="article-meta">
+            <span>👤 Pedro Jasso (AKKU)</span>
+            <span>⏱️ Duración: 07 horas</span>
+            <span>🛡️ Penetration Testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section-container-spacer">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <!-- Video Embed -->
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/gqWJZtin8Kk" title="Walkthrough en acción" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-box">
+            <h4>Máquina Virtual</h4>
+            <p>Snakeoil</p>
+          </div>
+          <div class="stat-box">
+            <h4>Plataforma</h4>
+            <p><a href="https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/" target="_blank" rel="noopener noreferrer">VulnHub</a></p>
+          </div>
+          <div class="stat-box">
+            <h4>Enfoque</h4>
+            <p>CTF / Boot2Root</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>🎯 Objetivo General</h2>
+          <p>
+            Demostrar la capacidad de aplicar conocimientos teóricos de seguridad informática en un entorno práctico, mediante la realización de un walkthrough detallado y la explicación de las técnicas y metodologías utilizadas para vulnerar una máquina virtual.
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h2>📌 Objetivos Específicos</h2>
+          <ul>
+            <li>Configurar un entorno de virtualización aislado para realizar las pruebas de penetración de forma segura.</li>
+            <li>Utilizar herramientas de escaneo de puertos y servicios para identificar posibles vectores de ataque.</li>
+            <li>Enumerar los servicios y aplicaciones en ejecución para obtener información detallada sobre el sistema objetivo.</li>
+            <li>Investigar las vulnerabilidades conocidas asociadas con los servicios y aplicaciones identificados.</li>
+            <li>Evaluar el riesgo y la viabilidad de explotar cada vulnerabilidad.</li>
+            <li>Seleccionar y adaptar los exploits adecuados para las vulnerabilidades encontradas.</li>
+            <li>Escalar privilegios para obtener acceso administrativo.</li>
+            <li>Registrar cada paso del proceso, incluyendo comandos utilizados, resultados obtenidos y capturas de pantalla.</li>
+            <li>Explicar las técnicas y metodologías utilizadas en cada etapa del ataque.</li>
+            <li>Grabar un video de la pantalla durante el proceso de ataque.</li>
+            <li>Explicar cada paso del proceso en detalle, utilizando un lenguaje claro y conciso.</li>
+            <li>Definir y explicar los términos técnicos utilizados durante el walkthrough.</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>📝 Descripción del Proyecto</h2>
+          <p>
+            El proyecto busca, en primer lugar, preparar un entorno de pruebas seguro, seleccionando y configurando una máquina virtual vulnerable adecuada. A continuación, se realizará un reconocimiento exhaustivo del sistema objetivo, escaneando y enumerando los servicios en ejecución para identificar posibles vectores de ataque. El siguiente paso consiste en analizar las vulnerabilidades presentes en el sistema, investigando las vulnerabilidades conocidas y evaluando el riesgo de su explotación.
+          </p>
+          <p>
+            Posteriormente, se procederá a explotar las vulnerabilidades identificadas para obtener acceso al sistema, seleccionando y adaptando los exploits adecuados. Una vez obtenido el acceso, se realizarán actividades de post-explotación para demostrar el control del sistema, estableciendo persistencia y escalando privilegios. A lo largo de todo el proceso, se documentará detalladamente cada paso del ataque, registrando comandos, resultados y capturas de pantalla. 
+          </p>
+          <p>
+            Además, se creó un video explicativo del walkthrough (arriba), grabando la pantalla y explicando cada paso en detalle. Un aspecto fundamental del proyecto es la explicación de los conceptos teóricos de seguridad informática relacionados con el ataque, relacionando las técnicas utilizadas con los fundamentos teóricos. Finalmente, se presentará un informe completo y un video de alta calidad que documente y demuestre el proceso de ataque.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a href="./presentacion.html">Presentación</a> | <a href="./contacto.html">Contacto</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./main.70a66962.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+    });
+  </script>
+</body>
+
+</html>

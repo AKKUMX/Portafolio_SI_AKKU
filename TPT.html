@@ -23,9 +23,9 @@
     /* Fondo oscuro azul para el body (cyber-inspired) */
     body {
       background-color: #0d1117;
-      /* Azul muy oscuro, como fondo de terminal */
       color: #f0f0f0;
-      /* Texto claro para legibilidad */
+      padding-top: 80px;
+      /* espacio para navbar-fixed-top */
     }
 
     /* Ajustes para encabezados (h1, h2, etc.) */
@@ -201,6 +201,7 @@
             <li><a href="./TPT.html" title="">03 : Actividades</a></li>
             <li><a href="./contacto.html" title="">04 : Contacto</a></li>
             <li><a href="./informacion.html" title="">05 : Información</a></li>
+            <li><a href="./proyectos.html" title="">06 : Proyectos</a></li>
           </ul>
 
 
@@ -215,29 +216,33 @@
 
         <div class="col-sm-8 col-sm-offset-2 section-container-spacer">
           <div class="text-center">
-            <h1 class="h2">Trabajos, Proyectos y Tareas</h1>
-            <h1 class="h2">| Trabajos, Proyectos y Tareas |</h1>
+            <h1 class="h2">| Trabajos y Tareas |</h1>
             <p>Aquí encontrarás una recopilación de mis trabajos,
-              proyectos y tareas más relevantes a lo largo de mi carrera
+              tareas más relevantes a lo largo de mi carrera
               académica en la materia de CNO V - Seguridad Informática en la
-              Universidad Politécnica de San Luis Potosí. Cada proyecto representa
+              Universidad Politécnica de San Luis Potosí. Cada tarea representa
               un desafío que enfrenté, las tecnologías que aprendí y las soluciones
               que desarrollé.</p>
           </div>
         </div>
 
+        <!-- ══════════════════ PARCIAL 1 ══════════════════ -->
         <div class="col-md-12">
-
-          <div id="myCarousel" class="carousel slide projects-carousel">
+          <div id="carouselP1" class="carousel slide projects-carousel">
             <h3>Parcial 1</h3>
-            <!-- Carousel items -->
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carouselP1" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselP1" data-slide-to="1"></li>
+            </ol>
             <div class="carousel-inner">
+
+              <!-- Slide 1: Act 01, 02, 03 -->
               <div class="item active">
                 <div class="row">
                   <div class="col-sm-4">
-
                     <a href="./actividad01.html" title="" class="black-image-project-hover">
-                      <img src="./assets/images/equifax.jpg" alt="" class="img-responsive">
+                      <img src="./assets/images/equifax.jpg" alt="Actividad 01" class="img-responsive">
                     </a>
                     <div class="card-container card-container-lg">
                       <h4>001/006</h4>
@@ -248,7 +253,7 @@
                   </div>
                   <div class="col-sm-4">
                     <a href="./actividad02.html" title="" class="black-image-project-hover">
-                      <img src="./assets/images/rfc4949.png" alt="" class="img-responsive">
+                      <img src="./assets/images/rfc4949.png" alt="Actividad 02" class="img-responsive">
                     </a>
                     <div class="card-container card-container-lg">
                       <h4>002/006</h4>
@@ -259,7 +264,7 @@
                   </div>
                   <div class="col-sm-4">
                     <a href="./actividad03.html" title="" class="black-image-project-hover">
-                      <img src="./assets/images/iptables001.jpg" alt="" class="img-responsive">
+                      <img src="./assets/images/iptables001.jpg" alt="Actividad 03" class="img-responsive">
                     </a>
                     <div class="card-container card-container-lg">
                       <h4>003/006</h4>
@@ -268,16 +273,15 @@
                       <a href="./actividad03.html" title="" class="btn btn-default">Entrar</a>
                     </div>
                   </div>
+                </div><!--/row-->
+              </div><!--/item-->
 
-                </div>
-                <!--/row-->
-              </div>
-              <!--/item-->
+              <!-- Slide 2: Act 04, 05, 06 -->
               <div class="item">
                 <div class="row">
                   <div class="col-sm-4">
                     <a href="./actividad04.html" class="black-image-project-hover">
-                      <img src="./assets/images/a4.jpg" alt="Image" class="img-responsive">
+                      <img src="./assets/images/a4.jpg" alt="Actividad 04" class="img-responsive">
                     </a>
                     <div class="card-container">
                       <h4>004/006</h4>
@@ -288,7 +292,7 @@
                   </div>
                   <div class="col-sm-4">
                     <a href="./actividad05.html" class="black-image-project-hover">
-                      <img src="./assets/images/pentesting.jpg" alt="Image" class="img-responsive">
+                      <img src="./assets/images/pentesting.jpg" alt="Actividad 05" class="img-responsive">
                     </a>
                     <div class="card-container">
                       <h4>005/006</h4>
@@ -298,10 +302,9 @@
                       <a href="./actividad05.html" class="btn btn-default">Entrar</a>
                     </div>
                   </div>
-
                   <div class="col-sm-4">
                     <a href="./actividad06.html" class="black-image-project-hover">
-                      <img src="./assets/images/ipsec.jpg" alt="Image" class="img-responsive">
+                      <img src="./assets/images/ipsec.jpg" alt="Actividad 06" class="img-responsive">
                     </a>
                     <div class="card-container">
                       <h4>006/006</h4>
@@ -310,25 +313,87 @@
                       <a href="./actividad06.html" class="btn btn-default">Entrar</a>
                     </div>
                   </div>
+                </div><!--/row-->
+              </div><!--/item-->
 
-                </div>
-                <!--/row-->
-              </div>
-
-              <!--/item-->
-            </div>
-            <!--/carousel-inner-->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-          </div>
-
-
-
-          <!--/myCarousel-->
+            </div><!--/carousel-inner-->
+            <a class="left carousel-control" href="#carouselP1" data-slide="prev">‹</a>
+            <a class="right carousel-control" href="#carouselP1" data-slide="next">›</a>
+          </div><!--/carouselP1-->
         </div>
 
+        <!-- ══════════════════ PARCIAL 2 ══════════════════ -->
+        <div class="col-md-12" style="margin-top:30px;">
+          <div id="carouselP2" class="carousel slide projects-carousel">
+            <h3>Parcial 2</h3>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carouselP2" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselP2" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
 
+              <!-- Slide 1: Act 07, 08, 09 -->
+              <div class="item active">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <a href="./actividad07.html" class="black-image-project-hover">
+                      <img src="./assets/images/pentesting.jpg" alt="Actividad 07" class="img-responsive">
+                    </a>
+                    <div class="card-container">
+                      <h4>007/010</h4>
+                      <h3>Actividad 07</h3>
+                      <p>Actividad del Parcial 2 – próximamente disponible.</p>
+                      <a href="./actividad07.html" class="btn btn-default">Entrar</a>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <a href="./actividad08.html" class="black-image-project-hover">
+                      <img src="./assets/images/ipsec.jpg" alt="Actividad 08" class="img-responsive">
+                    </a>
+                    <div class="card-container">
+                      <h4>008/010</h4>
+                      <h3>Actividad 08</h3>
+                      <p>Actividad del Parcial 2 – próximamente disponible.</p>
+                      <a href="./actividad08.html" class="btn btn-default">Entrar</a>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <a href="./actividad09.html" class="black-image-project-hover">
+                      <img src="./assets/images/a4.jpg" alt="Actividad 09" class="img-responsive">
+                    </a>
+                    <div class="card-container">
+                      <h4>009/010</h4>
+                      <h3>Actividad 09</h3>
+                      <p>Actividad del Parcial 2 – próximamente disponible.</p>
+                      <a href="./actividad09.html" class="btn btn-default">Entrar</a>
+                    </div>
+                  </div>
+                </div><!--/row-->
+              </div><!--/item-->
+
+              <!-- Slide 2: Act 10 -->
+              <div class="item">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <a href="./actividad10.html" class="black-image-project-hover">
+                      <img src="./assets/images/equifax.jpg" alt="Actividad 10" class="img-responsive">
+                    </a>
+                    <div class="card-container">
+                      <h4>010/010</h4>
+                      <h3>Actividad 10</h3>
+                      <p>Actividad del Parcial 2 – próximamente disponible.</p>
+                      <a href="./actividad10.html" class="btn btn-default">Entrar</a>
+                    </div>
+                  </div>
+                </div><!--/row-->
+              </div><!--/item-->
+
+            </div><!--/carousel-inner-->
+            <a class="left carousel-control" href="#carouselP2" data-slide="prev">‹</a>
+            <a class="right carousel-control" href="#carouselP2" data-slide="next">›</a>
+          </div><!--/carouselP2-->
+        </div>
 
       </div>
     </div>
