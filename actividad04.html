@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -255,17 +255,17 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="./index.html">01 : Inicio</a></li>
-                        <li><a href="./presentacion.html">02 : PresentaciÃ³n</a></li>
+                        <li><a href="./presentacion.html">02 : Presentación</a></li>
                         <li><a href="./TPT.html">03 : Actividades</a></li>
                         <li><a href="./contacto.html">04 : Contacto</a></li>
-                        <li><a href="./informacion.html">05 : InformaciÃ³n</a></li>
+                        <li><a href="./informacion.html">05 : Información</a></li>
                         <li><a href="./proyectos.html" title="">06 : Proyectos</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="">07 : ROAD TO HALL OF FAME <span class="caret"></span></a>
-              <ul class="dropdown-menu" style="background-color: #21262d;">
-                <li><a href="./sql_injection.html" style="color: #79c0ff;">SQL Injection</a></li>
-              </ul>
-            </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="">07 : ROAD TO HALL OF FAME <span class="caret"></span></a>
+                          <ul class="dropdown-menu" style="background-color: #21262d;">
+                            <li><a href="./sql_injection.html" style="color: #79c0ff;">SQL Injection</a></li>
+                          </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -277,49 +277,49 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="article-container">
-                        <a href="./TPT.html" class="btn-back">â† Volver a Actividades</a>
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
 
                         <div class="article-header">
                             <div class="activity-badge">Actividad 04</div>
                             <h1>Mecanismos de defensa en red</h1>
                             <p class="article-meta">
-                                <strong>Alumno:</strong> Pedro Damian Jasso DÃ¡vila (176658)<br>
-                                <strong>Fecha:</strong> 04/02/2026 | <strong>Mtro.</strong> Servando LÃ³pez Contreras<br>
-                                CNO V. Seguridad InformÃ¡tica | UPSLP
+                                <strong>Alumno:</strong> Pedro Damian Jasso Dávila (176658)<br>
+                                <strong>Fecha:</strong> 04/02/2026 | <strong>Mtro.</strong> Servando López Contreras<br>
+                                CNO V. Seguridad Informática | UPSLP
                             </p>
                             <hr class="section-divider">
                         </div>
 
                         <div class="article-section">
-                            <h2>1. IntroducciÃ³n</h2>
+                            <h2>1. Introducción</h2>
                             <p>
-                                El objetivo de esta actividad es diseÃ±ar e implementar reglas de filtrado de
-                                paquetes utilizando <code>iptables</code>, basÃ¡ndose en una topologÃ­a de red
-                                especÃ­fica. Los mecanismos de defensa en red permiten controlar el flujo de
-                                informaciÃ³n, protegiendo servicios crÃ­ticos como el correo electrÃ³nico, DNS y servidores
+                                El objetivo de esta actividad es diseñar e implementar reglas de filtrado de
+                                paquetes utilizando <code>iptables</code>, basándose en una topología de red
+                                específica. Los mecanismos de defensa en red permiten controlar el flujo de
+                                información, protegiendo servicios críticos como el correo electrónico, DNS y servidores
                                 web contra accesos no autorizados. Siempre que es posible, las reglas
                                 determinan el protocolo, direcciones IP de origen y destino, puertos y el estado de la
-                                conexiÃ³n para garantizar una seguridad granular.
+                                conexión para garantizar una seguridad granular.
                             </p>
                         </div>
 
                         <div class="article-section">
-                            <h2>2. Desarrollo TÃ©cnico: ConfiguraciÃ³n de Firewall</h2>
-                            <p>A continuaciÃ³n se detallan las acciones solicitadas y las reglas de <code>iptables</code>
+                            <h2>2. Desarrollo Técnico: Configuración de Firewall</h2>
+                            <p>A continuación se detallan las acciones solicitadas y las reglas de <code>iptables</code>
                                 aplicadas en el Firewall:</p>
 
-                            <span class="rule-description">1. Establecer una polÃ­tica restrictiva:</span>
+                            <span class="rule-description">1. Establecer una política restrictiva:</span>
                             <div class="code-block">
                                 iptables -P INPUT DROP
                             </div>
 
-                            <span class="rule-description">2. Permitir el trÃ¡fico de conexiones ya
+                            <span class="rule-description">2. Permitir el tráfico de conexiones ya
                                 establecidas:</span>
                             <div class="code-block">
                                 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
                             </div>
 
-                            <span class="rule-description">3. Aceptar trÃ¡fico DNS (TCP) saliente de la red
+                            <span class="rule-description">3. Aceptar tráfico DNS (TCP) saliente de la red
                                 local:</span>
                             <div class="code-block">
                                 iptables -A INPUT -p tcp --sport 53 -d 192.1.2.0/24 -m state --state
@@ -347,7 +347,7 @@
                                 ESTABLISHED -j ACCEPT
                             </div>
 
-                            <span class="rule-description">7. Permitir trÃ¡fico HTTP desde la red local a
+                            <span class="rule-description">7. Permitir tráfico HTTP desde la red local a
                                 Internet:</span>
                             <div class="code-block">
                                 iptables -A OUTPUT -p tcp --dport 80 -s 192.1.2.0/24 -m state --state NEW,
@@ -356,31 +356,31 @@
                         </div>
 
                         <div class="article-section">
-                            <h2>3. ReflexiÃ³n TÃ©cnica</h2>
+                            <h2>3. Reflexión Técnica</h2>
                             <div class="reflection-box">
                                 <p>
-                                    La implementaciÃ³n de una polÃ­tica por defecto <code>DROP</code> es fundamental para
-                                    seguir el principio de mÃ­nimo privilegio en seguridad de red. Al definir
-                                    explÃ­citamente quÃ© trÃ¡fico estÃ¡ permitido (HTTP, SMTP, DNS) y bajo quÃ© estados (NEW,
+                                    La implementación de una política por defecto <code>DROP</code> es fundamental para
+                                    seguir el principio de mínimo privilegio en seguridad de red. Al definir
+                                    explícitamente qué tráfico está permitido (HTTP, SMTP, DNS) y bajo qué estados (NEW,
                                     ESTABLISHED), se reduce significativamente la superficie de ataque, permitiendo que
-                                    solo el flujo legÃ­timo atraviese el perÃ­metro del firewall.
+                                    solo el flujo legítimo atraviese el perímetro del firewall.
                                 </p>
                             </div>
                         </div>
 
                         <div class="article-section">
-                            <h2>4. Referencias TÃ©cnicas</h2>
+                            <h2>4. Referencias Técnicas</h2>
                             <ul class="reference-list">
                                 <li>[1] Netfilter Project. (2024). <em>iptables(8) - Linux man page</em>. Recuperado de
                                     netfilter.org</li>
-                                <li>[2] Jasso DÃ¡vila, P. D. (2026). <em>Reporte de Actividad 04: Mecanismos de defensa
+                                <li>[2] Jasso Dávila, P. D. (2026). <em>Reporte de Actividad 04: Mecanismos de defensa
                                         en red</em>. UPSLP.</li>
                             </ul>
                         </div>
 
                         <div class="pdf-section">
                             <a href="./actividades/176658-Act04.pdf" download class="btn-pdf">
-                                ðŸ“„ Descargar PDF
+                                📄 Descargar PDF
                             </a>
                         </div>
                     </div>
@@ -391,7 +391,7 @@
 
     <footer class="footer-container text-center">
         <div class="container">
-            <p>Â© 2026 Pedro Jasso (AKKU) | Universidad PolitÃ©cnica De San Luis PotosÃ­</p>
+            <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí</p>
         </div>
     </footer>
 
