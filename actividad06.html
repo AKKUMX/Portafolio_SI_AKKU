@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <meta content="Actividad 06 - Implementación de IPSec VPN" name="description">
+    <meta content="Actividad 06 - ImplementaciÃ³n de IPSec VPN" name="description">
     <meta name="google" content="notranslate" />
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -150,7 +150,7 @@
             color: #79c0ff;
         }
 
-        /* Bloques de Código/Consola */
+        /* Bloques de CÃ³digo/Consola */
         .code-block {
             background-color: #0d1117;
             border: 1px solid #30363d;
@@ -258,11 +258,17 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="./index.html">01 : Inicio</a></li>
-                        <li><a href="./presentacion.html">02 : Presentación</a></li>
+                        <li><a href="./presentacion.html">02 : PresentaciÃ³n</a></li>
                         <li><a href="./TPT.html">03 : Actividades</a></li>
                         <li><a href="./contacto.html">04 : Contacto</a></li>
-                        <li><a href="./informacion.html">05 : Información</a></li>
+                        <li><a href="./informacion.html">05 : InformaciÃ³n</a></li>
                         <li><a href="./proyectos.html" title="">06 : Proyectos</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="">07 : ROAD TO HALL OF FAME <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="background-color: #21262d;">
+                <li><a href="./sql_injection.html" style="color: #79c0ff;">SQL Injection</a></li>
+              </ul>
+            </li>
                     </ul>
                 </div>
             </div>
@@ -274,36 +280,36 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="article-container">
-                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+                        <a href="./TPT.html" class="btn-back">â† Volver a Actividades</a>
 
                         <div class="article-header">
                             <div class="activity-badge">Actividad 06</div>
-                            <h1>Implementación de IPSec VPN</h1>
+                            <h1>ImplementaciÃ³n de IPSec VPN</h1>
                             <p class="article-meta">
-                                <strong>Alumno:</strong> Pedro Damian Jasso Dávila (176658)<br>
-                                <strong>Materia:</strong> CNO V: Seguridad Informática<br>
-                                <strong>Fecha:</strong> 16/02/2026 | Mtro. Servando López Contreras
+                                <strong>Alumno:</strong> Pedro Damian Jasso DÃ¡vila (176658)<br>
+                                <strong>Materia:</strong> CNO V: Seguridad InformÃ¡tica<br>
+                                <strong>Fecha:</strong> 16/02/2026 | Mtro. Servando LÃ³pez Contreras
                             </p>
                             <hr class="section-divider">
                         </div>
 
                         <div class="article-section">
-                            <h2>1. Introducción Contextual</h2>
+                            <h2>1. IntroducciÃ³n Contextual</h2>
                             <p>
                                 IPSec (Internet Protocol Security) es un conjunto de protocolos que aseguran las
-                                comunicaciones IP autenticando y cifrando cada paquete IP de una sesión de comunicación.
+                                comunicaciones IP autenticando y cifrando cada paquete IP de una sesiÃ³n de comunicaciÃ³n.
                                 Las VPNs (Virtual Private Networks) basadas en IPSec son fundamentales en la
                                 infraestructura de seguridad moderna, permitiendo conectar sedes remotas (Site-to-Site)
-                                de manera segura a través de redes públicas como Internet, garantizando la
-                                confidencialidad, integridad y autenticidad de los datos en tránsito.
+                                de manera segura a travÃ©s de redes pÃºblicas como Internet, garantizando la
+                                confidencialidad, integridad y autenticidad de los datos en trÃ¡nsito.
                             </p>
                         </div>
 
                         <div class="article-section">
-                            <h2>2. Desarrollo Técnico</h2>
+                            <h2>2. Desarrollo TÃ©cnico</h2>
 
-                            <h3>1) Configuración Inicial</h3>
-                            <p>Para hacer la configuración inicial en Packet Tracer usamos 3 Routers 1941, 2 Switches
+                            <h3>1) ConfiguraciÃ³n Inicial</h3>
+                            <p>Para hacer la configuraciÃ³n inicial en Packet Tracer usamos 3 Routers 1941, 2 Switches
                                 2960 y dos PC's para iniciar.</p>
                             <ul>
                                 <li>1941 Router1, Router0 (ISP), Router2</li>
@@ -311,7 +317,7 @@
                                 <li>PC-PT PC0, PC1</li>
                             </ul>
 
-                            <p><strong>Conexiones físicas:</strong></p>
+                            <p><strong>Conexiones fÃ­sicas:</strong></p>
                             <ul>
                                 <li>PC0 (Fa0) -> Switch0 (Fa0/19)</li>
                                 <li>Switch0 (G0/1) -> Router1 (G0/1)</li>
@@ -322,7 +328,7 @@
                             </ul>
                             <img src="./assets/images/6.1.png">
 
-                            <h4>Configuración Router 1 (R1)</h4>
+                            <h4>ConfiguraciÃ³n Router 1 (R1)</h4>
                             <div class="code-block">
                                 Router>en
                                 Router#conf t
@@ -344,7 +350,7 @@
                             </div>
                             <img src="./assets/images/6.2.png">
 
-                            <h4>Configuración Router 2 (R2)</h4>
+                            <h4>ConfiguraciÃ³n Router 2 (R2)</h4>
                             <div class="code-block">
                                 Router>en
                                 Router#conf t
@@ -366,7 +372,7 @@
                             </div>
                             <img src="./assets/images/6.3.png">
 
-                            <h4>Configuración ISP (Router0)</h4>
+                            <h4>ConfiguraciÃ³n ISP (Router0)</h4>
                             <div class="code-block">
                                 Router>en
                                 Router#conf t
@@ -429,8 +435,8 @@
                             </div>
                             <p><em>(Se realiza el mismo procedimiento en R2).</em></p>
 
-                            <h3>3) Implementación ACLs</h3>
-                            <p>Definimos el tráfico interesante que pasará por la VPN.</p>
+                            <h3>3) ImplementaciÃ³n ACLs</h3>
+                            <p>Definimos el trÃ¡fico interesante que pasarÃ¡ por la VPN.</p>
                             <div class="code-block">
                                 R1(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 192.168.3.0 0.0.0.255
 
@@ -452,7 +458,7 @@
                                 R1(config)#crypto ipsec transform-set 50-ESP esp-aes 256 esp-sha-hmac
                             </div>
 
-                            <h3>6) Crear el mapa criptográfico</h3>
+                            <h3>6) Crear el mapa criptogrÃ¡fico</h3>
                             <div class="code-block">
                                 R1(config)#crypto map IPSEC-MAP 10 ipsec-isakmp
                                 <span class="console-output">% NOTE: This new crypto map will remain disabled until a
@@ -464,7 +470,7 @@
                                 R1(config-crypto-map)#match address 100
                             </div>
 
-                            <h3>7) Aplicar el mapa criptográfico</h3>
+                            <h3>7) Aplicar el mapa criptogrÃ¡fico</h3>
                             <div class="code-block">
                                 R1(config)#interface g0/0
                                 R1(config-if)#crypto map IPSEC-MAP
@@ -481,22 +487,22 @@
                         </div>
 
                         <div class="article-section">
-                            <h2>4. Reflexión Técnica</h2>
+                            <h2>4. ReflexiÃ³n TÃ©cnica</h2>
                             <div class="reflection-box">
                                 <p>
-                                    La implementación de IPSec VPN Site-to-Site demuestra la importancia de proteger los
-                                    datos en tránsito. La configuración de las dos fases (IKE Phase 1 para el canal
-                                    seguro de gestión y IKE Phase 2 para el cifrado de datos) junto con el uso de listas
-                                    de control de acceso (ACL) para definir el tráfico interesante, garantiza que solo
-                                    la información autorizada sea encapsulada y cifrada. La activación de licencias de
-                                    seguridad (securityk9) es un paso crítico en equipos Cisco ISR G2 para habilitar las
-                                    capacidades criptográficas necesarias.
+                                    La implementaciÃ³n de IPSec VPN Site-to-Site demuestra la importancia de proteger los
+                                    datos en trÃ¡nsito. La configuraciÃ³n de las dos fases (IKE Phase 1 para el canal
+                                    seguro de gestiÃ³n y IKE Phase 2 para el cifrado de datos) junto con el uso de listas
+                                    de control de acceso (ACL) para definir el trÃ¡fico interesante, garantiza que solo
+                                    la informaciÃ³n autorizada sea encapsulada y cifrada. La activaciÃ³n de licencias de
+                                    seguridad (securityk9) es un paso crÃ­tico en equipos Cisco ISR G2 para habilitar las
+                                    capacidades criptogrÃ¡ficas necesarias.
                                 </p>
                             </div>
                         </div>
 
                         <div class="article-section">
-                            <h2>5. Referencias Técnicas</h2>
+                            <h2>5. Referencias TÃ©cnicas</h2>
                             <ul class="reference-list">
                                 <li>[1] Cisco Systems. (2024). <em>Configuring Security for VPNs with IPsec</em>. Cisco
                                     IOS Security Configuration Guide.</li>
@@ -507,7 +513,7 @@
 
                         <div class="pdf-section">
                             <a href="./actividades/176658-act06.pdf" download class="btn-pdf">
-                                📄 Descargar PDF
+                                ðŸ“„ Descargar PDF
                             </a>
                         </div>
 
@@ -519,7 +525,7 @@
 
     <footer class="footer-container text-center">
         <div class="container">
-            <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí</p>
+            <p>Â© 2026 Pedro Jasso (AKKU) | Universidad PolitÃ©cnica De San Luis PotosÃ­</p>
         </div>
     </footer>
 

