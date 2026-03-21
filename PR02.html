@@ -96,6 +96,153 @@
       .cyber-table th{background:#eee!important;color:#000!important;}
       .platform-card,.reflection-box{border:1px solid #ccc!important;background:#f9f9f9!important;}
     }
+
+    /* ===== PHISHING QUIZ STYLES ===== */
+    .quiz-section{margin-top:50px;margin-bottom:40px;}
+    .quiz-section h2{font-size:22px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #58a6ff;display:inline-block;margin-top:30px;}
+
+    /* Consent Modal */
+    #quiz-consent-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;}
+    .quiz-consent-box{background:#161b22;border:1px solid #58a6ff;border-radius:14px;max-width:640px;width:100%;padding:36px 40px;box-shadow:0 20px 60px rgba(88,166,255,.15);}
+    .quiz-consent-box h3{font-size:20px;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+    .quiz-consent-box .consent-badge{font-size:11px;background:rgba(63,185,80,.15);color:#3fb950;border:1px solid rgba(63,185,80,.3);padding:3px 9px;border-radius:8px;font-weight:700;letter-spacing:1px;}
+    .quiz-consent-box p{color:#c9d1d9;font-size:14px;line-height:1.7;margin-bottom:12px;}
+    .quiz-consent-list{list-style:none;padding:0;margin-bottom:20px;}
+    .quiz-consent-list li{color:#c9d1d9;font-size:13px;padding:8px 12px;border-left:3px solid #3fb950;margin-bottom:8px;background:rgba(63,185,80,.04);border-radius:0 6px 6px 0;}
+    .quiz-consent-list li strong{color:#3fb950;}
+    .consent-warning{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.25);border-radius:8px;padding:12px 16px;margin-bottom:22px;color:#d2993a;font-size:13px;}
+    .quiz-name-input{display:flex;gap:10px;margin-bottom:20px;align-items:center;}
+    .quiz-name-input input{flex:1;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:10px 14px;color:#f0f0f0;font-size:14px;transition:border-color .2s;}
+    .quiz-name-input input:focus{outline:none;border-color:#58a6ff;}
+    .quiz-name-input input::placeholder{color:#8b949e;}
+    .btn-quiz-start{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#58a6ff,#79c0ff);color:#0d1117;border:none;border-radius:8px;padding:12px 26px;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;letter-spacing:.5px;}
+    .btn-quiz-start:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(88,166,255,.3);}
+    .btn-quiz-start:disabled{background:#30363d;color:#8b949e;transform:none;box-shadow:none;cursor:not-allowed;}
+
+    /* Quiz Container */
+    #quiz-container{display:none;background:#161b22;border:1px solid #30363d;border-radius:12px;overflow:hidden;}
+
+    /* Quiz Progress Bar */
+    .quiz-progress-bar-track{background:#0d1117;height:6px;}
+    .quiz-progress-bar-fill{height:6px;background:linear-gradient(90deg,#58a6ff,#3fb950);transition:width .5s ease;width:0%;}
+    .quiz-progress-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px 10px;}
+    .quiz-progress-header .qh-label{font-size:13px;color:#8b949e;}
+    .quiz-progress-header .qh-score{font-size:13px;color:#79c0ff;font-weight:700;}
+    .quiz-progress-header .qh-timer{font-size:13px;color:#d2993a;font-weight:700;display:flex;align-items:center;gap:5px;}
+    .quiz-progress-header .qh-timer svg{width:14px;height:14px;}
+
+    /* Scenario Presentation */
+    .quiz-scenario-panel{padding:24px 28px;}
+    .scenario-type-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:12px;margin-bottom:14px;}
+    .quiz-question-number{font-size:13px;color:#8b949e;margin-bottom:8px;}
+    .quiz-question-text{font-size:17px;color:#fff;font-weight:600;line-height:1.5;margin-bottom:18px;}
+
+    /* Email / UI Mockup for scenarios */
+    .email-mockup{background:#0d1117;border:1px solid #30363d;border-radius:10px;overflow:hidden;margin-bottom:20px;font-size:13px;}
+    .email-bar{background:#21262d;padding:10px 16px;display:flex;align-items:center;gap:8px;}
+    .email-dot{width:10px;height:10px;border-radius:50%;background:#f85149;margin-right:2px;}
+    .email-dot:nth-child(2){background:#d2993a;}
+    .email-dot:nth-child(3){background:#3fb950;}
+    .email-header-table{width:100%;padding:14px 16px 8px;border-bottom:1px solid #21262d;}
+    .email-header-table td:first-child{color:#8b949e;width:70px;font-size:12px;padding:3px 0;}
+    .email-header-table td:last-child{color:#c9d1d9;font-size:12px;padding:3px 0;}
+    .email-body{padding:14px 16px 16px;color:#c9d1d9;line-height:1.75;}
+    .email-link{color:#58a6ff;text-decoration:underline;}
+    .email-highlight{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.2);border-radius:4px;padding:2px 6px;color:#f85149;}
+    .sms-mockup{background:#1c2128;border:1px solid #30363d;border-radius:10px;padding:18px 20px;margin-bottom:20px;max-width:340px;}
+    .sms-header{font-size:11px;color:#8b949e;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+    .sms-bubble{background:#0d1117;border-radius:8px 8px 8px 2px;padding:12px 14px;font-size:13px;color:#c9d1d9;line-height:1.6;}
+    .qr-mockup{display:flex;align-items:center;gap:18px;background:#0d1117;border:1px solid #30363d;border-radius:10px;padding:18px;margin-bottom:20px;}
+    .qr-box{width:80px;height:80px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:32px;}
+    .qr-text{font-size:13px;color:#c9d1d9;line-height:1.65;}
+    .call-mockup{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;}
+    .call-icon{font-size:28px;flex-shrink:0;}
+    .call-text{font-size:13px;color:#c9d1d9;line-height:1.75;}
+
+    /* Answer Options */
+    .quiz-options{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+    .quiz-option{display:flex;align-items:flex-start;gap:12px;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:13px 16px;cursor:pointer;transition:all .2s;color:#c9d1d9;font-size:14px;line-height:1.5;text-align:left;}
+    .quiz-option:hover:not(.opt-disabled){border-color:#58a6ff;background:rgba(88,166,255,.04);}
+    .quiz-option .opt-letter{min-width:26px;height:26px;border-radius:50%;background:#21262d;border:1px solid #30363d;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#8b949e;flex-shrink:0;transition:all .2s;}
+    .quiz-option.opt-selected .opt-letter{background:#58a6ff;color:#0d1117;border-color:#58a6ff;}
+    .quiz-option.opt-selected{border-color:#58a6ff;background:rgba(88,166,255,.06);}
+    .quiz-option.opt-correct{border-color:#3fb950;background:rgba(63,185,80,.06);}
+    .quiz-option.opt-correct .opt-letter{background:#3fb950;color:#0d1117;border-color:#3fb950;}
+    .quiz-option.opt-wrong{border-color:#f85149;background:rgba(248,81,73,.06);}
+    .quiz-option.opt-wrong .opt-letter{background:#f85149;color:#fff;border-color:#f85149;}
+    .quiz-option.opt-disabled{cursor:default;}
+
+    /* Feedback box */
+    .quiz-feedback{display:none;border-radius:8px;padding:14px 18px;margin-bottom:18px;font-size:14px;line-height:1.7;}
+    .quiz-feedback.fb-correct{background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.25);color:#c9d1d9;}
+    .quiz-feedback.fb-wrong{background:rgba(248,81,73,.07);border:1px solid rgba(248,81,73,.2);color:#c9d1d9;}
+    .quiz-feedback .fb-title{font-weight:700;font-size:15px;margin-bottom:6px;}
+    .quiz-feedback.fb-correct .fb-title{color:#3fb950;}
+    .quiz-feedback.fb-wrong .fb-title{color:#f85149;}
+    .quiz-feedback .fb-indicators{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .fb-tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;background:rgba(88,166,255,.1);color:#79c0ff;border:1px solid rgba(88,166,255,.2);}
+
+    /* Quiz Actions */
+    .quiz-actions{display:flex;justify-content:flex-end;gap:12px;padding:0 28px 24px;}
+    .btn-quiz-submit{background:linear-gradient(135deg,#58a6ff,#79c0ff);color:#0d1117;border:none;border-radius:8px;padding:11px 24px;font-size:14px;font-weight:700;cursor:pointer;transition:all .25s;display:none;}
+    .btn-quiz-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(88,166,255,.25);}
+    .btn-quiz-next{background:transparent;color:#79c0ff;border:1px solid #30363d;border-radius:8px;padding:11px 24px;font-size:14px;font-weight:700;cursor:pointer;transition:all .25s;display:none;}
+    .btn-quiz-next:hover{border-color:#58a6ff;background:rgba(88,166,255,.06);}
+
+    /* Results Screen */
+    #quiz-results{display:none;background:#161b22;border:1px solid #30363d;border-radius:12px;padding:36px 40px;}
+    .results-header{text-align:center;margin-bottom:30px;}
+    .results-score-ring{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800;border:4px solid transparent;background-clip:padding-box;position:relative;}
+    .results-score-ring::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:linear-gradient(135deg,#58a6ff,#3fb950);z-index:-1;}
+    .results-score-ring .ring-inner{background:#161b22;width:112px;height:112px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .results-score-ring .ring-score{font-size:28px;font-weight:800;color:#fff;line-height:1;}
+    .results-score-ring .ring-label{font-size:11px;color:#8b949e;font-weight:500;}
+    .results-title{font-size:22px;color:#fff;font-weight:700;margin-bottom:6px;}
+    .results-subtitle{font-size:14px;color:#8b949e;}
+    .results-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+    .stat-card{background:#0d1117;border:1px solid #30363d;border-radius:10px;padding:16px;text-align:center;}
+    .stat-card .stat-val{font-size:22px;font-weight:800;color:#79c0ff;line-height:1;}
+    .stat-card .stat-label{font-size:12px;color:#8b949e;margin-top:5px;}
+    .results-breakdown{margin-bottom:28px;}
+    .results-breakdown h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:12px;}
+    .breakdown-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #21262d;font-size:13px;}
+    .breakdown-row:last-child{border:none;}
+    .breakdown-q{flex:1;color:#c9d1d9;}
+    .breakdown-icon{font-size:16px;min-width:22px;}
+    .breakdown-time{color:#8b949e;font-size:12px;min-width:55px;text-align:right;}
+    .slowest-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:rgba(210,153,34,.12);color:#d2993a;border:1px solid rgba(210,153,34,.3);}
+
+    /* Ranking / Leaderboard */
+    .leaderboard{margin-top:28px;}
+    .leaderboard h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .lb-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:8px;margin-bottom:6px;font-size:14px;}
+    .lb-row.lb-current{background:rgba(88,166,255,.07);border:1px solid rgba(88,166,255,.2);}
+    .lb-row:not(.lb-current){background:#0d1117;border:1px solid #30363d;}
+    .lb-rank{min-width:30px;text-align:center;font-weight:700;}
+    .lb-rank.gold{color:#ffa300;}
+    .lb-rank.silver{color:#8b949e;}
+    .lb-rank.bronze{color:#cc8833;}
+    .lb-name{flex:1;color:#c9d1d9;}
+    .lb-score{font-weight:700;color:#79c0ff;}
+    .lb-time{font-size:12px;color:#8b949e;min-width:55px;text-align:right;}
+    .btn-quiz-retry{display:inline-flex;align-items:center;gap:8px;background:#21262d;color:#79c0ff;border:1px solid #30363d;border-radius:8px;padding:11px 22px;font-weight:700;font-size:14px;cursor:pointer;transition:all .25s;margin-top:24px;}
+    .btn-quiz-retry:hover{border-color:#58a6ff;background:rgba(88,166,255,.06);}
+
+    /* Ethical Notice inline */
+    .ethical-notice{background:rgba(63,185,80,.04);border:1px solid rgba(63,185,80,.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;gap:12px;font-size:13px;color:#c9d1d9;line-height:1.65;}
+    .ethical-notice .en-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+
+    /* Attack vector tags */
+    .vec-email{background:rgba(88,166,255,.1);color:#79c0ff;border:1px solid rgba(88,166,255,.2);}
+    .vec-mfa{background:rgba(210,153,34,.1);color:#d2993a;border:1px solid rgba(210,153,34,.2);}
+    .vec-bec{background:rgba(248,81,73,.1);color:#f85149;border:1px solid rgba(248,81,73,.2);}
+    .vec-smishing{background:rgba(130,80,255,.1);color:#a371f7;border:1px solid rgba(130,80,255,.2);}
+    .vec-qr{background:rgba(63,185,80,.1);color:#3fb950;border:1px solid rgba(63,185,80,.2);}
+    .vec-vishing{background:rgba(255,163,0,.1);color:#ffa300;border:1px solid rgba(255,163,0,.2);}
+    .vec-attachment{background:rgba(248,81,73,.08);color:#f85149;border:1px solid rgba(248,81,73,.15);}
+    .vec-subdomain{background:rgba(88,166,255,.08);color:#58a6ff;border:1px solid rgba(88,166,255,.15);}
+    .vec-credential{background:rgba(139,148,158,.1);color:#8b949e;border:1px solid rgba(139,148,158,.2);}
+    .vec-typo{background:rgba(230,100,30,.1);color:#e0702a;border:1px solid rgba(230,100,30,.2);}
   </style>
 </head>
 
@@ -152,6 +299,14 @@
                 CNO V – Seguridad Informática &nbsp;|&nbsp; UPSLP
               </p>
               <hr class="section-divider">
+              <div style="margin-top:18px;">
+                <a href="#quiz-section-wrapper" onclick="document.getElementById('quiz-section-wrapper').scrollIntoView({behavior:'smooth'});return false;"
+                   style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#58a6ff,#3fb950);color:#0d1117;padding:11px 24px;border-radius:8px;font-size:14px;font-weight:700;letter-spacing:.5px;text-decoration:none;transition:all .25s;box-shadow:0 4px 18px rgba(88,166,255,.2);"
+                   onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 26px rgba(88,166,255,.32)'"
+                   onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(88,166,255,.2)'">
+                  🎯 Ir al Phishing Quiz &darr;
+                </a>
+              </div>
             </div>
 
             <!-- 1. MARCO TEÓRICO -->
@@ -537,6 +692,119 @@
             </div>
 
           </div><!-- /article-container -->
+
+            <!-- ══════════════════════════════════════ -->
+            <!--   PHISHING QUIZ — MODAL CONSENTIMIENTO  -->
+            <!-- ══════════════════════════════════════ -->
+            <div id="quiz-consent-overlay" style="display:none;">
+              <div class="quiz-consent-box">
+                <h3>🎯 Phishing Quiz <span class="consent-badge">CONSENTIMIENTO INFORMADO</span></h3>
+                <p>Antes de participar, lee y acepta los siguientes términos de participación educativa:</p>
+                <ul class="quiz-consent-list">
+                  <li><strong>✔ Sin captura de credenciales:</strong> Este quiz nunca solicita ni almacena contraseñas, cuentas, ni datos sensibles reales.</li>
+                  <li><strong>✔ Finalidad educativa:</strong> Los resultados son exclusivamente para medir tu capacidad de identificar amenazas de ingeniería social.</li>
+                  <li><strong>✔ Almacenamiento local:</strong> Tu nombre y puntuación se guardan en sessionStorage de tu navegador, sin transmitirse a ningún servidor.</li>
+                  <li><strong>✔ Participación voluntaria:</strong> Puedes abandonar el quiz en cualquier momento sin consecuencia alguna.</li>
+                </ul>
+                <div class="consent-warning">
+                  ⚠️ <strong>Aviso:</strong> Los escenarios presentados son <em>simulados y ficticios</em>. Cualquier semejanza con organizaciones o personas reales es coincidencia. Este ejercicio cumple con la LFPDPPP (México) y los principios del SANS Security Awareness Framework.
+                </div>
+                <div class="quiz-name-input">
+                  <input type="text" id="quiz-participant-name" placeholder="Tu nombre o alias (opcional)" maxlength="40" />
+                </div>
+                <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                  <button class="btn-quiz-start" id="btn-consent-accept" onclick="startQuiz()">✔ Acepto – Comenzar Quiz</button>
+                  <button onclick="closeConsentModal()" style="background:none;border:none;color:#8b949e;cursor:pointer;font-size:14px;padding:8px;">✕ Cancelar</button>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- end .section-container -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--   PHISHING QUIZ — SECCIÓN INTERACTIVA     -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-container" style="margin-top:0;border-top:none;" id="quiz-section-wrapper" style="display:none;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 section-container-spacer">
+          <div class="article-container">
+
+            <div class="quiz-section">
+              <h2>6. Phishing Quiz – Simulación Interactiva</h2>
+              <p style="color:#c9d1d9;line-height:1.8;margin-bottom:20px;">
+                Pon a prueba tu capacidad para identificar amenazas de ingeniería social. Este quiz presenta <strong>10 escenarios realistas</strong> inspirados en técnicas documentadas por KnowBe4, Hoxhunt y Proofpoint. Cada respuesta incluye retroalimentación formativa con indicadores de alerta reales para potenciar tu aprendizaje.
+              </p>
+
+              <div class="ethical-notice">
+                <div class="en-icon">🛡️</div>
+                <div>
+                  <strong style="color:#3fb950;">Marco Ético Aplicado:</strong> No se capturan credenciales reales ni datos personales. Los resultados se almacenan localmente en sessionStorage únicamente para el ranking de sesión. Ejercicio bajo consentimiento informado, con enfoque exclusivamente educativo. Cumple con criterios del <em>Ethical Phishing Program Framework</em> (SANS, 2023) y la LFPDPPP.
+                </div>
+              </div>
+
+              <!-- Botón lanzador -->
+              <div id="quiz-launch-area" style="margin-bottom:28px;">
+                <button class="btn-quiz-start" onclick="openConsentModal()">
+                  🎯 Iniciar Phishing Quiz
+                </button>
+              </div>
+
+              <!-- Quiz container -->
+              <div id="quiz-container">
+                <div class="quiz-progress-bar-track">
+                  <div class="quiz-progress-bar-fill" id="quiz-progress-fill"></div>
+                </div>
+                <div class="quiz-progress-header">
+                  <span class="qh-label" id="quiz-q-label">Pregunta 1 de 10</span>
+                  <span class="qh-score" id="quiz-score-live">Puntuación: 0 pts</span>
+                  <span class="qh-timer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span id="quiz-timer-display">0s</span>
+                  </span>
+                </div>
+                <div class="quiz-scenario-panel" id="quiz-scenario-panel"></div>
+                <div class="quiz-actions">
+                  <button class="btn-quiz-submit" id="btn-quiz-submit" onclick="submitAnswer()">Confirmar Respuesta</button>
+                  <button class="btn-quiz-next" id="btn-quiz-next" onclick="nextQuestion()">Siguiente →</button>
+                </div>
+              </div>
+
+              <!-- Results panel -->
+              <div id="quiz-results">
+                <div class="results-header">
+                  <div class="results-score-ring">
+                    <div class="ring-inner">
+                      <div class="ring-score" id="res-score">0</div>
+                      <div class="ring-label">/ 100 pts</div>
+                    </div>
+                  </div>
+                  <div class="results-title" id="res-title">Resultado Final</div>
+                  <div class="results-subtitle" id="res-subtitle"></div>
+                </div>
+                <div class="results-stats">
+                  <div class="stat-card"><div class="stat-val" id="stat-correct">—</div><div class="stat-label">Respuestas correctas</div></div>
+                  <div class="stat-card"><div class="stat-val" id="stat-time">—</div><div class="stat-label">Tiempo total</div></div>
+                  <div class="stat-card"><div class="stat-val" id="stat-vectors">—</div><div class="stat-label">Vectores identificados</div></div>
+                </div>
+                <div class="results-breakdown">
+                  <h4>📊 Análisis por escenario</h4>
+                  <div id="res-breakdown-list"></div>
+                </div>
+                <div class="leaderboard">
+                  <h4>🏆 Ranking de sesión</h4>
+                  <div id="leaderboard-list"></div>
+                </div>
+                <div style="text-align:center;">
+                  <button class="btn-quiz-retry" onclick="retryQuiz()">🔄 Intentar de nuevo</button>
+                </div>
+              </div>
+            </div><!-- /quiz-section -->
+
+          </div>
         </div>
       </div>
     </div>
@@ -553,8 +821,578 @@
   </footer>
 
   <script>
+  // ════════════════════════════════════════════════════════
+  //  PHISHING QUIZ ENGINE — PR02 AKKU Portafolio
+  //  Escenarios basados en técnicas reales documentadas.
+  //  Sin captura de credenciales. Uso exclusivamente educativo.
+  // ════════════════════════════════════════════════════════
+
+  const QUIZ_QUESTIONS = [
+    // ── Q1: Email spoofing + urgencia
+    {
+      vector: 'Email Spoofing + Urgencia',
+      vectorClass: 'vec-email',
+      icon: '📧',
+      difficulty: '⭐⭐',
+      question: '¿Cuál es la principal señal de alerta en este correo de soporte de Microsoft?',
+      scenario: `
+        <div class="email-mockup">
+          <div class="email-bar"><div class="email-dot"></div><div class="email-dot"></div><div class="email-dot"></div><span style="color:#8b949e;font-size:12px;margin-left:8px;">Bandeja de entrada</span></div>
+          <table class="email-header-table"><tr><td>De:</td><td>soporte@micros0ft-seguridad.com</td></tr><tr><td>Para:</td><td>usuario@tuempresa.com</td></tr><tr><td>Asunto:</td><td><strong>⚠️ URGENTE: Tu cuenta será suspendida en 24 horas</strong></td></tr></table>
+          <div class="email-body">
+            <p>Estimado usuario,</p>
+            <p>Hemos detectado actividad <strong>sospechosa</strong> en tu cuenta de Microsoft 365. Para evitar la suspensión inmediata de tus servicios, debes verificar tu identidad en las próximas <strong>24 horas</strong>.</p>
+            <p>Haz clic aquí: <a href="#" class="email-link" onclick="return false;">http://verify-microsoft-account.ru/login</a></p>
+            <p>Si no actúas, tu cuenta y todos sus datos serán eliminados permanentemente.</p>
+            <p>Atentamente,<br><strong>Equipo de Seguridad Microsoft</strong></p>
+          </div>
+        </div>`,
+      options: [
+        'El asunto usa mayúsculas y es alarmista',
+        'El dominio del remitente usa "0" en lugar de "o" y es un dominio .ru no oficial',
+        'El correo está en español',
+        'El correo menciona suspensión de cuenta'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Typosquatting en dominio remitente',
+        explanation: 'El dominio <strong>micros0ft-seguridad.com</strong> utiliza un "0" (cero) en lugar de la letra "o", técnica conocida como <em>typosquatting</em>. Además, el TLD .ru (Rusia) no corresponde a Microsoft. El lenguaje de urgencia ("24 horas", "eliminación permanente") es una táctica de manipulación emocional clásica del phishing para impedir el análisis racional.',
+        indicators: ['Dominio falso (typosquatting)', 'TLD sospechoso (.ru)', 'Urgencia artificial', 'URL no oficial de Microsoft']
+      }
+    },
+    // ── Q2: MFA/OTP Phishing (AiTM)
+    {
+      vector: 'MFA/OTP Phishing (AiTM)',
+      vectorClass: 'vec-mfa',
+      icon: '🔐',
+      difficulty: '⭐⭐⭐',
+      question: '¿Por qué este escenario es peligroso incluso si el usuario tiene MFA activado?',
+      scenario: `
+        <div class="email-mockup">
+          <div class="email-bar"><div class="email-dot"></div><div class="email-dot"></div><div class="email-dot"></div><span style="color:#8b949e;font-size:12px;margin-left:8px;">Bandeja de entrada</span></div>
+          <table class="email-header-table"><tr><td>De:</td><td>noreply@accounts-google-verify.com</td></tr><tr><td>Para:</td><td>empleado@empresa.mx</td></tr><tr><td>Asunto:</td><td>Acción requerida: Verifica tu código de seguridad</td></tr></table>
+          <div class="email-body">
+            <p>Tu cuenta de Google requiere verificación adicional. Introduce el código de 6 dígitos que recibirás en tu teléfono en la siguiente página:</p>
+            <p><a href="#" class="email-link" onclick="return false;">https://accounts-google-verify.com/otp-confirm</a></p>
+            <p style="font-size:12px;color:#8b949e;">Este código expira en 60 segundos.</p>
+          </div>
+        </div>`,
+      options: [
+        'La URL tiene HTTPS así que es segura',
+        'El atacante usa un proxy en tiempo real (AiTM) que captura el OTP antes de que expire y lo reutiliza para autenticarse por la víctima',
+        'Google nunca envía correos de verificación',
+        'El código OTP de 6 dígitos es demasiado corto para ser seguro'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Adversary-in-the-Middle (AiTM)',
+        explanation: 'Los ataques <strong>AiTM (Adversary-in-the-Middle)</strong> actúan como proxy en tiempo real: el sitio falso retransmite las credenciales y el OTP al servicio real mientras la sesión está activa, evitando MFA por completo. Herramientas como <em>Evilginx2</em> o <em>Muraena</em> automatizaban este proceso. El dominio <span class="email-highlight">accounts-google-verify.com</span> es un subdominio falso; Google usa <em>google.com</em> únicamente. HTTPS no valida la identidad del sitio.',
+        indicators: ['AiTM bypass de MFA', 'Dominio lookalike', 'OTP de corta duración = ventana de explotación', 'HTTPS ≠ sitio legítimo']
+      }
+    },
+    // ── Q3: Subdomain Attack
+    {
+      vector: 'Ataque por Subdominio',
+      vectorClass: 'vec-subdomain',
+      icon: '🌐',
+      difficulty: '⭐⭐⭐',
+      question: '¿Cuál es el dominio real que controla este enlace?',
+      scenario: `
+        <div class="email-mockup">
+          <div class="email-bar"><div class="email-dot"></div><div class="email-dot"></div><div class="email-dot"></div><span style="color:#8b949e;font-size:12px;margin-left:8px;">Bandeja de entrada</span></div>
+          <table class="email-header-table"><tr><td>De:</td><td>notificaciones@paypal.com.segura-web.net</td></tr><tr><td>Para:</td><td>cliente@correo.com</td></tr><tr><td>Asunto:</td><td>Límite de transacción alcanzado – Acción inmediata requerida</td></tr></table>
+          <div class="email-body">
+            <p>Hemos detectado que tu cuenta <strong>PayPal</strong> ha alcanzado el límite de transacciones mensual. Para restaurar el acceso completo, confirma tu identidad:</p>
+            <p><a href="#" class="email-link" onclick="return false;">https://paypal.com.segura-web.net/confirm-identity</a></p>
+          </div>
+        </div>`,
+      options: [
+        'paypal.com — La URL incluye "paypal.com" al inicio',
+        'segura-web.net — Es el dominio raíz; "paypal.com" es solo un subdominio del atacante',
+        'confirm-identity — Es la ruta del servidor real',
+        'https — El protocolo seguro garantiza que es PayPal'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – El dominio raíz controla la URL',
+        explanation: 'En una URL, el dominio que controla el servidor es el <strong>último dominio antes del primer "/"</strong>. En <em>paypal.com.segura-web.net</em>, el dominio raíz es <strong>segura-web.net</strong>; "paypal.com" es simplemente un subdominio creado por el atacante. Esta técnica engaña al ojo humano que lee de izquierda a derecha y confía al ver "paypal.com" al inicio. Las plataformas de email modernas (Gmail, Outlook) detectan esta discrepancia y muestran advertencias.',
+        indicators: ['Subdominio falso con marca legítima', 'Dominio raíz desconocido (.net)', 'Técnica de URL obfuscation', 'HTTPS en dominio malicioso']
+      }
+    },
+    // ── Q4: BEC (Business Email Compromise)
+    {
+      vector: 'BEC – Fraude del CEO',
+      vectorClass: 'vec-bec',
+      icon: '💼',
+      difficulty: '⭐⭐⭐⭐',
+      question: '¿Cuál es la táctica principal de ingeniería social utilizada en este escenario de BEC?',
+      scenario: `
+        <div class="email-mockup">
+          <div class="email-bar"><div class="email-dot"></div><div class="email-dot"></div><div class="email-dot"></div><span style="color:#8b949e;font-size:12px;margin-left:8px;">Bandeja de entrada</span></div>
+          <table class="email-header-table"><tr><td>De:</td><td>director.general@tuempresa-corp.com</td></tr><tr><td>Para:</td><td>finanzas@tuempresa.com</td></tr><tr><td>Asunto:</td><td>Transferencia urgente y confidencial</td></tr></table>
+          <div class="email-body">
+            <p>Hola,</p>
+            <p>Estoy en una reunión con nuestro socio estratégico y necesito que proceses una transferencia de <strong>$47,500 USD</strong> de manera inmediata y <strong>estrictamente confidencial</strong>. No lo comentes con nadie, ni siquiera con el departamento legal, hasta mi regreso mañana.</p>
+            <p>Cuenta destino: CLABE 012180001234567890 — Banco Atlántico Privado<br>Concepto: "Adquisición estratégica Q1"</p>
+            <p>Urge antes de las 2pm. Gracias.</p>
+            <p>Lic. Marcos Villanueva<br>Director General</p>
+          </div>
+        </div>`,
+      options: [
+        'El correo usa una dirección de dominio diferente al oficial de la empresa',
+        'Autoridad + urgencia + confidencialidad: presión jerárquica que inhibe la verificación de protocolos',
+        'El monto es demasiado alto para una transferencia normal',
+        'El correo no tiene firma digital o logotipo corporativo'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Triada BEC: Autoridad + Urgencia + Silencio',
+        explanation: 'Los ataques <strong>BEC (Business Email Compromise)</strong> son responsables de pérdidas de >$50B USD globalmente (IC3/FBI, 2023). La táctica central combina: <br>1. <strong>Autoridad jerárquica</strong> (CEO/Director) que inhibe el cuestionamiento<br>2. <strong>Urgencia artificial</strong> que comprime el tiempo de verificación<br>3. <strong>Mandato de confidencialidad</strong> que aísla al objetivo de colegas que podrían alertarle.<br> La verificación telefónica directa al número conocido del ejecutivo es la única defensa efectiva.',
+        indicators: ['Dominio lookalike (-corp.com)', 'Presión jerárquica (CEO fraud)', 'Instrucción de confidencialidad', 'Urgencia de tiempo real', 'Solicitud de transferencia fuera de canal']
+      }
+    },
+    // ── Q5: Malicious Attachment
+    {
+      vector: 'Adjunto Malicioso (Macro)',
+      vectorClass: 'vec-attachment',
+      icon: '📎',
+      difficulty: '⭐⭐',
+      question: '¿Cuál es el riesgo principal al abrir el archivo adjunto en este correo?',
+      scenario: `
+        <div class="email-mockup">
+          <div class="email-bar"><div class="email-dot"></div><div class="email-dot"></div><div class="email-dot"></div><span style="color:#8b949e;font-size:12px;margin-left:8px;">Bandeja de entrada</span></div>
+          <table class="email-header-table"><tr><td>De:</td><td>facturacion@proveedor-industrial.com.mx</td></tr><tr><td>Para:</td><td>compras@tuempresa.com</td></tr><tr><td>Asunto:</td><td>Factura FACT-2026-0312 adjunta para aprobación</td></tr></table>
+          <div class="email-body">
+            <p>Estimado equipo de compras,</p>
+            <p>Adjunto encontrará la factura correspondiente al pedido PO-2026-0891. Por favor apruebe y responda a la brevedad para procesar el pago.</p>
+            <p>📎 <strong>FACT-2026-0312.xlsm</strong> (Excel con macros habilitadas)</p>
+            <p>Para visualizar correctamente el documento, habilite las macros cuando Excel se lo solicite.</p>
+          </div>
+        </div>`,
+      options: [
+        'El archivo podría estar dañado y corrompería los datos de Excel',
+        'El archivo .xlsm con macros habilitadas puede ejecutar código VBA malicioso que descargue ransomware o un RAT al habilitar las macros',
+        'Abrir facturas de proveedores desconocidos viola políticas de privacidad',
+        'El archivo es demasiado grande para ser una factura normal'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Macro Malware en archivos Office',
+        explanation: 'Los archivos <strong>.xlsm, .docm y .xlsb</strong> contienen macros VBA que se ejecutan al ser habilitadas por el usuario. Esta técnica fue el vector principal de distribución de ransomware como <em>Emotet, Trickbot y QakBot</em> durante 2019-2022. Microsoft deshabilitó macros de internet por defecto en 2022, pero los atacantes ahora instruyen a las víctimas a habilitarlas manualmente. <strong>Nunca habilitar macros</strong> en documentos recibidos por correo, sin confirmar con el proveedor por un canal alternativo.',
+        indicators: ['Extensión .xlsm (con macros)', 'Instrucción explícita de habilitar macros', 'Urgencia comercial como pretexto', 'Proveedor no verificado previamente', 'Técnica: Macro dropper/downloader']
+      }
+    },
+    // ── Q6: QR Code Phishing (Quishing)
+    {
+      vector: 'QR Phishing (Quishing)',
+      vectorClass: 'vec-qr',
+      icon: '📱',
+      difficulty: '⭐⭐⭐',
+      question: '¿Por qué los ataques de phishing por código QR (quishing) evaden muchos filtros de seguridad de correo?',
+      scenario: `
+        <div class="qr-mockup">
+          <div class="qr-box">▦</div>
+          <div class="qr-text">
+            <strong style="color:#fff;">Correo recibido:</strong><br>
+            "Estimado empleado, por razones de seguridad hemos actualizado el portal de RR.HH. Escanea el código QR con tu celular para actualizar tu contraseña antes del viernes. <strong>No hagas clic en enlaces, usa solo el QR</strong> para mayor seguridad."<br><br>
+            <span style="color:#8b949e;font-size:12px;">De: rrhh-sistemas@tuempresa-portal.net</span>
+          </div>
+        </div>`,
+      options: [
+        'Los códigos QR son más fáciles de leer que las URLs escritas',
+        'El QR embebe la URL maliciosa como imagen, evadiendo el análisis de links de los filtros de email; la victima además usa el móvil, que tiene menos protecciones',
+        'Los móviles son más lentos que los computadores, dando tiempo al atacante',
+        'Los QR siempre redirigen a HTTPS, por lo que parecen seguros'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Quishing: evasión de filtros por imagen',
+        explanation: '<strong>Quishing</strong> (QR+Phishing) explotó en 2023 con un incremento de 587% según Cofense. La URL maliciosa se codifica en la imagen QR, invisible para los analizadores de texto/URL de los filtros de email corporativos. Adicionalmente: el usuario escanea con su smartphone personal, que típicamente carece de MDM, protección DNS corporativa o proxy de inspección SSL. La instrucción "usa solo el QR para mayor seguridad" es una manipulación de la percepción de riesgo.',
+        indicators: ['URL oculta en imagen QR', 'Evasión de filtros de email', 'Redirección al móvil (menos protegido)', 'Falsa sensación de seguridad', 'Urgencia de plazo (viernes)']
+      }
+    },
+    // ── Q7: Smishing (SMS Phishing)
+    {
+      vector: 'Smishing (SMS)',
+      vectorClass: 'vec-smishing',
+      icon: '💬',
+      difficulty: '⭐⭐',
+      question: '¿Cuál de las siguientes acciones es la correcta ante este SMS?',
+      scenario: `
+        <div class="sms-mockup">
+          <div class="sms-header">📱 SMS recibido — Remitente: BANAMEX-SEC</div>
+          <div class="sms-bubble">
+            BANAMEX: Tu tarjeta fue bloqueada por actividad inusual. Desbloquea llamando al 800-226-2637 o ingresa a: <strong style="color:#a371f7;">http://bit.ly/bnamx-desblq</strong><br><br>Responde STOP para cancelar notificaciones.
+          </div>
+        </div>`,
+      options: [
+        'Llamar inmediatamente al número del SMS para desbloquear la tarjeta',
+        'No interactuar. Llamar directamente al número oficial del banco que aparece en el reverso de tu tarjeta o en su sitio web oficial',
+        'Ingresar al enlace bit.ly para verificar si es oficial',
+        'Responder "STOP" para cancelar las notificaciones y detener el ataque'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Verificación por canal independiente',
+        explanation: 'Este SMS presenta múltiples indicadores de <strong>smishing</strong>: (1) Los bancos mexicanos <em>nunca</em> envían enlaces acortados (bit.ly). (2) El número "800-226-2637" es controlado por el atacante. (3) "STOP" en smishing a veces confirma un número activo para más ataques. La defensa es siempre usar el número oficial del banco que aparece en el reverso de la tarjeta, el estado de cuenta impreso o el sitio oficial buscado directamente en el navegador, nunca desde el enlace del SMS.',
+        indicators: ['Enlace acortado (bit.ly)', 'Número de teléfono no verificable', 'Urgencia (tarjeta bloqueada)', 'STOP como vector de confirmación', 'Suplantación de identidad bancaria']
+      }
+    },
+    // ── Q8: Vishing (Voice Phishing)
+    {
+      vector: 'Vishing (Llamada de Voz)',
+      vectorClass: 'vec-vishing',
+      icon: '📞',
+      difficulty: '⭐⭐⭐',
+      question: '¿Qué técnica de ingeniería social predomina en esta llamada de vishing?',
+      scenario: `
+        <div class="call-mockup">
+          <div class="call-icon">📞</div>
+          <div class="call-text">
+            <strong style="color:#ffa300;">Escenario de llamada telefónica (vishing):</strong><br><br>
+            "Buenos días, le habla el Lic. Ramírez del área de Cumplimiento del SAT. Estamos realizando una auditoría de urgencia y hemos detectado una <strong>inconsistencia fiscal en sus declaraciones de 2024</strong>. Para evitar el inicio de un proceso legal en las próximas dos horas, necesitamos que nos proporcione su RFC, CURP y número de cuenta bancaria para validar su identidad y suspender provisionalmente el proceso. Esta llamada está siendo grabada con fines legales."
+          </div>
+        </div>`,
+      options: [
+        'Pretexting: fabricación de una autoridad institucional falsa combinada con amenaza legal y urgencia de tiempo',
+        'Spear phishing: el atacante conoce datos personales de la víctima',
+        'Vishing técnico: el atacante intentará acceder a sistemas bancarios mediante los datos',
+        'Social engineering awareness: la víctima debe informar la llamada al SAT'
+      ],
+      correct: 0,
+      feedback: {
+        title: '✔ Correcto – Pretexting + Autoridad + Amenaza Legal',
+        explanation: '<strong>Pretexting</strong> es la creación de un escenario ficticio elaborado para justificar la solicitud de información. Los elementos combinados son devastadores: (1) <strong>Autoridad institucional</strong> (SAT / Cumplimiento), (2) <strong>Amenaza legal</strong> (proceso judicial), (3) <strong>Urgencia extrema</strong> (2 horas), (4) <strong>Legitimidad grabada</strong> ("esta llamada está siendo grabada"). El SAT <em>nunca</em> solicita datos bancarios o CURP por teléfono. Ante cualquier llamada así, debe colgarse y llamar directamente al SAT al 55 627 22 728.',
+        indicators: ['Pretexting con autoridad gubernamental', 'Amenaza de consecuencias legales', 'Urgencia de 2 horas', 'Solicitud de datos sensibles (RFC, CURP, cuenta)', 'Grabación como elemento de intimidación']
+      }
+    },
+    // ── Q9: Credential Harvesting (Fake Login Page)
+    {
+      vector: 'Cosecha de Credenciales',
+      vectorClass: 'vec-credential',
+      icon: '🔑',
+      difficulty: '⭐⭐⭐',
+      question: '¿Cuál de estas URLs corresponde al inicio de sesión legítimo de Microsoft 365?',
+      scenario: `
+        <div style="background:#0d1117;border:1px solid #30363d;border-radius:10px;padding:20px;margin-bottom:20px;">
+          <p style="color:#8b949e;font-size:12px;margin-bottom:14px;">Selecciona la URL legítima de Microsoft 365 de las siguientes opciones. Un empleado recibió un correo solicitando que inicie sesión urgentemente:</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:#21262d;padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace;color:#c9d1d9;">A) https://login.microsoftonline.com/common/oauth2/v2.0/authorize</div>
+            <div style="background:#21262d;padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace;color:#c9d1d9;">B) https://microsoft-365-login.net/auth/credentials</div>
+            <div style="background:#21262d;padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace;color:#c9d1d9;">C) https://office365-secure.login-portal.com/signin</div>
+            <div style="background:#21262d;padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace;color:#c9d1d9;">D) https://microsoftonline-auth.com/office365/login</div>
+          </div>
+        </div>`,
+      options: [
+        'Opción A: login.microsoftonline.com — Dominio oficial de Microsoft para autenticación',
+        'Opción B: microsoft-365-login.net — Tiene "microsoft" en el nombre',
+        'Opción C: office365-secure.login-portal.com — Tiene "secure" y "office365"',
+        'Opción D: microsoftonline-auth.com — Tiene "microsoftonline" al inicio'
+      ],
+      correct: 0,
+      feedback: {
+        title: '✔ Correcto – microsoftonline.com es el único dominio oficial',
+        explanation: 'Microsoft utiliza exclusivamente <strong>microsoftonline.com</strong> y <strong>microsoft.com</strong> para autenticación. Las otras opciones son dominios de phishing que incorporan palabras clave de la marca (microsoft, office365, secure) pero en dominios distintos (.net, .com/portal, auth.com). La técnica de análisis correcto es identificar el <strong>dominio raíz</strong> (lo que está entre el último punto y el primer /):<br>• B) microsoft-365-login<strong>.net</strong> ❌<br>• C) login-portal<strong>.com</strong> ❌<br>• D) microsoftonline-auth<strong>.com</strong> ❌',
+        indicators: ['Análisis de dominio raíz vs. subdominio', 'Homoglyph/keyword stuffing', 'Dominio de marca no oficial', 'Credential harvesting page', 'Dominios lookalike con TLD diferente']
+      }
+    },
+    // ── Q10: Typosquatting + Supply Chain
+    {
+      vector: 'Typosquatting + Cadena de Suministro',
+      vectorClass: 'vec-typo',
+      icon: '⛓️',
+      difficulty: '⭐⭐⭐⭐⭐',
+      question: '¿Por qué el ataque de typosquatting en cadena de suministro es especialmente peligroso para organizaciones grandes?',
+      scenario: `
+        <div class="email-mockup">
+          <div class="email-bar"><div class="email-dot"></div><div class="email-dot"></div><div class="email-dot"></div><span style="color:#8b949e;font-size:12px;margin-left:8px;">Bandeja de entrada</span></div>
+          <table class="email-header-table"><tr><td>De:</td><td>actualizaciones@npm-registry.com</td></tr><tr><td>Para:</td><td>desarrolladores@empresa.com</td></tr><tr><td>Asunto:</td><td>Actualización crítica de seguridad – paquete lodash v4.17.22</td></tr></table>
+          <div class="email-body">
+            <p>El equipo de seguridad de npm registra ha publicado un parche crítico para <strong>lodash 4.17.21</strong>. Instala la actualización inmediatamente:</p>
+            <pre style="background:#161b22;padding:10px;border-radius:6px;font-size:12px;color:#3fb950;">npm install lodash@4.17.22 --registry https://npm-registry.com</pre>
+            <p style="font-size:12px;color:#8b949e;">Este paquete ha sido verificado por npm Security Team.</p>
+          </div>
+        </div>`,
+      options: [
+        'Porque los desarrolladores instalan paquetes frecuentemente y podrían no verificar el registry',
+        'Porque el paquete malicioso se ejecuta en el entorno de desarrollo con privilegios elevados, comprometiendo potencialmente el CI/CD pipeline y todos los sistemas que usen ese paquete',
+        'Porque lodash es una librería muy popular y muchos equipos la usan',
+        'Porque npm no tiene mecanismos de verificación de paquetes'
+      ],
+      correct: 1,
+      feedback: {
+        title: '✔ Correcto – Ataque de Cadena de Suministro vía Typosquatting',
+        explanation: 'El <strong>typosquatting en npm</strong> (registro de paquetes con nombres similares a legítimos) fue documentado en ataques reales como "event-stream" (2018) y "ua-parser-js" (2021). La amenaza se amplifica porque: (1) El paquete se instala con permisos del sistema, (2) Si se integra al <strong>pipeline CI/CD</strong>, cualquier build posterior ejecuta el código malicioso, (3) El código comprometido puede distribuirse a miles de usuarios finales. El registry oficial de npm es <strong>registry.npmjs.org</strong>, nunca "npm-registry.com". Verificar siempre el dominio del registry y usar <em>npm audit</em>.',
+        indicators: ['Dominio falso del registry (npm-registry.com)', 'Instrucción de registry alternativo (--registry)', 'Supply chain attack vector', 'Código ejecutado en privilegios de sistema', 'Propagación en CI/CD pipeline']
+      }
+    }
+  ];
+
+  // ── Estado del quiz
+  let qState = {
+    current: 0,
+    score: 0,
+    selected: null,
+    answered: false,
+    participantName: 'Anónimo',
+    times: [],        // ms por pregunta
+    results: [],      // {correct, time}
+    totalStart: 0,
+    qStart: 0,
+    timerInterval: null
+  };
+
+  // ── Funciones de UI del modal de consentimiento
+  function openConsentModal() {
+    document.getElementById('quiz-consent-overlay').style.display = 'flex';
+    document.getElementById('quiz-section-wrapper').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  function closeConsentModal() {
+    document.getElementById('quiz-consent-overlay').style.display = 'none';
+  }
+
+  function startQuiz() {
+    const nameInput = document.getElementById('quiz-participant-name').value.trim();
+    qState.participantName = nameInput || 'Anónimo';
+    closeConsentModal();
+
+    // Reset state
+    qState.current = 0;
+    qState.score = 0;
+    qState.selected = null;
+    qState.answered = false;
+    qState.times = [];
+    qState.results = [];
+    qState.totalStart = Date.now();
+
+    // Mostrar UI del quiz
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('quiz-results').style.display = 'none';
+    document.getElementById('quiz-launch-area').style.display = 'none';
+
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = QUIZ_QUESTIONS[qState.current];
+    qState.answered = false;
+    qState.selected = null;
+    qState.qStart = Date.now();
+
+    // Progress
+    const pct = (qState.current / QUIZ_QUESTIONS.length) * 100;
+    document.getElementById('quiz-progress-fill').style.width = pct + '%';
+    document.getElementById('quiz-q-label').textContent = 'Pregunta ' + (qState.current+1) + ' de ' + QUIZ_QUESTIONS.length;
+    document.getElementById('quiz-score-live').textContent = 'Puntuación: ' + qState.score + ' pts';
+
+    // Timer
+    clearInterval(qState.timerInterval);
+    let elapsed = 0;
+    document.getElementById('quiz-timer-display').textContent = '0s';
+    qState.timerInterval = setInterval(function(){
+      elapsed++;
+      document.getElementById('quiz-timer-display').textContent = elapsed + 's';
+    }, 1000);
+
+    // Build scenario HTML
+    const letters = ['A','B','C','D'];
+    let optHtml = '';
+    q.options.forEach(function(opt, i){
+      optHtml += '<button class="quiz-option" id="opt-'+i+'" onclick="selectOption('+i+')">';
+      optHtml += '<span class="opt-letter">'+letters[i]+'</span>';
+      optHtml += '<span>'+opt+'</span>';
+      optHtml += '</button>';
+    });
+
+    const html = `
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span class="scenario-type-badge ${q.vectorClass}">${q.icon} ${q.vector}</span>
+          <span style="font-size:12px;color:#8b949e;">Dificultad: ${q.difficulty}</span>
+        </div>
+        <div class="quiz-question-number">Pregunta ${qState.current+1} de ${QUIZ_QUESTIONS.length}</div>
+        <div class="quiz-question-text">${q.question}</div>
+        ${q.scenario}
+        <div class="quiz-options">${optHtml}</div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </div>`;
+
+    document.getElementById('quiz-scenario-panel').innerHTML = html;
+    document.getElementById('btn-quiz-submit').style.display = 'none';
+    document.getElementById('btn-quiz-next').style.display = 'none';
+  }
+
+  function selectOption(idx) {
+    if (qState.answered) return;
+    qState.selected = idx;
+    document.querySelectorAll('.quiz-option').forEach(function(btn, i){
+      btn.classList.remove('opt-selected');
+    });
+    document.getElementById('opt-'+idx).classList.add('opt-selected');
+    document.getElementById('btn-quiz-submit').style.display = 'inline-flex';
+  }
+
+  function submitAnswer() {
+    if (qState.selected === null || qState.answered) return;
+    qState.answered = true;
+    clearInterval(qState.timerInterval);
+
+    const q = QUIZ_QUESTIONS[qState.current];
+    const timeTaken = Math.round((Date.now() - qState.qStart) / 1000);
+    qState.times.push(timeTaken);
+
+    const isCorrect = qState.selected === q.correct;
+    if (isCorrect) {
+      qState.score += 10;
+      qState.results.push({correct: true, time: timeTaken, question: q.vector});
+    } else {
+      qState.results.push({correct: false, time: timeTaken, question: q.vector});
+    }
+
+    // Style options
+    document.querySelectorAll('.quiz-option').forEach(function(btn){ btn.classList.add('opt-disabled'); });
+    document.getElementById('opt-'+q.correct).classList.remove('opt-wrong','opt-selected');
+    document.getElementById('opt-'+q.correct).classList.add('opt-correct');
+    if (!isCorrect) {
+      document.getElementById('opt-'+qState.selected).classList.remove('opt-selected');
+      document.getElementById('opt-'+qState.selected).classList.add('opt-wrong');
+    }
+
+    // Feedback
+    const fb = q.feedback;
+    let tagsHtml = fb.indicators.map(function(tag){ return '<span class="fb-tag">'+tag+'</span>'; }).join('');
+    const fbEl = document.getElementById('quiz-feedback');
+    fbEl.className = 'quiz-feedback ' + (isCorrect ? 'fb-correct' : 'fb-wrong');
+    fbEl.innerHTML = '<div class="fb-title">' + (isCorrect ? '✔ ' : '✘ ') + fb.title + '</div>' +
+      '<div>' + fb.explanation + '</div>' +
+      '<div class="fb-indicators">' + tagsHtml + '</div>';
+    fbEl.style.display = 'block';
+
+    // Scroll to feedback
+    fbEl.scrollIntoView({behavior:'smooth', block:'nearest'});
+
+    document.getElementById('quiz-score-live').textContent = 'Puntuación: ' + qState.score + ' pts';
+    document.getElementById('btn-quiz-submit').style.display = 'none';
+
+    if (qState.current < QUIZ_QUESTIONS.length - 1) {
+      document.getElementById('btn-quiz-next').style.display = 'inline-flex';
+      document.getElementById('btn-quiz-next').textContent = 'Siguiente →';
+    } else {
+      document.getElementById('btn-quiz-next').style.display = 'inline-flex';
+      document.getElementById('btn-quiz-next').textContent = 'Ver Resultados';
+    }
+  }
+
+  function nextQuestion() {
+    if (qState.current < QUIZ_QUESTIONS.length - 1) {
+      qState.current++;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  function showResults() {
+    clearInterval(qState.timerInterval);
+    document.getElementById('quiz-container').style.display = 'none';
+
+    const totalTime = Math.round((Date.now() - qState.totalStart) / 1000);
+    const correctCount = qState.results.filter(function(r){ return r.correct; }).length;
+    const vectorsIdentified = correctCount;
+
+    // Score ring
+    document.getElementById('res-score').textContent = qState.score;
+
+    // Title
+    let title, subtitle;
+    if (qState.score >= 90) {
+      title = '🏆 Experto en Seguridad'; subtitle = 'Excelente – Dominas la identificación de amenazas de ingeniería social.';
+    } else if (qState.score >= 70) {
+      title = '🎯 Analista Competente'; subtitle = 'Buen desempeño. Refuerza los vectores que fallaste.';
+    } else if (qState.score >= 50) {
+      title = '⚠️ En Desarrollo'; subtitle = 'Resultado intermedio. Revisa la retroalimentación de cada escenario.';
+    } else {
+      title = '🔴 Alta Vulnerabilidad'; subtitle = 'Necesitas reforzar tus conocimientos de ingeniería social.';
+    }
+    document.getElementById('res-title').textContent = title;
+    document.getElementById('res-subtitle').textContent = subtitle;
+
+    // Stats
+    document.getElementById('stat-correct').textContent = correctCount + '/10';
+    document.getElementById('stat-time').textContent = totalTime + 's';
+    document.getElementById('stat-vectors').textContent = vectorsIdentified;
+
+    // Breakdown
+    const slowestIdx = qState.times.indexOf(Math.max.apply(null, qState.times));
+    let breakdownHtml = '';
+    qState.results.forEach(function(r, i){
+      const isSlowest = i === slowestIdx;
+      breakdownHtml += '<div class="breakdown-row">';
+      breakdownHtml += '<span class="breakdown-icon">' + (r.correct ? '✅' : '❌') + '</span>';
+      breakdownHtml += '<span class="breakdown-q">' + QUIZ_QUESTIONS[i].vector + '</span>';
+      if (isSlowest) breakdownHtml += '<span class="slowest-tag">⏱ Más lento</span>';
+      breakdownHtml += '<span class="breakdown-time">' + r.time + 's</span>';
+      breakdownHtml += '</div>';
+    });
+    document.getElementById('res-breakdown-list').innerHTML = breakdownHtml;
+
+    // Leaderboard (sessionStorage based)
+    saveToLeaderboard(qState.participantName, qState.score, totalTime);
+    renderLeaderboard();
+
+    document.getElementById('quiz-results').style.display = 'block';
+    document.getElementById('quiz-results').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function saveToLeaderboard(name, score, time) {
+    let board = [];
+    try { board = JSON.parse(sessionStorage.getItem('phishingQuizBoard') || '[]'); } catch(e){}
+    board.push({name: name, score: score, time: time, date: new Date().toLocaleTimeString('es-MX')});
+    board.sort(function(a,b){ return b.score - a.score || a.time - b.time; });
+    board = board.slice(0, 10);
+    try { sessionStorage.setItem('phishingQuizBoard', JSON.stringify(board)); } catch(e){}
+  }
+
+  function renderLeaderboard() {
+    let board = [];
+    try { board = JSON.parse(sessionStorage.getItem('phishingQuizBoard') || '[]'); } catch(e){}
+    if (board.length === 0) {
+      document.getElementById('leaderboard-list').innerHTML = '<p style="color:#8b949e;font-size:13px;">Sé el primero en completar el quiz en esta sesión.</p>';
+      return;
+    }
+    const rankClasses = ['gold','silver','bronze'];
+    const rankEmojis = ['🥇','🥈','🥉'];
+    let html = '';
+    board.forEach(function(entry, i){
+      const isCurrentLast = (i === board.length - 1) && (entry.name === qState.participantName);
+      const isCurrent = entry.name === qState.participantName && entry.score === qState.score;
+      const rankClass = i < 3 ? rankClasses[i] : '';
+      const rankLabel = i < 3 ? rankEmojis[i] : '#'+(i+1);
+      html += '<div class="lb-row '+(isCurrent ? 'lb-current' : '')+'">';
+      html += '<span class="lb-rank '+ rankClass +'">' + rankLabel + '</span>';
+      html += '<span class="lb-name">' + escapeHtml(entry.name) + (isCurrent ? ' <span style="font-size:11px;color:#58a6ff;">(tú)</span>' : '') + '</span>';
+      html += '<span class="lb-score">' + entry.score + ' pts</span>';
+      html += '<span class="lb-time">' + entry.time + 's</span>';
+      html += '</div>';
+    });
+    document.getElementById('leaderboard-list').innerHTML = html;
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function retryQuiz() {
+    document.getElementById('quiz-results').style.display = 'none';
+    document.getElementById('quiz-launch-area').style.display = 'block';
+    document.getElementById('quiz-section-wrapper').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  </script>
+
+  <script>
     document.addEventListener("DOMContentLoaded", function(event){ navActivePage(); });
   </script>
   <script type="text/javascript" src="./main.70a66962.js"></script>
+
 </body>
 </html>
