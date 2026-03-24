@@ -707,10 +707,11 @@
                   <li><strong>✔ Participación voluntaria:</strong> Puedes abandonar el quiz en cualquier momento sin consecuencia alguna.</li>
                 </ul>
                 <div class="consent-warning">
-                  ⚠️ <strong>Aviso:</strong> Los escenarios presentados son <em>simulados y ficticios</em>. Cualquier semejanza con organizaciones o personas reales es coincidencia. Este ejercicio cumple con la LFPDPPP (México) y los principios del SANS Security Awareness Framework.
+                  ⚠️ <strong>Aviso:</strong> Los escenarios presentados son <em>simulados y ficticios</em>. Cualquier Ejercicio bajo la LFPDPPP.
                 </div>
                 <div class="quiz-name-input">
                   <input type="text" id="quiz-participant-name" placeholder="Tu nombre o alias (opcional)" maxlength="40" />
+                  <span id="attempts-left-badge" style="background:#21262d;color:#8b949e;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #30363d;">Intentos: 3/3</span>
                 </div>
                 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
                   <button class="btn-quiz-start" id="btn-consent-accept" onclick="startQuiz()">✔ Acepto – Comenzar Quiz</button>
@@ -788,7 +789,13 @@
                 <div class="results-stats">
                   <div class="stat-card"><div class="stat-val" id="stat-correct">—</div><div class="stat-label">Respuestas correctas</div></div>
                   <div class="stat-card"><div class="stat-val" id="stat-time">—</div><div class="stat-label">Tiempo total</div></div>
-                  <div class="stat-card"><div class="stat-val" id="stat-vectors">—</div><div class="stat-label">Vectores identificados</div></div>
+                  <div class="stat-card"><div class="stat-val" id="stat-avg-time">—</div><div class="stat-label">Promedio por preg.</div></div>
+                </div>
+                <div class="results-breakdown" style="margin-bottom:20px;">
+                  <div style="background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px;">
+                    <div style="font-size:12px;color:#d2993a;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Tendencia de Error Detectada</div>
+                    <div style="font-size:14px;color:#c9d1d9;" id="stat-trend">—</div>
+                  </div>
                 </div>
                 <div class="results-breakdown">
                   <h4>📊 Análisis por escenario</h4>
@@ -1143,17 +1150,69 @@
   };
 
   // ── Funciones de UI del modal de consentimiento
+  const MAX_ATTEMPTS = 3;
+
+  function getAttempts(name) {
+    if (!name) return 0;
+    let attempts = {};
+    try { attempts = JSON.parse(sessionStorage.getItem('phishingQuizAttempts') || '{}'); } catch(e){}
+    return attempts[name] || 0;
+  }
+
+  function incrementAttempts(name) {
+    if (!name) return;
+    let attempts = {};
+    try { attempts = JSON.parse(sessionStorage.getItem('phishingQuizAttempts') || '{}'); } catch(e){}
+    attempts[name] = (attempts[name] || 0) + 1;
+    sessionStorage.setItem('phishingQuizAttempts', JSON.stringify(attempts));
+  }
+
   function openConsentModal() {
+    updateAttemptsDisplay();
     document.getElementById('quiz-consent-overlay').style.display = 'flex';
     document.getElementById('quiz-section-wrapper').scrollIntoView({behavior:'smooth', block:'start'});
+    
+    // Add event listener to update attempts when name changes
+    document.getElementById('quiz-participant-name').addEventListener('input', updateAttemptsDisplay);
   }
+  
+  function updateAttemptsDisplay() {
+    const nameInput = document.getElementById('quiz-participant-name').value.trim() || 'Anónimo';
+    const used = getAttempts(nameInput);
+    const left = Math.max(0, MAX_ATTEMPTS - used);
+    const badge = document.getElementById('attempts-left-badge');
+    
+    badge.textContent = 'Intentos: ' + left + '/' + MAX_ATTEMPTS;
+    
+    const btn = document.getElementById('btn-consent-accept');
+    if (left === 0) {
+      badge.style.color = '#f85149';
+      badge.style.borderColor = 'rgba(248,81,73,0.3)';
+      btn.disabled = true;
+      btn.textContent = 'Límite de intentos alcanzado';
+    } else {
+      badge.style.color = '#8b949e';
+      badge.style.borderColor = '#30363d';
+      btn.disabled = false;
+      btn.textContent = '✔ Acepto – Comenzar Quiz';
+    }
+  }
+
   function closeConsentModal() {
     document.getElementById('quiz-consent-overlay').style.display = 'none';
+    document.getElementById('quiz-participant-name').removeEventListener('input', updateAttemptsDisplay);
   }
 
   function startQuiz() {
     const nameInput = document.getElementById('quiz-participant-name').value.trim();
     qState.participantName = nameInput || 'Anónimo';
+    
+    if (getAttempts(qState.participantName) >= MAX_ATTEMPTS) {
+      alert('Has alcanzado el límite máximo de intentos (' + MAX_ATTEMPTS + ') para esta sesión.');
+      return;
+    }
+    
+    incrementAttempts(qState.participantName);
     closeConsentModal();
 
     // Reset state
@@ -1318,13 +1377,16 @@
     document.getElementById('res-subtitle').textContent = subtitle;
 
     // Stats
+    const avgTime = (totalTime / QUIZ_QUESTIONS.length).toFixed(1);
     document.getElementById('stat-correct').textContent = correctCount + '/10';
     document.getElementById('stat-time').textContent = totalTime + 's';
-    document.getElementById('stat-vectors').textContent = vectorsIdentified;
+    document.getElementById('stat-avg-time').textContent = avgTime + 's';
 
     // Breakdown
     const slowestIdx = qState.times.indexOf(Math.max.apply(null, qState.times));
     let breakdownHtml = '';
+    let failedVectors = [];
+    
     qState.results.forEach(function(r, i){
       const isSlowest = i === slowestIdx;
       breakdownHtml += '<div class="breakdown-row">';
@@ -1333,8 +1395,21 @@
       if (isSlowest) breakdownHtml += '<span class="slowest-tag">⏱ Más lento</span>';
       breakdownHtml += '<span class="breakdown-time">' + r.time + 's</span>';
       breakdownHtml += '</div>';
+      
+      if (!r.correct) failedVectors.push(QUIZ_QUESTIONS[i].vector);
     });
+    
     document.getElementById('res-breakdown-list').innerHTML = breakdownHtml;
+    
+    // Trend analysis
+    const trendEl = document.getElementById('stat-trend');
+    if (failedVectors.length === 0) {
+      trendEl.textContent = 'Ninguna falla detectada. ¡Perfecto!';
+      trendEl.style.color = '#3fb950';
+    } else {
+      trendEl.textContent = 'Tu principal área de mejora incluye: ' + failedVectors.slice(0, 2).join(', ');
+      trendEl.style.color = '#c9d1d9';
+    }
 
     // Leaderboard (sessionStorage based)
     saveToLeaderboard(qState.participantName, qState.score, totalTime);
