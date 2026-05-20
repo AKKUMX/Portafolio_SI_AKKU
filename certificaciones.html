@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="PD05 – Reflexión Profesional sobre Certificaciones | Portafolio AKKU" name="description">
+  <meta name="google" content="notranslate"/>
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link href="./assets/favicon.ico" rel="icon">
+  <title>PD05 – Certificaciones | Portafolio AKKU</title>
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+  <style>
+    body{background-color:#0d1117;color:#f0f0f0;padding-top:80px;}
+    h1,h2,h3,h4,h5,h6{color:#fff;}
+    p,li{color:#c9d1d9;}
+    a{color:#79c0ff;}
+    a:hover{color:#58a6ff;}
+    .navbar{background-color:#21262d;border-bottom:1px solid #30363d;}
+    .navbar-nav li a{color:#f0f0f0;}
+    .navbar-nav li a:hover{color:#58a6ff;}
+    .footer-container{background-color:#21262d;color:#e0e0e0;border-top:1px solid #30363d;}
+    .footer-container a{color:#79c0ff;}
+    #site-border-left,#site-border-right,#site-border-top,#site-border-bottom{background-color:#161b22;}
+    .navbar-toggle .icon-bar{background-color:#79c0ff;}
+    .section-container{background-color:#161b22;padding:20px;border-radius:5px;border:1px solid #30363d;}
+
+    /* Page header */
+    .cert-page-header{text-align:center;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid #30363d;}
+    .cert-page-badge{display:inline-block;background:linear-gradient(135deg,#58a6ff,#79c0ff);color:#0d1117;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+    .cert-page-header h1{font-size:30px;font-weight:700;line-height:1.3;margin-bottom:10px;}
+    .cert-page-header p{color:#8b949e;font-size:15px;max-width:680px;margin:0 auto;}
+    .section-divider{width:60px;height:3px;background:linear-gradient(90deg,#58a6ff,#79c0ff);margin:22px auto;border:none;border-radius:2px;}
+
+    /* Tab navigation */
+    .cert-tabs-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;justify-content:center;}
+    .cert-tab-btn{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:10px 18px;color:#8b949e;font-size:13px;font-weight:600;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+    .cert-tab-btn:hover{border-color:#58a6ff;color:#fff;background:#1a2233;}
+    .cert-tab-btn.active{background:linear-gradient(135deg,rgba(88,166,255,.15),rgba(121,192,255,.08));border-color:#58a6ff;color:#fff;box-shadow:0 4px 16px rgba(88,166,255,.12);}
+    .cert-tab-btn .tab-num{width:22px;height:22px;border-radius:50%;background:#21262d;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#58a6ff;flex-shrink:0;}
+    .cert-tab-btn.active .tab-num{background:rgba(88,166,255,.2);}
+
+    /* Cert panels */
+    .cert-panel{display:none;animation:fadeIn .35s ease;}
+    .cert-panel.active{display:block;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+    /* Cert layout grid */
+    .cert-grid{display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:start;}
+    @media(max-width:860px){.cert-grid{grid-template-columns:1fr;}}
+
+    /* Cert content left */
+    .cert-title-bar{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+    .cert-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+    .cert-title-bar h2{margin:0;font-size:22px;font-weight:700;color:#fff;}
+    .cert-title-bar .cert-issuer{font-size:12px;color:#8b949e;letter-spacing:1px;text-transform:uppercase;margin-top:3px;}
+    .cert-resena{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:22px 24px;margin-bottom:22px;}
+    .cert-resena h3{font-size:14px;font-weight:700;color:#58a6ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .cert-resena p{font-size:14px;line-height:1.85;color:#c9d1d9;margin-bottom:12px;text-align:justify;}
+    .cert-resena p:last-child{margin-bottom:0;}
+
+    /* PDF embed */
+    .cert-pdf-section{margin-bottom:8px;}
+    .cert-pdf-section h3{font-size:14px;font-weight:700;color:#58a6ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .pdf-embed-wrap{background:#0d1117;border:1px solid #30363d;border-radius:10px;overflow:hidden;}
+    .pdf-embed-wrap iframe{display:block;width:100%;height:500px;border:none;}
+    .pdf-btn{display:inline-flex;align-items:center;gap:8px;color:#79c0ff;font-size:13px;text-decoration:none;margin-top:10px;padding:8px 14px;border:1px solid #30363d;border-radius:6px;transition:all .25s;}
+    .pdf-btn:hover{color:#58a6ff;border-color:#58a6ff;background:rgba(88,166,255,.05);}
+
+    /* Sidebar right */
+    .cert-sidebar{}
+    .badge-card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:22px;text-align:center;margin-bottom:20px;}
+    .badge-card h3{font-size:13px;font-weight:700;color:#58a6ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+    .badge-card .badge-img-wrap{margin:0 auto 14px;display:flex;justify-content:center;}
+    .badge-card .badge-img-wrap img{width:130px;height:auto;transition:transform .3s;cursor:pointer;}
+    .badge-card .badge-img-wrap img:hover{transform:scale(1.05);}
+    .badge-card .badge-link{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#58a6ff,#79c0ff);color:#0d1117;font-size:13px;font-weight:700;padding:9px 18px;border-radius:8px;text-decoration:none;transition:all .25s;margin-top:6px;}
+    .badge-card .badge-link:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(88,166,255,.3);color:#0d1117;}
+    .cert-meta-card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;}
+    .cert-meta-card h3{font-size:13px;font-weight:700;color:#58a6ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+    .cert-meta-item{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid #21262d;}
+    .cert-meta-item:last-child{border:none;}
+    .cert-meta-item .meta-label{color:#8b949e;}
+    .cert-meta-item .meta-val{color:#fff;font-weight:600;text-align:right;}
+
+    /* Back btn */
+    .btn-back{display:inline-flex;align-items:center;gap:8px;color:#79c0ff;font-size:14px;text-decoration:none;margin-bottom:24px;padding:8px 16px;border:1px solid #30363d;border-radius:6px;transition:all .3s;}
+    .btn-back:hover{color:#58a6ff;border-color:#58a6ff;background:rgba(88,166,255,.05);text-decoration:none;}
+
+    @media print{
+      body{background:#fff!important;color:#000!important;}
+      .navbar,.footer-container,.btn-back,.cert-tabs-nav,#site-border-left,#site-border-right,#site-border-top,#site-border-bottom{display:none!important;}
+      .section-container{background:#fff!important;border:none!important;}
+    }
+  </style>
+</head>
+<body>
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html">01 : Inicio</a></li>
+            <li><a href="./presentacion.html">02 : Presentación</a></li>
+            <li><a href="./TPT.html">03 : Actividades</a></li>
+            <li><a href="./contacto.html">04 : Contacto</a></li>
+            <li><a href="./informacion.html">05 : Información</a></li>
+            <li><a href="./proyectos.html">06 : Proyectos</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">07 : ROAD TO HALL OF FAME <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="background-color:#21262d;">
+                <li><a href="./sql_injection.html" style="color:#79c0ff;">SQL Injection</a></li>
+              </ul>
+            </li>
+            <li class="active"><a href="./certificaciones.html">08 : Certificaciones</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 section-container-spacer">
+
+          <a href="./index.html" class="btn-back">← Volver al Inicio</a>
+
+          <!-- PAGE HEADER -->
+          <div class="cert-page-header">
+            <div class="cert-page-badge">PD05 · Certificaciones</div>
+            <h1>Reflexión Profesional sobre Certificaciones</h1>
+            <hr class="section-divider">
+            <p>Documentación estructurada de mi experiencia en el proceso de certificación en ciberseguridad a través de las rutas de aprendizaje de Cisco Networking Academy, destacando aprendizajes clave, retos y aplicación práctica en el ámbito profesional.</p>
+          </div>
+
+          <!-- TAB NAVIGATION -->
+          <div class="cert-tabs-nav" role="tablist">
+            <button class="cert-tab-btn active" onclick="showCert(0)" id="tab-0" role="tab" aria-selected="true">
+              <span class="tab-num">1</span> Introducción a la Ciberseguridad
+            </button>
+            <button class="cert-tab-btn" onclick="showCert(1)" id="tab-1" role="tab">
+              <span class="tab-num">2</span> Conceptos Básicos de Redes
+            </button>
+            <button class="cert-tab-btn" onclick="showCert(2)" id="tab-2" role="tab">
+              <span class="tab-num">3</span> Dispositivos de Red
+            </button>
+            <button class="cert-tab-btn" onclick="showCert(3)" id="tab-3" role="tab">
+              <span class="tab-num">4</span> Seguridad en Terminales
+            </button>
+            <button class="cert-tab-btn" onclick="showCert(4)" id="tab-4" role="tab">
+              <span class="tab-num">5</span> Administración de Amenazas
+            </button>
+            <button class="cert-tab-btn" onclick="showCert(5)" id="tab-5" role="tab">
+              <span class="tab-num">6</span> Analista Junior
+            </button>
+            <button class="cert-tab-btn" onclick="showCert(6)" id="tab-6" role="tab">
+              <span class="tab-num">7</span> Hacker Ético
+            </button>
+          </div>
+
+          <!-- ══ CERT 1: Introduction to Cybersecurity ══ -->
+          <div class="cert-panel active" id="panel-0">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(88,166,255,.12);color:#58a6ff;">🛡️</div>
+                  <div>
+                    <h2>Introducción a la Ciberseguridad</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>El curso de Introducción a la Ciberseguridad de Cisco Networking Academy representó mi primer contacto formal y estructurado con el mundo de la seguridad informática. Antes de cursarlo, mi visión del área se limitaba a conceptos vagos asociados con hackers y virus; al finalizar, comprendí que la ciberseguridad es un ecosistema complejo que abarca personas, procesos y tecnología en igual medida.</p>
+                  <p>El aprendizaje más impactante fue comprender el concepto de superficie de ataque: cada dispositivo conectado, cada usuario con acceso y cada aplicación en funcionamiento amplía el perímetro que debe protegerse. Este cambio de perspectiva transformó mi forma de ver incluso actividades cotidianas como usar redes Wi-Fi públicas o gestionar contraseñas.</p>
+                  <p>El principal reto fue asimilar la velocidad con la que el panorama de amenazas evoluciona. Los tipos de malware, los vectores de ataque y las motivaciones de los actores maliciosos conforman un catálogo en constante cambio. Esto me llevó a desarrollar el hábito de consultar fuentes actualizadas como los reportes de Verizon DBIR o las alertas del CISA.</p>
+                  <p>En términos de aplicación práctica, este curso me dotó del lenguaje técnico fundamental para comunicar riesgos de seguridad, la base para analizar incidentes y la conciencia necesaria para identificar comportamientos sospechosos, habilidades que utilizo constantemente en mis proyectos de portafolio y en el análisis de casos de seguridad reales presentados en clase.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/1. Introduction_to_Cybersecurity_certificate_176658.pdf" title="Certificado Introducción a la Ciberseguridad"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/1. Introduction_to_Cybersecurity_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/3f3f5c12-3808-445f-88ea-d46c03c01ea1/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/3f3f5c12-3808-445f-88ea-d46c03c01ea1/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Introductorio</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ CERT 2: Networking Basics ══ -->
+          <div class="cert-panel" id="panel-1">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(63,185,80,.12);color:#3fb950;">🌐</div>
+                  <div>
+                    <h2>Conceptos Básicos de Redes</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>El módulo de Conceptos Básicos de Redes constituyó una de las experiencias de aprendizaje más fundamentales de mi trayectoria académica en sistemas de información. Comprender cómo funciona la comunicación entre dispositivos a nivel de protocolos, direccionamiento y topología fue un proceso que transformó mi percepción de Internet de una infraestructura mágica e invisible a un sistema lógico y comprensible.</p>
+                  <p>El aprendizaje más significativo fue interiorizar el modelo OSI y su contraparte práctica TCP/IP. Entender que cada capa tiene responsabilidades definidas y que la seguridad debe aplicarse en cada nivel me dio un marco analítico poderoso. Por ejemplo, reconocer que un ataque de man-in-the-middle opera principalmente en la capa de enlace de datos cambió mi perspectiva sobre por qué ciertos controles de seguridad existen en cada punto de la infraestructura.</p>
+                  <p>El principal reto fue dominar el subnetting y el diseño de esquemas de direccionamiento IPv4 e IPv6. Las matemáticas de máscaras de subred y rangos CIDR requirieron práctica sostenida, pero ese dominio resultó ser la base para entender correctamente la segmentación de redes como control de seguridad en proyectos posteriores.</p>
+                  <p>En la práctica, estos conocimientos me permiten analizar capturas de tráfico con Wireshark, identificar patrones anómalos en comunicaciones de red y diseñar topologías básicas en entornos de laboratorio con Cisco Packet Tracer, herramientas que uso activamente en los proyectos de este portafolio.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/2. Networking_Basics_certificate_176658.pdf" title="Certificado Conceptos Básicos de Redes"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/2. Networking_Basics_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/084d61a4-833c-449b-9858-eb8479919b9c/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/networking-basics.png" alt="Networking Basics Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/084d61a4-833c-449b-9858-eb8479919b9c/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Básico</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ CERT 3: Networking Devices ══ -->
+          <div class="cert-panel" id="panel-2">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(210,153,34,.12);color:#d2993a;">⚙️</div>
+                  <div>
+                    <h2>Dispositivos de Red y Configuración Inicial</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>El curso de Dispositivos de Red y Configuración Inicial marcó mi transición de la teoría de redes a la práctica de administración de infraestructura. Por primera vez comencé a interactuar directamente con la interfaz de línea de comandos (CLI) de equipos Cisco, configurando switches y routers en entornos simulados con Packet Tracer y en equipos físicos del laboratorio de la universidad.</p>
+                  <p>El aprendizaje más valioso fue comprender los fundamentos del IOS de Cisco: la estructura de modos de configuración, los comandos esenciales de verificación (show running-config, show ip route, show interfaces) y la lógica de configuración de VLANs como mecanismo de segmentación y control de broadcast. Este conocimiento fue directamente aplicable a escenarios de hardening de redes en los que la segmentación es un control crítico.</p>
+                  <p>El reto más significativo fue desarrollar la fluidez en la CLI sin cometer errores que desconecten servicios. Aprendí a valorar los entornos de laboratorio como espacios seguros para experimentar sin consecuencias reales, y comprendí la importancia de verificar cada cambio antes de aplicarlo en producción.</p>
+                  <p>Este curso solidificó mi comprensión de por qué la configuración incorrecta de dispositivos de red es una de las fuentes más comunes de vulnerabilidades de seguridad, y me preparó para entender controles avanzados como port security, ACLs y configuración de spanning tree que estudiaría en módulos posteriores.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/3. Networking_Devices_and_Initial_Configuration_certificate_176658.pdf" title="Certificado Dispositivos de Red"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/3. Networking_Devices_and_Initial_Configuration_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/43988bcd-0f2f-4d8f-abef-71f3586b54f1/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/networking-devices-and-initial-configuration.png" alt="Networking Devices Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/43988bcd-0f2f-4d8f-abef-71f3586b54f1/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Básico-Intermedio</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ CERT 4: Endpoint Security ══ -->
+          <div class="cert-panel" id="panel-3">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(248,81,73,.12);color:#f85149;">💻</div>
+                  <div>
+                    <h2>Seguridad en Terminales</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>El módulo de Seguridad en Terminales (Endpoint Security) profundizó mi comprensión del eslabón más atacado en cualquier infraestructura de ciberseguridad: los dispositivos de usuario final. Comprender que cada laptop, smartphone o servidor es un punto potencial de compromiso cambió radicalmente mi enfoque hacia la gestión de dispositivos.</p>
+                  <p>El aprendizaje más impactante fue descubrir el ciclo completo de un ataque a endpoint: desde el vector inicial de compromiso (generalmente un archivo malicioso o una vulnerabilidad no parcheada), pasando por la ejecución de código, la persistencia en el sistema y la eventual exfiltración de datos o despliegue de ransomware. Entender este kill chain me permitió comprender por qué cada capa de defensas en el endpoint tiene sentido estratégico.</p>
+                  <p>El reto más importante fue asimilar la complejidad del ecosistema de herramientas de protección de endpoints: la diferencia entre antivirus tradicional, EDR (Endpoint Detection and Response) y XDR, y cuándo cada uno ofrece valor real. También resultó desafiante entender las técnicas de evasión que usan los atacantes modernos, como el living-off-the-land (uso de herramientas legítimas del sistema operativo para actividad maliciosa).</p>
+                  <p>En la práctica, este conocimiento me permite evaluar la postura de seguridad de un dispositivo, identificar configuraciones débiles como deshabilitación de Windows Defender, permisos excesivos de usuario o falta de cifrado de disco, y proponer controles preventivos básicos que cualquier organización debería implementar.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/4. Endpoint_Security_certificate_176658.pdf" title="Certificado Seguridad en Terminales"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/4. Endpoint_Security_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/f8590f2b-be5a-44ef-8f43-2e875d9fd5c0/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/endpoint-security.png" alt="Endpoint Security Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/f8590f2b-be5a-44ef-8f43-2e875d9fd5c0/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Intermedio</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ CERT 5: Cyber Threat Management ══ -->
+          <div class="cert-panel" id="panel-4">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(130,80,255,.12);color:#a371f7;">⚠️</div>
+                  <div>
+                    <h2>Administración de Amenazas Cibernéticas</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>La Administración de Amenazas Cibernéticas fue el módulo que más me acercó al trabajo real de un analista de seguridad. Los cursos anteriores me habían enseñado a reconocer amenazas; este me enseñó a gestionarlas sistemáticamente, introduciendo frameworks, procesos y mentalidades propias del trabajo en un Centro de Operaciones de Seguridad (SOC).</p>
+                  <p>El aprendizaje más transformador fue la introducción al framework MITRE ATT&CK. Poder categorizar las técnicas de un atacante en tácticas observables y correlacionarlas con indicadores de compromiso (IoCs) cambió fundamentalmente mi capacidad analítica. Comprendí que los ataques siguen patrones reproducibles y que un defensor bien entrenado puede anticipar los movimientos laterales de un adversario.</p>
+                  <p>El reto más demanding fue desarrollar la mentalidad de gestión de riesgo: entender que no todos los riesgos se pueden eliminar, sino que deben priorizarse, mitigarse, transferirse o aceptarse según su impacto potencial y la capacidad de respuesta de la organización. Esta perspectiva analítica es esencial para cualquier profesional que aspire a roles de toma de decisiones en ciberseguridad.</p>
+                  <p>Apliqué directamente estos conocimientos en el análisis de amenazas del proyecto PR02, donde analicé distintos vectores de phishing categorizándolos según el framework de MITRE y propuse controles alineados con las mejores prácticas del sector. Este módulo fue, en definitiva, el más enriquecedor de toda la ruta formativa.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/5. Cyber_Threat_Management_certificate_176658.pdf" title="Certificado Administración de Amenazas"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/5. Cyber_Threat_Management_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/5a07c5f1-2739-4efd-945a-30c4ad1d34e2/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/cyber-threat-management.png" alt="Cyber Threat Management Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/5a07c5f1-2739-4efd-945a-30c4ad1d34e2/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Intermedio</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ CERT 6: Junior Cybersecurity Analyst ══ -->
+          <div class="cert-panel" id="panel-5">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(255,163,0,.12);color:#ffa300;">🎓</div>
+                  <div>
+                    <h2>Carrera Profesional de Analista Junior en Ciberseguridad</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>La certificación de Carrera Profesional de Analista Junior en Ciberseguridad representa la culminación de la ruta formativa de Cisco NetAcad y el reconocimiento más significativo de mi proceso de aprendizaje en esta disciplina. Este badge integra competencias de todos los módulos anteriores y certifica que el estudiante posee un perfil básico pero funcional para desempeñarse en un entorno de operaciones de seguridad.</p>
+                  <p>El aprendizaje más valioso fue desarrollar una visión sistémica de la ciberseguridad: entender cómo cada componente — desde la configuración de red hasta la respuesta a incidentes — forma parte de una estrategia de defensa en profundidad. Por primera vez pude articular cómo un evento en la capa de red puede escalar a un incidente de seguridad que involucra equipos legales, de comunicaciones y de liderazgo ejecutivo.</p>
+                  <p>El reto más profundo de esta certificación fue enfrentar la brecha entre el conocimiento teórico y las habilidades prácticas que demanda el mercado laboral. Las entrevistas con profesionales del sector y la revisión de descripciones de puestos de Analista Junior SOC revelaron que la velocidad de triage, la escritura de reportes técnicos y la colaboración bajo presión son competencias que solo se desarrollan con práctica real en entornos simulados o estágios profesionales.</p>
+                  <p>Este logro reforzó mi convicción de que la ciberseguridad es el área donde quiero enfocar mi carrera profesional. Completar esta ruta me posiciona con una base sólida y verificable para continuar hacia certificaciones más avanzadas como CompTIA Security+ o cursar la ruta de CyberOps Associate de Cisco, que representa el siguiente nivel en mi hoja de ruta de desarrollo profesional.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/6. Junior_Cybersecurity_Analyst_Career_Path_certificate_176658.pdf" title="Certificado Analista Junior en Ciberseguridad"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/6. Junior_Cybersecurity_Analyst_Career_Path_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/5eb3addd-e273-4bbf-8c05-30357c81bfd4/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/junior-cybersecurity-analyst-career-path.1.png" alt="Junior Cybersecurity Analyst Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/5eb3addd-e273-4bbf-8c05-30357c81bfd4/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Profesional Júnior</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ CERT 7: Ethical Hacker ══ -->
+          <div class="cert-panel" id="panel-6">
+            <div class="cert-grid">
+              <div>
+                <div class="cert-title-bar">
+                  <div class="cert-icon" style="background:rgba(63,185,80,.12);color:#3fb950;">🕵️</div>
+                  <div>
+                    <h2>Hacker Ético</h2>
+                    <div class="cert-issuer">Cisco Networking Academy · 2025</div>
+                  </div>
+                </div>
+                <div class="cert-resena">
+                  <h3>📝 Reseña personal</h3>
+                  <p>El curso de Hacker Ético fue, sin lugar a dudas, el módulo más estimulante y demandante de toda la ruta formativa. Por primera vez adopté la perspectiva del adversario —el red team— para comprender cómo piensan, planifican y ejecutan los atacantes. Este cambio de rol fue profundamente educativo y reveló vulnerabilidades en mis propios supuestos sobre seguridad.</p>
+                  <p>El aprendizaje más transformador fue el proceso estructurado de un pentest: reconocimiento, escaneo, enumeración, explotación, post-explotación y reporte. Entender que el hacking ético no es una actividad caótica sino un proceso metódico y documentado cambió mi visión del oficio. Las herramientas como Nmap, Metasploit, Burp Suite y técnicas de ingeniería social dejaron de ser conceptos abstractos para convertirse en instrumentos de análisis que requieren criterio ético y técnico sofisticado para ser usados responsablemente.</p>
+                  <p>El reto más significativo fue justamente el componente ético. Comprender los límites legales del hacking (conceptos de autorización, alcance, non-disclosure y responsabilidad civil) fue tan importante como el conocimiento técnico. En México, la Ley Federal de Telecomunicaciones y la LFCDPPP establecen marcos legales específicos que cualquier professional de este campo debe conocer y respetar absolutamente.</p>
+                  <p>Este módulo está directamente relacionado con mi proyecto de SQL Injection en el portafolio, donde apliqué técnicas de explotación controlada en entornos de práctica autorizados. La certificación me preparó para continuar hacia certificaciones reconocidas globalmente como CEH (Certified Ethical Hacker) o OSCP en el futuro mediato de mi carrera profesional.</p>
+                </div>
+                <div class="cert-pdf-section">
+                  <h3>📄 Certificado oficial</h3>
+                  <div class="pdf-embed-wrap">
+                    <iframe src="./Certificados/7. Ethical_Hacker_certificate_176658.pdf" title="Certificado Hacker Ético"></iframe>
+                  </div>
+                  <a class="pdf-btn" href="./Certificados/7. Ethical_Hacker_certificate_176658.pdf" target="_blank">⬇ Abrir PDF en nueva pestaña</a>
+                </div>
+              </div>
+              <div class="cert-sidebar">
+                <div class="badge-card">
+                  <h3>🏅 Badge Digital</h3>
+                  <div class="badge-img-wrap">
+                    <a href="https://www.credly.com/badges/9b4b7221-8c54-45b4-b6a2-d4cf52910d24/public_url" target="_blank" rel="noopener">
+                      <img src="./Certificados/ethical-hacker.png" alt="Ethical Hacker Badge">
+                    </a>
+                  </div>
+                  <a class="badge-link" href="https://www.credly.com/badges/9b4b7221-8c54-45b4-b6a2-d4cf52910d24/public_url" target="_blank" rel="noopener">🔗 Verificar en Credly</a>
+                </div>
+                <div class="cert-meta-card">
+                  <h3>ℹ️ Detalles</h3>
+                  <div class="cert-meta-item"><span class="meta-label">Emisor</span><span class="meta-val">Cisco NetAcad</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Plataforma</span><span class="meta-val">Credly</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Año</span><span class="meta-val">2025</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Nivel</span><span class="meta-val">Intermedio-Avanzado</span></div>
+                  <div class="cert-meta-item"><span class="meta-label">Idioma</span><span class="meta-val">Español</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>© 2026 Pedro Jasso (AKKU) | Universidad Politécnica De San Luis Potosí | <a href="./presentacion.html">Presentación</a> | <a href="./contacto.html">Contacto</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showCert(index) {
+      document.querySelectorAll('.cert-panel').forEach(function(p, i) {
+        p.classList.toggle('active', i === index);
+      });
+      document.querySelectorAll('.cert-tab-btn').forEach(function(b, i) {
+        b.classList.toggle('active', i === index);
+        b.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      });
+      window.scrollTo({ top: document.querySelector('.cert-tabs-nav').offsetTop - 100, behavior: 'smooth' });
+    }
+  </script>
+
+  <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
+</html>

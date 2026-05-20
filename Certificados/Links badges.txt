@@ -1,0 +1,28 @@
+1. Introducción a la ciber seguridad
+https://www.credly.com/badges/3f3f5c12-3808-445f-88ea-d46c03c01ea1/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="3f3f5c12-3808-445f-88ea-d46c03c01ea1" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+2. Conceptos básicos de redes
+https://www.credly.com/badges/084d61a4-833c-449b-9858-eb8479919b9c/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="084d61a4-833c-449b-9858-eb8479919b9c" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+3. Dispositivos de red y configuración inicial
+https://www.credly.com/badges/43988bcd-0f2f-4d8f-abef-71f3586b54f1/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="43988bcd-0f2f-4d8f-abef-71f3586b54f1" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+4.Seguridad en terminales
+https://www.credly.com/badges/f8590f2b-be5a-44ef-8f43-2e875d9fd5c0/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f8590f2b-be5a-44ef-8f43-2e875d9fd5c0" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+5. Administración de amenazas cibernéticas
+https://www.credly.com/badges/5a07c5f1-2739-4efd-945a-30c4ad1d34e2/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5a07c5f1-2739-4efd-945a-30c4ad1d34e2" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+6. Carrera Profesional de Analista Junior en Ciberseguridad
+https://www.credly.com/badges/5eb3addd-e273-4bbf-8c05-30357c81bfd4/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5eb3addd-e273-4bbf-8c05-30357c81bfd4" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+7. Hacker ético
+https://www.credly.com/badges/9b4b7221-8c54-45b4-b6a2-d4cf52910d24/public_url
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="9b4b7221-8c54-45b4-b6a2-d4cf52910d24" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
