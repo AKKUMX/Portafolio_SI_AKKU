@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Actividad 16 - Ética y Dilemas en Ciberseguridad" name="description">
+    <meta name="google" content="notranslate" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Actividad 16 | Portafolio AKKU</title>
+
+    <link href="./main.3f6952e4.css" rel="stylesheet">
+
+    <style>
+        /* ===== Tema oscuro cyber ===== */
+        body {
+            background-color: #0d1117;
+            color: #f0f0f0;
+            padding-top: 80px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        h1.h2 {
+            color: #ffffff !important;
+        }
+
+        p,
+        li {
+            color: #e0e0e0;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        a {
+            color: #79c0ff;
+        }
+
+        a:hover {
+            color: #58a6ff;
+        }
+
+        .navbar {
+            background-color: #21262d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar-nav li a {
+            color: #f0f0f0;
+        }
+
+        .article-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .article-header .activity-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .article-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #58a6ff;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .article-section h3 {
+            color: #79c0ff;
+            margin-top: 25px;
+        }
+
+        .cyber-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1a202c;
+            border: 1px solid #30363d;
+            font-size: 14px;
+        }
+
+        .cyber-table th,
+        .cyber-table td {
+            padding: 12px 15px;
+            border: 1px solid #30363d;
+            text-align: left;
+            color: #c9d1d9;
+        }
+
+        .cyber-table th {
+            background-color: #21262d;
+            color: #58a6ff;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .cyber-table tr:nth-child(even) {
+            background-color: #161b22;
+        }
+
+        .img-featured {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            margin: 20px 0;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #79c0ff;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+            color: #0d1117;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .pdf-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+            padding-top: 30px;
+            border-top: 1px solid #30363d;
+        }
+
+        .dilemma-box {
+            background-color: #161b22;
+            border-left: 4px solid #58a6ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dilemma-header {
+            font-weight: 700;
+            color: #58a6ff;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 18px;
+        }
+
+        .sub-ethic {
+            color: #58a6ff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li><a href="./index.html">01 : Inicio</a></li>
+                        <li><a href="./presentacion.html">02 : Presentación</a></li>
+                        <li><a href="./TPT.html">03 : Actividades</a></li>
+                        <li><a href="./contacto.html" title="">04 : Contacto</a></li>
+                        <li><a href="./informacion.html" title="">05 : Información</a></li>
+                        <li><a href="./proyectos.html" title="">06 : Proyectos</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false" title="">07 : ROAD TO HALL OF FAME <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu" style="background-color: #21262d;">
+                                <li><a href="./sql_injection.html" style="color: #79c0ff;">SQL Injection</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./certificaciones.html">08 : Certificaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="article-container">
+                        <a href="./TPT.html" class="btn-back">← Volver a Actividades</a>
+
+                        <div class="article-header">
+                            <div class="activity-badge">Actividad 16</div>
+                            <h1>Dilemas Éticos en Ciberseguridad</h1>
+                            <p class="article-meta">
+                                <strong>Institución:</strong> Universidad Politécnica de San Luis Potosí (UPSLP)<br>
+                                <strong>Materia:</strong> CNO V - Seguridad Informática<br>
+                                <strong>Integrantes del Equipo 1:</strong> <br>
+                                Aguilar Espinosa Juan Diego (173877), Jasso Dávila Pedro Damián (176658), Moreno Solís
+                                Gisela Geraldine (176522), Palomo Cerdá José Armando (17593), Zarate Domínguez David
+                                (175842), Zorrilla Rivera Eduardo (175877)<br>
+                                <strong>Fecha:</strong> 15 de mayo de 2026
+                            </p>
+                            <hr class="section-divider">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>1. Introducción Contextual</h2>
+                            <p>En la práctica de la seguridad informática, los límites entre la protección legítima y la
+                                invasión tecnológica son a menudo difusos. Esta actividad profundiza en el análisis
+                                ético de situaciones críticas, donde el profesional debe navegar entre su curiosidad
+                                técnica, sus obligaciones legales y su responsabilidad moral hacia los demás y hacia la
+                                organización.</p>
+                            <img src="./assets/images/act16_media.png" alt="Ethics in Cybersecurity Concept"
+                                class="img-featured">
+                        </div>
+
+                        <div class="article-section">
+                            <h2>2. Desarrollo Técnico: Análisis de Escenarios</h2>
+
+                            <div class="dilemma-box">
+                                <span class="dilemma-header">Escenario 01: Acceso No Autorizado Interno</span>
+                                <p><strong>Contexto / Caso Real:</strong> Trabajas en el área de ciberseguridad de una
+                                    empresa. Durante una revisión de logs detectas que un compañero accedió a correos
+                                    privados del director general sin autorización. El compañero argumenta que lo hizo
+                                    para "detectar posibles fugas de información".</p>
+                                <p><strong>Dilema:</strong> Respeto a la privacidad vs. Intención de protección
+                                    corporativa. El dilema ético consiste en decidir entre permitir o justificar una
+                                    acción realizada con la intención de "proteger" a la empresa, o respetar la
+                                    privacidad, la legalidad y las políticas internas de acceso a la información. Aunque
+                                    la intención aparente era preventiva, el acceso violó principios fundamentales de
+                                    confidencialidad, privacidad y autorización. El conflicto surge porque el empleado
+                                    pudo actuar pensando en el beneficio de la organización, pero utilizó medios
+                                    indebidos e ilegales para obtener información.</p>
+                                <p><strong>Análisis Profesional y Justificación desde Marcos Éticos:</strong> Se
+                                    considera un acceso ilícito. Los marcos éticos sugieren que la virtud y las
+                                    consecuencias colectivas negativas de romper la confianza invalidan la acción.</p>
+                                <ul>
+                                    <li><span class="sub-ethic">A) Ética Utilitarista:</span> Desde el utilitarismo,
+                                        podría argumentarse que el empleado intentó beneficiar a la empresa detectando
+                                        posibles fugas de información. Sin embargo, las consecuencias negativas son
+                                        mayores: Violación de privacidad, pérdida de confianza interna, riesgos legales
+                                        para la empresa y posible abuso de privilegios administrativos. Por lo tanto, el
+                                        daño potencial supera el beneficio obtenido, haciendo la acción éticamente
+                                        incorrecta.</li>
+                                    <li><span class="sub-ethic">B) Enfoque de Derechos:</span> Este enfoque establece
+                                        que toda persona tiene derechos fundamentales, incluyendo el derecho a la
+                                        privacidad, a la confidencialidad y al debido proceso. El director general no
+                                        autorizó el acceso a sus correos, por lo que sus derechos fueron vulnerados. El
+                                        acto es incorrecto independientemente de la intención.</li>
+                                    <li><span class="sub-ethic">C) Enfoque del Bien Común:</span> El bien común dentro
+                                        de una organización requiere confianza, respeto, cumplimiento de políticas y
+                                        transparencia. Permitir accesos no autorizados crea un ambiente de vigilancia
+                                        indebida y desconfianza. Esto perjudica a toda la organización y debilita la
+                                        cultura de seguridad.</li>
+                                </ul>
+                                <p><strong>Acción Recomendada / Qué hacer como especialista:</strong> Reportar
+                                    formalmente siguiendo los canales de Escalación establecidos. Específicamente:</p>
+                                <ul>
+                                    <li>Reportaría inmediatamente el incidente al área de cumplimiento, recursos humanos
+                                        o al comité de seguridad.</li>
+                                    <li>Documentaría las evidencias del acceso no autorizado.</li>
+                                    <li>Solicitaría una investigación formal para determinar: cómo obtuvo acceso, qué
+                                        información revisó, si existió extracción de datos, y si hubo violación de
+                                        políticas internas.</li>
+                                    <li>Recomendaría aplicar controles de acceso más estrictos y auditorías internas.
+                                    </li>
+                                    <li>Promovería procedimientos formales para investigaciones futuras, evitando
+                                        acciones individuales sin autorización.</li>
+                                    <li>No justificaría la acción aunque la intención haya sido "proteger" a la empresa.
+                                    </li>
+                                </ul>
+                                <p><strong>Mandamientos de la Ética Informática afectados:</strong></p>
+                                <ul>
+                                    <li><strong>Violados:</strong> No utilizarás una computadora para dañar a otros; No
+                                        interferirás con el trabajo informático de otras personas; No husmearás en
+                                        archivos ajenos; No utilizarás recursos informáticos sin autorización; Siempre
+                                        utilizarás las computadoras respetando los derechos de los demás.</li>
+                                    <li><strong>Respetados:</strong> No se identifica claramente un mandamiento
+                                        respetado, ya que la acción fue realizada sin autorización formal.</li>
+                                </ul>
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Clasificación del Delito - Escenario 1</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <strong>
+                                                <td>Tipo</td>
+                                            </strong>
+                                            <td>Delito Informático</td>
+                                        </tr>
+                                        <tr>
+                                            <strong>
+                                                <td>Justificación</td>
+                                            </strong>
+                                            <td>Se utilizó un sistema informático para acceder indebidamente a
+                                                información privada y protegida. Esto puede constituir acceso ilícito a
+                                                sistemas o violación de privacidad digital.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="dilemma-box">
+                                <span class="dilemma-header">Escenario 02: Vulnerabilidad Crítica No Reportada</span>
+                                <p><strong>Contexto / Caso Real:</strong> Durante un pentest encuentras una
+                                    vulnerabilidad crítica en un sistema financiero que permite extraer dinero. El
+                                    cliente aún no ha firmado el contrato final y tú sabes que podrías explotarla sin
+                                    ser detectado.</p>
+                                <p><strong>Dilema:</strong> Lucro personal vs. Responsabilidad social y profesional. El
+                                    dilema consiste en decidir entre aprovechar una vulnerabilidad crítica para
+                                    beneficio personal o profesional, o reportarla responsablemente aunque aún no exista
+                                    contrato formal con el cliente. La vulnerabilidad permite extraer dinero del sistema
+                                    financiero sin ser detectado. Mantener silencio o explotarla podría generar
+                                    ganancias ilícitas, pero también daños económicos graves y consecuencias legales.
+                                </p>
+                                <p><strong>Análisis Profesional y Justificación desde Marcos Éticos:</strong> La
+                                    honestidad y el "Bien Común" exigen el reporte inmediato. Ocultar la falla
+                                    constituye un fraude informático potencial.</p>
+                                <ul>
+                                    <li><span class="sub-ethic">A) Ética Utilitarista:</span> Explotar la vulnerabilidad
+                                        podría beneficiar temporalmente a una persona, pero ocasionaría pérdidas
+                                        económicas, afectación a usuarios, daño reputacional, sanciones legales y
+                                        desconfianza en el sistema financiero. Reportar la vulnerabilidad produce mayor
+                                        beneficio colectivo y evita daños masivos.</li>
+                                    <li><span class="sub-ethic">B) Enfoque de Derechos:</span> Los usuarios y la empresa
+                                        tienen derecho a la seguridad financiera, protección de datos e integridad de
+                                        sus recursos económicos. Explotar la falla violaría esos derechos fundamentales.
+                                    </li>
+                                    <li><span class="sub-ethic">C) Enfoque del Bien Común:</span> El sistema financiero
+                                        depende de la confianza, estabilidad, transparencia y seguridad. Ocultar o
+                                        explotar la vulnerabilidad afectaría a miles de personas y dañaría el bienestar
+                                        colectivo. Reportarla fortalece la seguridad y protege a la sociedad.</li>
+                                </ul>
+                                <p><strong>Acción Recomendada / Qué hacer como especialista:</strong> Notificación ética
+                                    (Responsible Disclosure) al cliente. Específicamente:</p>
+                                <ul>
+                                    <li>No explotaría la vulnerabilidad bajo ninguna circunstancia.</li>
+                                    <li>Documentaría técnicamente el hallazgo.</li>
+                                    <li>Informaría al cliente de forma responsable y profesional.</li>
+                                    <li>Recomendaría medidas inmediatas de mitigación.</li>
+                                    <li>Esperaría autorización formal antes de realizar pruebas adicionales.</li>
+                                    <li>Mantendría confidencialidad absoluta sobre la falla.</li>
+                                    <li>El deber profesional está por encima del interés económico o técnico.</li>
+                                </ul>
+                                <p><strong>Mandamientos de la Ética Informática afectados:</strong></p>
+                                <ul>
+                                    <li><strong>Violados (si se explota):</strong> No utilizarás una computadora para
+                                        robar; No usarás tecnología para causar daño; No utilizarás recursos
+                                        informáticos para cometer fraude; No te apropiarás del trabajo o recursos
+                                        ajenos.</li>
+                                    <li><strong>Respetados (si se reporta):</strong> Pensarás en las consecuencias
+                                        sociales de los sistemas que desarrolles; Usarás la tecnología con
+                                        responsabilidad y ética.</li>
+                                </ul>
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Clasificación del Delito - Escenario 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <strong>
+                                                <td>Tipo</td>
+                                            </strong>
+                                            <td>Delito Informático</td>
+                                        </tr>
+                                        <tr>
+                                            <strong>
+                                                <td>Justificación</td>
+                                            </strong>
+                                            <td>La explotación de una vulnerabilidad financiera mediante sistemas
+                                                digitales constituye fraude informático y acceso ilícito a sistemas.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="dilemma-box">
+                                <span class="dilemma-header">Escenario 03: Uso de OSINT para Manipulación</span>
+                                <p><strong>Contexto / Caso Real:</strong> Uso de datos públicos obtenidos de fuentes
+                                    abiertas (OSINT) para ejercer presión y coaccionar o manipular psicológicamente a
+                                    una persona sospechosa.</p>
+                                <p><strong>Dilema:</strong> Eficacia de la investigación vs. Dignidad humana. El dilema
+                                    ético consiste en decidir entre usar información pública con fines legítimos de
+                                    investigación o utilizarla para manipular psicológicamente a una persona sospechosa.
+                                    Aunque la información fue obtenida de fuentes abiertas, el problema radica en el uso
+                                    indebido de esos datos personales para ejercer presión.</p>
+                                <p><strong>Análisis Profesional y Justificación desde Marcos Éticos:</strong> El
+                                    profesional debe rechazar tácticas de ingeniería social que crucen la línea del
+                                    acoso o la intimidación ilegal.</p>
+                                <ul>
+                                    <li><span class="sub-ethic">A) Ética Utilitarista:</span> Aunque presionar
+                                        psicológicamente podría acelerar una investigación, las consecuencias negativas
+                                        incluyen daño emocional, abuso de poder, pérdida de derechos individuales,
+                                        posibles demandas legales y deterioro ético institucional. El perjuicio supera
+                                        los beneficios potenciales.</li>
+                                    <li><span class="sub-ethic">B) Enfoque de Derechos:</span> Toda persona tiene
+                                        derecho a la dignidad, privacidad, integridad psicológica y trato justo.
+                                        Utilizar información personal para intimidar vulnera esos derechos
+                                        fundamentales.</li>
+                                    <li><span class="sub-ethic">C) Enfoque del Bien Común:</span> El bien común exige
+                                        investigaciones éticas y respetuosas de los derechos humanos. El abuso de
+                                        herramientas OSINT puede generar desconfianza social, abuso institucional,
+                                        vigilancia excesiva y prácticas coercitivas. El uso responsable de OSINT
+                                        fortalece la legitimidad de la ciberseguridad.</li>
+                                </ul>
+                                <p><strong>Acción Recomendada / Qué hacer como especialista:</strong> Reorientar la
+                                    investigación hacia métodos de recolección de evidencia legalmente válidos.
+                                    Específicamente:</p>
+                                <ul>
+                                    <li>Me negaría a utilizar información personal para manipulación psicológica e
+                                        informaría a mi superior que esa práctica es antiética y posiblemente ilegal.
+                                    </li>
+                                    <li>Limitaría el uso de OSINT únicamente a fines legítimos de investigación.</li>
+                                    <li>Solicitaría intervención del departamento legal o de cumplimiento.</li>
+                                    <li>Mantendría evidencia documentada de las instrucciones recibidas.</li>
+                                    <li>La información pública no significa que pueda utilizarse sin límites éticos.
+                                    </li>
+                                </ul>
+                                <p><strong>Mandamientos de la Ética Informática afectados:</strong></p>
+                                <ul>
+                                    <li><strong>Violados (si se ejecuta la acción):</strong> No utilizarás tecnología
+                                        para dañar a otros; No invadirás la privacidad de otras personas; No utilizarás
+                                        información obtenida digitalmente para perjudicar; Respetarás la dignidad y
+                                        derechos de las personas.</li>
+                                    <li><strong>Respetados (si se maneja éticamente):</strong> Usarás las computadoras
+                                        considerando el impacto social de tus acciones.</li>
+                                </ul>
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Clasificación del Delito - Escenario 3</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <strong>
+                                                <td>Tipo</td>
+                                            </strong>
+                                            <td>Delito Asistido por Computadora</td>
+                                        </tr>
+                                        <tr>
+                                            <strong>
+                                                <td>Justificación</td>
+                                            </strong>
+                                            <td>La computadora y herramientas OSINT se utilizan como medio para
+                                                intimidar o manipular psicológicamente a una persona, aunque el objetivo
+                                                principal no sea el sistema informático en sí.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>3. Los 10 Mandamientos de la Ética Informática</h2>
+                            <p>Aplicación de los principios universales de la ética informática (CEI) a los casos
+                                prácticos:</p>
+                            <div class="table-responsive">
+                                <table class="cyber-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Principios</th>
+                                            <th>Aplicación al Profesional</th>
+                                            <th>Observación Técnica</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>No dañar a otros</td>
+                                            <td>Evitar perjuicios psicológicos/económicos.</td>
+                                            <td>Prioridad en la integridad de las personas.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No hurgar archivos ajenos</td>
+                                            <td>Respeto absoluto a la privacidad de datos.</td>
+                                            <td>Limitarse a los activos autorizados explicitamente.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No usar recursos sin permiso</td>
+                                            <td>Legalidad en las pruebas de penetración.</td>
+                                            <td>Siempre contar con un RoE (Rules of Engagement).</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Diseñar con sentido social</td>
+                                            <td>Consideración del impacto de las herramientas.</td>
+                                            <td>Evaluar consecuencias antes de ejecutar exploits.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>4. Opinión y Reflexión Técnica</h2>
+                            <p>Como profesionales de CNO V, concluimos que la ética es el cortafuegos más importante en
+                                una red. No basta con saber cómo asegurar un sistema; debemos saber cuándo detenernos
+                                para proteger los derechos fundamentales de los usuarios. En entornos reales de
+                                seguridad informática, las decisiones no solo afectan la infraestructura técnica, sino
+                                la vida de las personas y la estabilidad jurídica de las empresas. Actuar con integridad
+                                asegura que nuestra labor sea constructiva y legal.</p>
+                            <p>La ciberseguridad no solo requiere conocimientos técnicos, sino también criterios éticos
+                                sólidos. En los tres escenarios se observa que las acciones pueden justificarse
+                                aparentemente por razones de seguridad o investigación, pero aun así vulnerar derechos
+                                fundamentales y principios profesionales. Los marcos éticos permiten analizar las
+                                consecuencias, los derechos involucrados y el impacto social de cada decisión. Asimismo,
+                                los mandamientos de ética informática ayudan a establecer límites claros sobre el uso
+                                responsable de la tecnología. Un profesional de ciberseguridad debe actuar siempre bajo
+                                principios de legalidad, responsabilidad, privacidad y respeto a las personas,
+                                priorizando el bienestar colectivo y la integridad profesional antes que cualquier
+                                beneficio individual.</p>
+                        </div>
+
+                        <div class="article-section">
+                            <h2>5. Referencias Técnicas</h2>
+                            <ul>
+                                <li>Computer Ethics Institute. (1992). <i>The Ten Commandments of Computer Ethics</i>.
+                                    National Capital Region.</li>
+                                <li>ISC2. (2024). <i>Code of Ethics</i>. International Information System Security
+                                    Certification Consortium.</li>
+                                <li>Asociación de Maquinaria de Computación (ACM). Code of Ethics and Professional
+                                    Conduct.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pdf-section">
+                            <a href="./actividades/act16-Equipo1.pdf" class="btn-pdf" download>
+                                <span>📄 Descargar Trabajo de Ética (PDF)</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container text-center">
+        <div class="container">
+            <p>© 2026 Pedro Jasso (AKKU) | UPSLP</p>
+        </div>
+    </footer>
+</body>
+
+</html>
